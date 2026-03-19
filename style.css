@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(210, 228, 244);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ul{
+    list-style-type: none;/*para tirar os síbolos do lado*/
+    margin: 0;/*tira os espaçamentos automaticos de cada navegador */
+    padding: 0;/*tira os espaçamentos automaticos de cada navegador */
+    overflow: hidden;
+    background-color: #0000FF;
+}
+ul li{
+float:right
+}
+ul li a{
+    display: block;
+    color: #ffffff;
+    text-align: center; 
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ul li a:hover
+{
+    background-color: #e61d45;
+}
+/* Container do slideshow */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 500px;  /* Aumentei a altura */
+    overflow: hidden;
+    margin: 20px 0;  /* Espaçamento em volta */
+}
+
+/* Links dentro do slideshow */
+.slideshow a {
+    text-decoration: none;
+    display: block;  /* Ocupa toda a área */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Todas as imagens */
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* NOVO: Mantém a proporção da imagem sem distorcer */
+    object-position: center;  /* Centraliza a imagem */
+    opacity: 0;
+    animation: slideShow 12s infinite;  /* 12s para 4 imagens */
+}
+
+/* Delays diferentes para cada imagem */
+.slideshow a:nth-child(1) img { animation-delay: 0s; }
+.slideshow a:nth-child(2) img { animation-delay: 3s; }
+.slideshow a:nth-child(3) img { animation-delay: 6s; }
+
+/* Animação */
+@keyframes slideShow {
+    0% { opacity: 0; }
+    5% { opacity: 1; }    /* Aparece rapidamente */
+    20% { opacity: 1; }    /* Fica visível */
+    25% { opacity: 0; }    /* Desaparece */
+    100% { opacity: 0; }
+}
