@@ -3,6 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+    /* --- CORES PRINCIPAIS (IDENTIDADE) --- */
+    --cor-principal-azul: #0056B3;    /* O "azul mais azul" para botões e logos */
+    --cor-destaque-vermelho: #E63946; /* Para chamar atenção imediata */
+    
+    /* --- TEXTOS E CABEÇALHOS --- */
+    --titulo-principal: #183059;      /* Azul marinho fechado para títulos (H1, H2) */
+    --texto-corpo: #1B263B;           /* Azul escuro para leitura confortável */
+    --texto-suave: #778DA9;           /* Para legendas e informações técnicas */
+
+    /* --- FUNDOS E ESTRUTURA --- */
+    --fundo-cabecalho: #002855;       /* Azul bem escuro para o menu superior */
+    --fundo-pagina: #FFFFFF;          /* Branco para manter o site limpo */
+    --fundo-secao: #F8F9FA;           /* Cinza gelo para separar blocos de conteúdo */
+    --fundo-card: #F4F7F6;            /* Para destacar fotos de bordados */
+
+    /* --- ESTADOS E BOTÕES --- */
+    --botao-hover: #F03A47;           /* Vermelho vibrante quando passa o mouse */
+    --borda-detalhe: #276FBF;         /* Azul médio para linhas e divisores */
+    --detalhe-tecido: #F6F4F3;        /* Cor de fundo que lembra tecido linho/algodão */
+}
 
 body {
   font-family: 'Times New Roman', Times, serif;
@@ -11,7 +32,8 @@ body {
 }
 
 header {
-  background: #0a192f;
+  background: #0056B3;
+  padding: 0px 30px ;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -22,7 +44,7 @@ header h1 {
   font-size: 24px;
 }
 nav {
-  background-color: #333333;
+  background-color: #0056B3;
   overflow: hidden;
 }
 
@@ -40,12 +62,12 @@ nav ul li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 15px 20px;
   text-decoration: none;
 }
 
 nav ul li a:hover {
-  background-color: #111111;
+  background-color: #cb313b;
 }
 
 section {
