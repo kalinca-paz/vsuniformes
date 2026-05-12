@@ -12,10 +12,12 @@
     <header>
         <h1>VS uniformes</h1>
         <nav>
-            <a href="index.php">Início</a>
-            <a href="sobre.php">Sobre</a>
-            <a href="portifolio.php">Portifólio</a>
-            <a href="view/login.php">Login</a>
+            <ul>
+                <li><a href="index.php">Início</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="portifolio.php">Portifólio</a></li>
+                <li><a href="view/login.php">Login</a></li>
+</ul>
         </nav>
     </header>
 
