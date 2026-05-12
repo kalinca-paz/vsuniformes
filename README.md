@@ -9,14 +9,16 @@
 ## 👩‍💻 Tecnologias
 
 - HTML5  
-- CSS3  
+- CSS
+- PHP
+- JavaScript  
 
 ---
 
 ## 🎖️ Metas
 
 ### 🏠 Página Inicial
-- Menu de navegação com links principais:
+✅ Menu de navegação com links principais:
   - Sobre  
   - Contatos  
   - Portfólio  
@@ -32,6 +34,16 @@
 ---
 
 ## 🚀 Atualizações futuras
+
+### 👤 Login
+- ✅ Tela de login
+- Conexão login
+- Validação login
+
+### 🌐 Cadastro
+- ✅ Tela de cadastro
+- ✅ Conexão do cadastro com o banco de dados
+- Validação dos dados do cadastro 
 
 ### 📖 Sobre
 - Em desenvolvimento...
