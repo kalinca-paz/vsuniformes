@@ -19,10 +19,10 @@
 
 ### 🏠 Página Inicial
 ✅ Menu de navegação com links principais:
-  - Sobre  
-  - Contatos  
-  - Portfólio  
-  - Localização  
+    - Sobre  
+    - Contatos  
+    - Portfólio  
+    - Localização  
 
 - Carrossel de imagens do portfólio com:
   - Navegação manual  
