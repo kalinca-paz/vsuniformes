@@ -2,7 +2,7 @@
 
 ✨ O **VS Uniformes** é um projeto desenvolvido com o objetivo de simular um site institucional de uma loja de uniformes, permitindo a apresentação de serviços, portfólio e informações de contato.
 
->💡 Este projeto foi criado com foco em prática e evolução no desenvolvimento front-end.
+>💡 Este projeto foi criado com foco em prática e evolução no desenvolvimento front-end e back-end.
 
 ---
 
