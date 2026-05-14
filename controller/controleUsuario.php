@@ -1,5 +1,6 @@
 <!-- controle usuario -->
 <?php
+//chamar arquivos
 require_once'../model/ClassUsuario.php';
 require_once'../model/ClassUsuarioDAO.php';
 
