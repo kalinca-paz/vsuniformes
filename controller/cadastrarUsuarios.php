@@ -20,9 +20,9 @@
         </nav>
     </header>
 
-    <h1>Cadastro</h1>
+    <h1 class="tituloForm">Cadastro</h1>
 
-    <form action="../controller/controleUsuario.php" method="post">
+    <form class="form" action="../controller/controleUsuario.php" method="post">
 
         <p>
             <label for="nome">Nome completo:</label><br>

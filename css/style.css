@@ -152,7 +152,6 @@ P {
 }
 
 input {
-  width: 20%;
   padding: 10px;
   border: 1px solid #afafaf;
   border-radius: 5px;
@@ -195,4 +194,11 @@ button:hover {
 
 a {
   text-decoration: none;
+}
+.form{
+  display: grid; place-items: center; 
+}
+.tituloForm{
+  text-align: center;
+  padding: 20px;
 }

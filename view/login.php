@@ -20,8 +20,8 @@
     </header>
 
 
-    <h1>Login</h1>
-    <form action="../model/processaLogin.php" method="post">
+    <h1 class="tituloForm">Login</h1>
+    <form class="form" action="../model/processaLogin.php" method="post">
 
 
         <p>
@@ -31,7 +31,7 @@
 
         <p>
             <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" required>
+            <input type="password" id="senha" name="senha">
         </p>
 
         <p>

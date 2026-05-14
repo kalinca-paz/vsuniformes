@@ -9,7 +9,7 @@ senhamysql-> "" sem espaço ou "123456"
             try {
                 $pdo = new PDO("mysql:host=localhost;dbname=projetofinal","root","");
                 return $pdo;
-            } catch (PDOExeption $erro){
+            } catch (PDOException $erro){
                     echo $erro->getMessage();
                 }
             } //FIM CLASSE MÉTODO getInstance()
