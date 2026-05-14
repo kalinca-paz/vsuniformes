@@ -13,7 +13,7 @@
     <header>
         <h1>MinhaEmpresa</h1>
         <nav>
-            <a href="index.php">Início</a>
+            <a href="../index.php">Início</a>
             <a href="#">Sobre</a>
             <a href="#">Serviços</a>
         </nav>

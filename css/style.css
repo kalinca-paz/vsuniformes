@@ -5,34 +5,24 @@
 }
 :root {
     /* --- CORES PRINCIPAIS (IDENTIDADE) --- */
-    --cor-principal-azul: #0056B3;    /* O "azul mais azul" para botões e logos */
-    --cor-destaque-vermelho: #E63946; /* Para chamar atenção imediata */
-    
-    /* --- TEXTOS E CABEÇALHOS --- */
-    --titulo-principal: #183059;      /* Azul marinho fechado para títulos (H1, H2) */
-    --texto-corpo: #1B263B;           /* Azul escuro para leitura confortável */
-    --texto-suave: #778DA9;           /* Para legendas e informações técnicas */
-
-    /* --- FUNDOS E ESTRUTURA --- */
-    --fundo-cabecalho: #002855;       /* Azul bem escuro para o menu superior */
-    --fundo-pagina: #FFFFFF;          /* Branco para manter o site limpo */
-    --fundo-secao: #F8F9FA;           /* Cinza gelo para separar blocos de conteúdo */
-    --fundo-card: #F4F7F6;            /* Para destacar fotos de bordados */
-
-    /* --- ESTADOS E BOTÕES --- */
-    --botao-hover: #F03A47;           /* Vermelho vibrante quando passa o mouse */
-    --borda-detalhe: #276FBF;         /* Azul médio para linhas e divisores */
-    --detalhe-tecido: #F6F4F3;        /* Cor de fundo que lembra tecido linho/algodão */
+    --menu-fundo: #0056B3;
+    --menu-foco: #E63946;
+    --texto: #1B263B;
+    --borda: #9cb5da;
+    --texto-suave: #778DA9; 
+    --titulo: #002855;
+    --fundo: #F6F4F3;
 }
 
 body {
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.6;
-  color: #621717;
+  color: var(--texto);
+  background-color: var(--fundo);
 }
 
 header {
-  background: #0056B3;
+  background: var(--fundo-cabecalho);
   padding: 0px 30px ;
   color: #ffffff;
   display: flex;
@@ -44,7 +34,7 @@ header h1 {
   font-size: 24px;
 }
 nav {
-  background-color: #0056B3;
+  background-color: var(--menu-fundo);
   overflow: hidden;
 }
 
@@ -67,7 +57,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #cb313b;
+  background-color: var(--menu-foco);
 }
 
 section {
@@ -129,7 +119,7 @@ section {
   flex: 1;
   min-width: 250px;
   padding: 20px;
-  border: 1px solid #87afeb;
+  border: 1px solid var(--borda);
   border-radius: 8px;
   background: #f9f9f9;
 }

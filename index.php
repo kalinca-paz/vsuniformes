@@ -26,7 +26,7 @@
     <!-- HERO -->
     <section class="hero">
         <h2>Uniformes com profissionalismo e exelência</h2>
-        <p>Confecção de uniformes e bordados de altíssimo nível</p>
+        <p>Confecção de uniformes executivos e profissionais</p>
         <button><a href="orcamento.php"> Faça seu orçamento </a></button>
     </section>
 
@@ -34,7 +34,7 @@
     <section>
         <div class="container">
             <h2>Sobre Nós</h2>
-            <p>Somos uma empresa focada em desenvolvimento web, oferecendo soluções modernas e eficientes para nossos
+            <p>Somos uma empresa familiar focada em confecção de uniformes e bordados profissionais e executivos com qualidade 
                 clientes.</p>
         </div>
     </section>
@@ -45,17 +45,17 @@
             <h2>Serviços</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Desenvolvimento Web</h3>
+                    <h3>Bordados</h3>
                     <p>Criação de sites responsivos e modernos.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Design</h3>
+                    <h3>Profissionais</h3>
                     <p>Interfaces bonitas e focadas na experiência do usuário.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Consultoria</h3>
+                    <h3>Executivos</h3>
                     <p>Orientação para transformar sua presença digital.</p>
                 </div>
             </div>
