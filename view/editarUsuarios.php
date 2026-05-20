@@ -6,7 +6,7 @@ require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
 $id = $_GET['id'];
-$usuario = $usuarioDAO->buscarUsuariosPorId($id);
+$usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
     $novoUsuario = new ClassUsuario();
@@ -16,7 +16,7 @@ if ($_POST) {
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
 
-    $resultado = $usuarioDAO->alterarUsuarios($novoUsuario);
+    $resultado = $usuarioDAO->alterarUsuario($novoUsuario);
     if($resultado) {
         echo "<script>
                 alert('Usuário alterado com sucesso!');
@@ -76,42 +76,45 @@ if ($_POST) {
     }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
-        <h2>Editar Usuário</h2>
-        <form method="POST">
-            <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
-            <label>Nome</label>
-            <input type="text" name="nome" value="<?php echo $usuario['nome']; ?>">
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $usuario['email']; ?>">
-            <label>Tipo</label>
+<div class="container">
+    <h2>Editar Usuário</h2>
+    <form method="POST">
+        <input type="hidden" name="id"
+        value="<?php echo $usuario['id']; ?>">
+        <label>Nome</label>
+        <input type="text" name="nome"
+        value="<?php echo $usuario['nome']; ?>">
+        <label>Email</label>
+        <input type="email" name="email"
+        value="<?php echo $usuario['email']; ?>">
+        <label>Tipo</label>
 
-            <select name="tipo">
-                <option value="admin" <?php
+        <select name="tipo">
+            <option value="admin"
+                <?php
                     if($usuario['tipo']=="admin"){
                         echo "selected";
                     }
                 ?>>
-                    Admin
-                </option>
+                Admin
+            </option>
 
-                <option value="usuario" <?php
+            <option value="usuario"
+                <?php
                 if($usuario['tipo']=="usuario"){
                     echo "selected";
                 }
                 ?>>
-                    Usuário
-                </option>
-            </select>
+              Usuário
+            </option>
+        </select>
 
-            <button type="submit">
-                Salvar Alterações
-            </button>
-        </form>
-    </div>
+        <button type="submit">
+            Salvar Alterações
+        </button>
+    </form>
+</div>
 </body>
-
 </html>

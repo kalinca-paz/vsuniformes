@@ -1,59 +1,110 @@
 <!-- ClassUsuarioDAO.php -->
 <?php
 require_once '../conexao/Conexao.php';
-class ClassUsuarioDAO{//COMEÇO ClassUsuarioDAO.php
-public function cadastrarUsuario($novoUsuarios){// método cadastrarUsuario
-    try{
-        $pdo = Conexao::getInstance();
-        $sql = "INSERT INTO usuarios (nome,email,senha,tipo)
+class ClassUsuarioDAO
+{//COMEÇO ClassUsuarioDAO.php
+    public function cadastrarUsuario($novoUsuario)
+    {// método cadastrarUsuario
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "INSERT INTO usuarios (nome,email,senha,tipo)
         VALUES (?,?,?,?)";
-        $stmt = $pdo->prepare($sql);// executa o sql
-        $stmt->bindValue(1, $novoUsuarios->getNome());
-        $stmt->bindValue(2, $novoUsuarios->getemail());
-        $stmt->bindValue(3, $novoUsuarios->getSenha());
-        $stmt->bindValue(4, $novoUsuarios->getTipo());
-        $stmt->execute();
-        return true;
-    } catch (PDOException $erro){
-        echo $erro->getMessage();
-    }
-    
-}//FIM METODO cadastrarUsuario
-
-public function buscaUsuarios($novoUsuarios){//COMEÇO buscaUsuario
-    //métodos
-    //1 ->conexão
-    //2 ->sql
-    //3 ->prepare
-    //4 ->bindvalue
-    //5 ->execute
-    //6 ->
-
-        $pdo = Conexao::getInstance();//1 ->conexão
-        $sql = "select * from Usuarios where
-        email=:email and senha=:senha";//2 ->sql
-        
-        $stmt = $pdo->prepare($sql);//3 ->prepare
-        $stmt->bindValue(':email', $novoUsuarios->getemail());//4 ->bindvalue
-        $stmt->bindValue(':senha', $novoUsuarios->getSenha());
-        $stmt->execute();//5 ->execute
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-        
-}//FIM MÉTODO buscaUsuario
-
-public function listarUsuarios(){//COMEÇO listarUsuarios
-    try {
-        $pdo = Conexao::getInstance();//1 ->conexão
-        $sql = "select * from Usuarios";//2 ->sql
-        $stmt = $pdo->prepare($sql);//3 ->prepare
-        $stmt->execute();//5 ->execute
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $erro){
+            $stmt = $pdo->prepare($sql);// executa o sql
+            $stmt->bindValue(1, $novoUsuario->getNome());
+            $stmt->bindValue(2, $novoUsuario->getEmail());
+            $stmt->bindValue(3, $novoUsuario->getSenha());
+            $stmt->bindValue(4, $novoUsuario->getTipo());
+            $stmt->execute();
+            return true;
+        } catch (PDOException $erro) {
             echo $erro->getMessage();
+            return false;
         }
-        
-        
-}//FIM MÉTODO listarUsuarios
+
+    }//FIM METODO cadastrarUsuario
+
+    public function buscaUsuario($novoUsuario)
+    {
+        try {
+            $conexao = Conexao::getInstance();
+            $sql = "SELECT * FROM usuarios WHERE email=:email AND senha=:senha";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':email', $novoUsuario->getEmail());
+            $stmt->bindValue(':senha', $novoUsuario->getSenha());
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return false;
+        }
+    }//FIM MÉTODO buscaUsuario
+
+    public function listarUsuarios()
+    {//COMEÇO listarUsuarios
+        try {
+            $pdo = Conexao::getInstance();//1 ->conexão
+            $sql = "SELECT * FROM usuarios";//2 ->sql
+            $stmt = $pdo->prepare($sql);//3 ->prepare
+            $stmt->execute();//5 ->execute
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return false;
+        }
+
+
+    }//FIM MÉTODO listarUsuarios
+
+    public function excluirUsuarios($novoUsuario)
+    {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "DELETE FROM usuarios 
+                WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $novoUsuario->getId());
+            return $stmt->execute();
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return false;
+        }
+    }
+    public function alterarUsuario($usuario)
+    {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE usuarios 
+                SET nome = ?, email = ?, senha = ?, tipo = ?
+                WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $usuario->getNome());
+            $stmt->bindValue(2, $usuario->getEmail());
+            $stmt->bindValue(3, $usuario->getSenha());
+            $stmt->bindValue(4, $usuario->getTipo());
+            $stmt->bindValue(5, $usuario->getId());
+            $stmt->execute();
+            return true;
+
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return false;
+        }
+    }//fim do método alterar usuário.
+    public function buscarUsuarioPorId($id)
+    {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT * FROM usuarios WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return false;
+        }
+    }// fim do método buscarUsuarioPorId
 
 }//FIM CLASSE ClassUsuarioDAO.php    
 

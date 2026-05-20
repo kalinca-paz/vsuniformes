@@ -1,5 +1,5 @@
 <?php
-require_once "../conexao/Conexao.php";
+require_once '../conexao/Conexao.php';
 require_once '../model/ClassUsuarioDAO.php';
 require_once '../model/ClassUsuario.php';
 
@@ -111,20 +111,35 @@ require_once '../model/ClassUsuario.php';
 
                 <?php foreach ($novoUsuario as $usuario): ?>
 
-                    <tr>
-                        <td> /*INSIRA CÓDIGO AQUI */ </td>
-                        <td> /*INSIRA CÓDIGO AQUI */ </td>
-                        <td> /*INSIRA CÓDIGO AQUI */ </td>
-                        <td> /*INSIRA CÓDIGO AQUI */</td>
-                        <td> /*INSIRA CÓDIGO AQUI */</td>
-                    </tr>
+                            </tr>
+    </thead>
 
-                <?php endforeach; ?>
+    <tbody>
 
-            </tbody>
-        </table>
+        <?php foreach ($novoUsuario as $usuario): ?>
 
-    </div>
+        <tr>
+            <td><?php echo $usuario['id']; ?></td>
+            <td><?php echo $usuario['nome']; ?></td>
+            <td><?php echo $usuario['email']; ?></td>
+            <td><?php echo $usuario['tipo']; ?></td>
+
+            <td>
+                <a href="editarUsuarios.php?id=<?php echo $usuario['id']; ?>">
+                    Editar
+                </a>
+ 
+               <a href="../controller/excluirUsuarios.php?id=<?php echo $usuario['id']; ?>">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+
+        <?php endforeach; ?>
+
+    </tbody>
+</table>
+     
+</div>
 </body>
-
 </html>
