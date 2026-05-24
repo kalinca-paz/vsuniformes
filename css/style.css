@@ -22,9 +22,9 @@ body {
 }
 
 header {
-  background: var(--fundo-cabecalho);
+  background: var(--texto);
   padding: 0px 30px ;
-  color: #ffffff;
+  color: var(--texto);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,10 +42,8 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-nav ul li {
-  float: left;
+  display: flex;
+  justify-content: center; 
 }
 
 nav ul li a {
@@ -65,8 +63,8 @@ section {
 }
 
 .hero {
-  background: linear-gradient(#7e28ff99,
-      #fff3706d), url('../img/flor.jpg');
+  background: linear-gradient(#00000098,
+      #a4a4a437), url('../img/flor.jpg');
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -112,7 +110,7 @@ section {
 .grid {
   display: flex;
   gap: 20px;
-  flex-wrap: warp;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -137,7 +135,7 @@ footer {
 }
 
 /** CSS DA PÁGINA LOGIN **/
-P {
+p {
   margin-bottom: 15px;
 }
 
