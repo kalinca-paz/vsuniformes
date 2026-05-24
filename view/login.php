@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=stylesheet href="../css/style.css">
+    <?php include 'includes/head.php';?>
 </head>
 <body>
-    <?php include 'menu.php'; ?>
+    <?php include 'includes/menu.php';?>
 <center>
 
     <h1>--Login--</h1>

@@ -28,11 +28,10 @@ if ($_POST) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include 'includes/head.php';?>
+    
     <title>Editar Usuário</title>
     <style>
     body {
@@ -77,7 +76,7 @@ if ($_POST) {
     </style>
 </head>
 <body>
-
+<?php include 'includes/menu.php';?>
 <div class="container">
     <h2>Editar Usuário</h2>
     <form method="POST">

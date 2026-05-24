@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <?php include '/vsuniformes/view/includes/head.php';?>
+    <?php include 'view/includes/head.php';?>
+    <title>Início - VS Uniformes</title>
 </head>
 <body>
-    <?php include '/vsuniformes/view/includes/menu.php';?>
+    <?php include 'view/includes/menu.php';?>
 
     <!-- HERO -->
     <section class="hero">
@@ -56,10 +57,7 @@
     </section>
 
     <!-- RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 MinhaEmpresa - Todos os direitos reservados</p>
-        
-    </footer>
+    <?php include 'view/includes/footer.php'; ?>
 
 
 </body>
