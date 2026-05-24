@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=stylesheet href="../css/estilo.css">
+    <link rel=stylesheet href="../css/style.css">
 </head>
+<?php include 'menu.php'; ?>
 
 <body>
-<!-- HEADER -->
-  <header>
-    <h1>MinhaEmpresa</h1>
-    <nav>
-      <a href="index.php">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Serviços</a>
-    </nav>
-  </header> 
 <center>
 
     <h1>--Login--</h1>

@@ -8,7 +8,7 @@
     <title>Sobre</title>
 </head>
 <body>
-    <?php include 'view/menu.php'?>
+    <?php include 'menu.php';?>
     <h1>sobre nois</h1>
 </body>
 </html>

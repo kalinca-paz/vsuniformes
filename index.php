@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <?php include 'view/menu.php'?>
+    <?php include 'view/menu.php';?>
 
     <!-- HERO -->
     <section class="hero">
         <h2>Uniformes com profissionalismo e excelência</h2>
         <p>Confecção de uniformes executivos e profissionais</p>
-        <button><a href="orcamento.php"> Faça seu orçamento </a></button>
+        <button><a href="view/orcamento.php"> Faça seu orçamento </a></button>
     </section>
 
     <!-- SOBRE -->

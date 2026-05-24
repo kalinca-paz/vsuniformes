@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <?php include 'menu.php'; ?>
     <section>
 
         <h2>

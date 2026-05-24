@@ -24,7 +24,7 @@ body {
 header {
   background: var(--texto);
   padding: 0px 30px ;
-  color: var(--texto);
+  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
