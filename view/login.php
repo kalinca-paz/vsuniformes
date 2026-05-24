@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <?php include 'includes/head.php';?>
-</head>
+    <?php include 'includes/head.php'; ?>
+    </head>
 <body>
-    <?php include 'includes/menu.php';?>
-<center>
+    <?php include 'includes/menu.php'; ?>
 
-    <h1>--Login--</h1>
+    <main class="login-container">
+        <div class="login-box card">
+            <h1 class="tituloForm">Acesso ao Sistema</h1>
+            
+            <form action="../controller/validarLogin.php" method="post" class="form">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
 
-    <form action="../controller/validarLogin.php" method="post">
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
 
-        <p>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required>
-        </p>
-
-        <p>
-            <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" required>
-        </p>
-
-        <p>
-            <button type="submit">Entrar </button>
-            <button type="button"> <a href="../controller/cadastrarUsuarios.php"> Cadastrar </a>  </button>
-        </p>
-    </form>
-    
-       
-
-</center>
+                <div class="botoes-grupo">
+                    <button type="submit" class="btn-entrar">Entrar</button>
+                    <a href="../controller/cadastrarUsuarios.php" class="btn-cadastrar">Cadastrar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+     <?php include 'includes/footer.php'; ?>
 
 </body>
 </html>

@@ -1,10 +1,13 @@
+/* ==========================================================================
+   1. RESET E VARIÁVEIS GERAIS
+   ========================================================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 :root {
-    /* --- CORES PRINCIPAIS (IDENTIDADE) --- */
     --menu-fundo: #0056B3;
     --menu-foco: #E63946;
     --texto: #1B263B;
@@ -14,186 +17,190 @@
     --fundo: #F6F4F3;
 }
 
+/* ==========================================================================
+   2. TIPOGRAFIA E ESTILOS BASE
+   ========================================================================== */
 body {
-  font-family: 'Times New Roman', Times, serif;
-  line-height: 1.6;
-  color: var(--texto);
-  background-color: var(--fundo);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fundo);
 }
 
+a {
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA DE LAYOUT
+   ========================================================================== */
+section {
+    padding: 60px 40px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.container h2 {
+    color: #476694;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   4. CABEÇALHO E NAVEGAÇÃO (HEADER/NAV)
+   ========================================================================== */
 header {
-  background: var(--texto);
-  padding: 0px 30px ;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: var(--texto);
+    padding: 0px 30px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
-  font-size: 24px;
+    font-size: 24px;
 }
+
 nav {
-  background-color: var(--menu-fundo);
-  overflow: hidden;
+    background-color: var(--menu-fundo);
+    overflow: hidden;
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
 }
 
 nav ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px 20px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: var(--menu-foco);
+    background-color: var(--menu-foco);
 }
 
-section {
-  padding: 60px 40px;
-}
-
+/* ==========================================================================
+   5. BANNER PRINCIPAL (HERO)
+   ========================================================================== */
 .hero {
-  background: linear-gradient(#00000098,
-      #a4a4a437), url('../img/flor.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
-  text-align: center;
-  padding: 100px 20px;
-
+    background: linear-gradient(#00000098, #a4a4a437), url('../img/flor.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
 }
 
 .hero h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
+/* ==========================================================================
+   6. COMPONENTES: BOTÕES E CARDS
+   ========================================================================== */
 .btn-orcamento {
     display: inline-block;
     background-color: #14532d;
     color: #ffffff;
     padding: 12px 24px;
-    text-decoration: none;
     border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
+
 .btn-orcamento:hover {
     background-color: #166534;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-
-.container h2 {
-  color: #476694;
-}
-
-.grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
 .card {
-  flex: 1;
-  min-width: 250px;
-  padding: 20px;
-  border: 1px solid var(--borda);
-  border-radius: 8px;
-  background: #f9f9f9;
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: transform 0.3s ease; /* Adicionado para deixar o hover suave */
 }
 
 .card:hover {
-  transform: translateY(-15px);
-  /*sobe pra cima levemente*/
+    transform: translateY(-15px);
 }
 
-footer {
-  background: #0a192f;
-  color: white;
-  text-align: center;
-  padding: 20px;
+/* ==========================================================================
+   7. FORMULÁRIOS E LOGIN
+   ========================================================================== */
+.form {
+    display: grid; 
+    place-items: center; 
 }
 
-/** CSS DA PÁGINA LOGIN **/
-p {
-  margin-bottom: 15px;
+.tituloForm {
+    text-align: center;
+    padding: 20px;
 }
 
 input {
-  padding: 10px;
-  border: 1px solid #afafaf;
-  border-radius: 5px;
-  margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 input:focus {
-  border-color: #0a192f;
-  outline: none;
-  /*remove contorno*/
-
+    border-color: #0a192f;
+    outline: none;
 }
 
-/*botões*/
 button {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/*botão entrar*/
+button:hover {
+    opacity: 0.8;
+}
+
 button[type="submit"] {
-  background: #1f4c8f;
-  color: #ffffff;
+    background: #1f4c8f;
+    color: #ffffff;
 }
-
-/*Botão cadastrar*/
 
 button[type="button"] {
-  background: #cccccc;
-  color: #ffffff;
-
+    background: #cccccc;
+    color: #ffffff;
 }
 
-/*botão hover*/
-button:hover {
-  opacity: 0.8;
-}
-
-a {
-  text-decoration: none;
-}
-.form{
-  display: grid; place-items: center; 
-}
-.tituloForm{
-  text-align: center;
-  padding: 20px;
-}
-
-/* SOBRE*/
+/* ==========================================================================
+   8. MAPA (PÁGINA SOBRE)
+   ========================================================================== */
 .mapa-container {
     width: 100%;
     aspect-ratio: 16 / 9; 
@@ -203,15 +210,56 @@ a {
     margin: 0 auto;
 }
 
-/* Ajuste de proporção do mapa para telas menores (Celulares) */
-@media (max-width: 768px) {
-    .mapa-container {
-        aspect-ratio: 1 / 1;
-    }
-}
-
 .mapa-container iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+/* ==========================================================================
+   9. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background: #0a192f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   10. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- Ajuste do Mapa (que você já tinha) --- */
+    .mapa-container {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* --- NOVO: Ajuste do Cabeçalho e Menu --- */
+    header {
+        flex-direction: column; /* Empilha o título "VS uniformes" e o Menu */
+        padding: 15px 0 0 0; /* Remove os espaços laterais para o menu colar na tela */
+    }
+
+    header h1 {
+        margin-bottom: 15px; /* Dá um respiro entre o título e a barra azul do menu */
+    }
+
+    nav {
+        width: 100%; /* Garante que a barra azul vá de ponta a ponta na tela */
+    }
+
+    nav ul {
+        flex-direction: column; /* Coloca os links (Início, Sobre, etc.) um embaixo do outro */
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha clarinha e elegante separando cada botão */
+        padding: 15px;
+    }
 }
