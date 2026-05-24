@@ -1,5 +1,4 @@
 <!-- menu.php -->
-<!-- HEADER -->
 <header>
     <h1>VS uniformes</h1>
     <nav>

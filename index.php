@@ -2,15 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VS uniformes - Início</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <?php include '/vsuniformes/view/includes/head.php';?>
 </head>
-
 <body>
-    <?php include 'view/menu.php';?>
+    <?php include '/vsuniformes/view/includes/menu.php';?>
 
     <!-- HERO -->
     <section class="hero">
