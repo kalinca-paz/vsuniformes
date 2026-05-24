@@ -52,6 +52,7 @@ nav ul li a {
   text-align: center;
   padding: 15px 20px;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -84,18 +85,19 @@ section {
 
 }
 
-.hero button {
-  padding: 10px 20px;
-  border: none;
-  background: #136021;
-  font-weight: bold;
-  cursor: pointer;
+.btn-orcamento {
+    display: inline-block;
+    background-color: #14532d;
+    color: #ffffff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
-
-.hero a {
-  text-decoration: none;
-  color: #ffffff;
-
+.btn-orcamento:hover {
+    background-color: #166534;
 }
 
 .container {
@@ -189,4 +191,27 @@ a {
 .tituloForm{
   text-align: center;
   padding: 20px;
+}
+
+/* SOBRE*/
+.mapa-container {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+/* Ajuste de proporção do mapa para telas menores (Celulares) */
+@media (max-width: 768px) {
+    .mapa-container {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }

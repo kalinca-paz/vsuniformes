@@ -5,8 +5,8 @@
     </div>
     
     <div>
-        <span>📞 (11) 99999-9999</span> | 
-        <span>📧 contato@vsuniformes.com.br</span>
+        <span>(61) 9 9575-5248</span> | 
+        <span>contato@vsuniformes.com.br</span>
     </div>
     
     <div>

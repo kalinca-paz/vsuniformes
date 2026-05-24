@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
+    <!-- CABEÇALHO PADRÃO HTML -->
     <?php include 'view/includes/head.php';?>
     <title>Início - VS Uniformes</title>
 </head>
 <body>
+    <!-- MENU -->
     <?php include 'view/includes/menu.php';?>
 
     <!-- HERO -->
     <section class="hero">
         <h2>Uniformes com profissionalismo e excelência</h2>
         <p>Confecção de uniformes executivos e profissionais</p>
-        <button><a href="view/orcamento.php"> Faça seu orçamento </a></button>
+        <a class="btn-orcamento" href="view/orcamento.php"> Faça seu orçamento </a>
     </section>
 
     <!-- SOBRE -->
