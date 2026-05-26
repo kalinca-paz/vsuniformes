@@ -151,6 +151,35 @@ nav ul li a:hover {
 .card:hover {
     transform: translateY(-15px);
 }
+.cartao {
+    margin: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;   /* Fundo do cartão */
+    padding: 30px;
+    border-radius: 15px;       /* Bordas arredondadas */
+    max-width: 450px;          /* Largura do cartão */
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15); /* Sombra roxa bem suave */
+    border-left: 6px solid #a78bfa; /* Detalhe em barra lilás na esquerda */
+}
+
+/* Nome e profissão */
+h3 {
+    color: #4c1d95;            /* Roxo escuro */
+    margin-top: 0;
+}
+
+/* Linha das tecnologias */
+.tecnologias {
+    color: #7c3aed;            /* Lilás vibrante */
+    font-weight: bold;
+}
+
+/* Texto da biografia */
+.texto {
+    color: #4b5563;            /* Cinza escuro para leitura confortável */
+    line-height: 1.5;          /* Espaço entre as linhas */
+}
 
 /* ==========================================================================
    7. FORMULÁRIOS E LOGIN
@@ -199,7 +228,7 @@ button[type="button"] {
 }
 
 /* ==========================================================================
-   8. MAPA (PÁGINA SOBRE)
+   8. MAPA 
    ========================================================================== */
 .mapa-container {
     width: 100%;
@@ -225,6 +254,12 @@ footer {
     text-align: center;
     padding: 20px;
     justify-content: space-around;
+}
+footer a {
+    color: #ffffff;
+}
+footer a:hover{
+    color: #a78bfa;
 }
 
 /* ==========================================================================
