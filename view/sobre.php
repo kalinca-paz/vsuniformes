@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php include 'includes/head.php'; ?>
     <title>Sobre Nós</title>
 </head>
 <body>
-    <?php include 'includes/menu.php';?>
+    <?php include 'includes/menu.php'; ?>
 
 <!-- SOBRE -->
     <section>
@@ -36,6 +36,8 @@
         </div>
     </div>
 </section>
+
+<?php include 'includes/footer.php'; ?>
 
 </body>
 </html>

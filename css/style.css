@@ -224,6 +224,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    justify-content: space-around;
 }
 
 /* ==========================================================================
