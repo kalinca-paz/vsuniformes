@@ -102,7 +102,7 @@ nav ul li a:hover {
    5. BANNER PRINCIPAL (HERO)
    ========================================================================== */
 .hero {
-    background: linear-gradient(#00000098, #a4a4a437), url('../img/flor.jpg');
+    background: linear-gradient(#00000098, #a4a4a437), url('../img/home.png');
     background-size: cover;
     background-position: center;
     color: #ffffff;
