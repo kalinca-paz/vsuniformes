@@ -20,10 +20,12 @@
 
 ### 🏠 Página Inicial
 - [ ] **Menu de navegação** com links principais:
-    - [ ] Sobre
-    - [ ] Contatos
-    - [ ] Portfólio
-    - [ ] Contato
+    - [x] Sobre
+    - [x] Contatos
+    - [x] Portfólio
+    - [x] Contato
+    - [ ] Nome com foto de perfil e nome de usuário
+    - [ ] Opção de configuração
     - [ ] ~~Localização~~
 
 - [ ] Carrossel de imagens do portfólio com:
