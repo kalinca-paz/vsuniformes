@@ -97,6 +97,9 @@ nav ul li a {
 nav ul li a:hover {
     background-color: var(--menu-foco);
 }
+.user-area{
+    background-color: #0056B3;
+}
 
 /* ==========================================================================
    5. BANNER PRINCIPAL (HERO)
