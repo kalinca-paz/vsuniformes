@@ -12,7 +12,9 @@ class ClassUsuarioDAO
             $stmt = $pdo->prepare($sql);// executa o sql
             $stmt->bindValue(1, $novoUsuario->getNome());
             $stmt->bindValue(2, $novoUsuario->getEmail());
-            $stmt->bindValue(3, $novoUsuario->getSenha());
+           // $stmt->bindValue(3, $novoUsuario->getSenha());
+           // criptografando a senha no cadastrar: md5
+            $stmt->bindValue(3, md5($novoUsuario->getSenha()));
             $stmt->bindValue(4, $novoUsuario->getTipo());
             $stmt->execute();
             return true;
@@ -73,6 +75,8 @@ class ClassUsuarioDAO
     {
         try {
             $pdo = Conexao::getInstance();
+            if(!empty($usuario->getSenha())){
+            
             $sql = "UPDATE usuarios 
                 SET nome = ?, email = ?, senha = ?, tipo = ?
                 WHERE id = ?";
@@ -80,9 +84,21 @@ class ClassUsuarioDAO
 
             $stmt->bindValue(1, $usuario->getNome());
             $stmt->bindValue(2, $usuario->getEmail());
-            $stmt->bindValue(3, $usuario->getSenha());
+            $stmt->bindValue(3, md5($usuario->getSenha()));
             $stmt->bindValue(4, $usuario->getTipo());
             $stmt->bindValue(5, $usuario->getId());
+        } else {
+            $sql = "UPDATE usuarios 
+            SET nome = ?, email = ?, tipo = ?
+            WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $usuario->getNome());
+            $stmt->bindValue(2, $usuario->getEmail());
+            $stmt->bindValue(3, $usuario->getTipo());
+            $stmt->bindValue(4, $usuario->getId());
+    
+        }
             $stmt->execute();
             return true;
 

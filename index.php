@@ -20,7 +20,7 @@ session_start();
                 <li><a href="index.php">Início</a></li>
                 <li><a href="view/sobre.php">Sobre</a></li>
                 <li><a href="view/contatos.php">Contato</a></li>
-                <li><a href="view/portifolio.php">Portifólio</a></li> 
+                <li><a href="view/portfolio.php">Portfólio</a></li> 
                 <li><a href="view/login.php">Login</a></li>
             </ul>
         </nav>
@@ -31,10 +31,11 @@ session_start();
                 echo "<span>Bem-vindo, " . htmlspecialchars($_SESSION['nome']) . "</span> ";
                 
                 if ($_SESSION['tipo'] == 'admin') {
-                    echo "<a href='view/painelAdmin.php'>Painel Admin</a> ";
+                    echo "<a href='view/painelAdmin.php'>Painel</a> ";
+                    echo "<a href='controller/logout.php'>Sair</a> ";
                 }
                 
-                echo "<a href='controller/logout.php'>Sair</a> ";
+                
             } else {
                 echo "<a href='view/login.php'>Login</a>";
             }
@@ -80,8 +81,8 @@ session_start();
     <section class="contato">
         <div class="container">
             <h2>Contato</h2>
-            <p>Email: contato@empresa.com</p>
-            <p>Telefone: (61) 99999-9999</p>
+            <p>Email: u.vsuniformes@gmail.com</p>
+            <p>Telefone: (61) 9 9545-5248</p>
         </div>
     </section>
 

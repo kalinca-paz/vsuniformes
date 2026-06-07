@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include 'includes/head.php'; ?>
     <title>Document</title>
 </head>
 <body>
-    <h2><center>
-        
-    </center></h2>
+<?php include 'includes/menu.php'; ?>
+<ul>
+    <li><a href="listarUsuarios.php">Lista de usuários</a></li>
+    <li><a href="editarUsuarios.php">Editar usuários</a></li>
+</ul>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

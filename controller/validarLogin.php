@@ -8,7 +8,8 @@ session_start();
 
 $novoUsuario = new ClassUsuario();
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+// $senha = $_POST['senha'];
+$senha = md5($_POST['senha']);
 
 $novoUsuario->setEmail($email);
 $novoUsuario->setSenha($senha);
@@ -24,13 +25,13 @@ if ($usuario) {
     if ($usuario['tipo'] == 'admin') {
         echo
             "<script>
-            alert('Administrador logado com sucesso!')
-            window.location.href = '../view/listarUsuarios.php';
+            alert('Você fez logon com ADMINISTRADOR!')
+            window.location.href = '../index.php';
         </script>";
     } else if ($usuario['tipo'] == 'usuario') {
         echo
             "<script>
-            alert('Você acessou como USUÁRIO!')
+            alert('Usuário logado com sucesso!')
             window.location.href = '../index.php';
         </script>";
     }

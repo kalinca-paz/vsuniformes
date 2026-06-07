@@ -6,6 +6,7 @@ require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
 $id = $_GET['id'];
+
 $usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
@@ -15,6 +16,9 @@ if ($_POST) {
     $novoUsuario->setNome($_POST['nome']);
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
+
+    //acrescentar senha
+    $novoUsuario->setSenha($_POST['senha']);
 
     $resultado = $usuarioDAO->alterarUsuario($novoUsuario);
     if($resultado) {
@@ -82,12 +86,19 @@ if ($_POST) {
     <form method="POST">
         <input type="hidden" name="id"
         value="<?php echo $usuario['id']; ?>">
+
         <label>Nome</label>
         <input type="text" name="nome"
         value="<?php echo $usuario['nome']; ?>">
+
+        <!-- Adicionando senha -->
+        <label for="senha">Senha</label>
+        <input type="text" name="senha">
+
         <label>Email</label>
         <input type="email" name="email"
         value="<?php echo $usuario['email']; ?>">
+
         <label>Tipo</label>
 
         <select name="tipo">
