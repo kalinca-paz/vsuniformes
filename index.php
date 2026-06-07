@@ -12,9 +12,8 @@ session_start();
     <title>Início - VS Uniformes</title>
 </head>
 <body>
-
     <header>
-        <h1>VS uniformes</h1>
+        <a href="view/sobre.php"><img src="img/home.jpg" class="logo" alt="logo da vs uniformes"></a>
         <nav>
             <ul>
                 <li><a href="index.php">Início</a></li>
@@ -23,8 +22,6 @@ session_start();
                 <li><a href="view/portfolio.php">Portfólio</a></li> 
                 <li><a href="view/login.php">Login</a></li>
             </ul>
-        
-
         <div class="user-area">
             <?php
             if (isset($_SESSION['nome'])) {
@@ -36,8 +33,6 @@ session_start();
                     echo "<li><a href='controller/logout.php'>Sair</a></li>";
                     echo "</ul>";
                 }
-                
-                
             } else {
                 echo "<a href='view/login.php'>Login</a>";
             }

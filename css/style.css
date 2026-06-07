@@ -12,7 +12,7 @@
     --menu-foco: #E63946;
     --texto: #1B263B;
     --borda: #9cb5da;
-    --texto-suave: #778DA9; 
+    --texto-suave: #778DA9;
     --titulo: #002855;
     --fundo: #F6F4F3;
 }
@@ -66,11 +66,6 @@ header {
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    font-size: 24px;
 }
 
 nav {
@@ -83,7 +78,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 nav ul li a {
@@ -97,8 +92,15 @@ nav ul li a {
 nav ul li a:hover {
     background-color: var(--menu-foco);
 }
-.user-area{
+
+.user-area {
     background-color: #0056B3;
+}
+
+.logo {
+    width: 200px;
+    padding: 10px;
+    display: block;
 }
 
 /* ==========================================================================
@@ -148,48 +150,59 @@ nav ul li a:hover {
     border: 1px solid var(--borda);
     border-radius: 8px;
     background: #f9f9f9;
-    transition: transform 0.3s ease; /* Adicionado para deixar o hover suave */
+    transition: transform 0.3s ease;
+    /* Adicionado para deixar o hover suave */
 }
 
 .card:hover {
     transform: translateY(-15px);
 }
+
 .cartao {
     margin: 100px;
     margin-right: auto;
     margin-left: auto;
-    background-color: white;   /* Fundo do cartão */
+    background-color: white;
+    /* Fundo do cartão */
     padding: 30px;
-    border-radius: 15px;       /* Bordas arredondadas */
-    max-width: 450px;          /* Largura do cartão */
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15); /* Sombra roxa bem suave */
-    border-left: 6px solid #a78bfa; /* Detalhe em barra lilás na esquerda */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    max-width: 450px;
+    /* Largura do cartão */
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    /* Sombra roxa bem suave */
+    border-left: 6px solid #a78bfa;
+    /* Detalhe em barra lilás na esquerda */
 }
 
 /* Nome e profissão */
 h3 {
-    color: #4c1d95;            /* Roxo escuro */
+    color: #4c1d95;
+    /* Roxo escuro */
     margin-top: 0;
 }
 
 /* Linha das tecnologias */
 .tecnologias {
-    color: #7c3aed;            /* Lilás vibrante */
+    color: #7c3aed;
+    /* Lilás vibrante */
     font-weight: bold;
 }
 
 /* Texto da biografia */
 .texto {
-    color: #4b5563;            /* Cinza escuro para leitura confortável */
-    line-height: 1.5;          /* Espaço entre as linhas */
+    color: #4b5563;
+    /* Cinza escuro para leitura confortável */
+    line-height: 1.5;
+    /* Espaço entre as linhas */
 }
 
 /* ==========================================================================
    7. FORMULÁRIOS E LOGIN
    ========================================================================== */
 .form {
-    display: grid; 
-    place-items: center; 
+    display: grid;
+    place-items: center;
 }
 
 .tituloForm {
@@ -235,7 +248,7 @@ button[type="button"] {
    ========================================================================== */
 .mapa-container {
     width: 100%;
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -258,10 +271,12 @@ footer {
     padding: 20px;
     justify-content: space-around;
 }
+
 footer a {
     color: #ffffff;
 }
-footer a:hover{
+
+footer a:hover {
     color: #a78bfa;
 }
 
@@ -269,6 +284,7 @@ footer a:hover{
    10. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 768px) {
+
     /* --- Ajuste do Mapa (que você já tinha) --- */
     .mapa-container {
         aspect-ratio: 1 / 1;
@@ -276,20 +292,25 @@ footer a:hover{
 
     /* --- NOVO: Ajuste do Cabeçalho e Menu --- */
     header {
-        flex-direction: column; /* Empilha o título "VS uniformes" e o Menu */
-        padding: 15px 0 0 0; /* Remove os espaços laterais para o menu colar na tela */
+        flex-direction: column;
+        /* Empilha o título "VS uniformes" e o Menu */
+        padding: 15px 0 0 0;
+        /* Remove os espaços laterais para o menu colar na tela */
     }
 
     header h1 {
-        margin-bottom: 15px; /* Dá um respiro entre o título e a barra azul do menu */
+        margin-bottom: 15px;
+        /* Dá um respiro entre o título e a barra azul do menu */
     }
 
     nav {
-        width: 100%; /* Garante que a barra azul vá de ponta a ponta na tela */
+        width: 100%;
+        /* Garante que a barra azul vá de ponta a ponta na tela */
     }
 
     nav ul {
-        flex-direction: column; /* Coloca os links (Início, Sobre, etc.) um embaixo do outro */
+        flex-direction: column;
+        /* Coloca os links (Início, Sobre, etc.) um embaixo do outro */
         width: 100%;
     }
 
@@ -298,7 +319,8 @@ footer a:hover{
     }
 
     nav ul li a {
-        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha clarinha e elegante separando cada botão */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* Cria uma linha clarinha e elegante separando cada botão */
         padding: 15px;
     }
 }
