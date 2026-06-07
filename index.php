@@ -23,7 +23,7 @@ session_start();
                 <li><a href="view/portfolio.php">Portfólio</a></li> 
                 <li><a href="view/login.php">Login</a></li>
             </ul>
-        </nav>
+        
 
         <div class="user-area">
             <?php
@@ -31,8 +31,10 @@ session_start();
                 echo "<span>Bem-vindo, " . htmlspecialchars($_SESSION['nome']) . "</span> ";
                 
                 if ($_SESSION['tipo'] == 'admin') {
-                    echo "<a href='view/painelAdmin.php'>Painel</a> ";
-                    echo "<a href='controller/logout.php'>Sair</a> ";
+                    echo "<ul>";
+                    echo "<li><a href='view/painelAdmin.php'>Painel</a></li>";
+                    echo "<li><a href='controller/logout.php'>Sair</a></li>";
+                    echo "</ul>";
                 }
                 
                 
@@ -41,6 +43,7 @@ session_start();
             }
             ?>
         </div>
+    </nav>
     </header>
 
     <section class="hero">
