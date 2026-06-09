@@ -62,7 +62,7 @@ class ClassUsuarioDAO
         try {
             $pdo = Conexao::getInstance();
             $sql = "DELETE FROM usuarios 
-                WHERE id = :id";
+                WHERE idUsuarios = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $novoUsuario->getId());
             return $stmt->execute();
@@ -79,7 +79,7 @@ class ClassUsuarioDAO
             
             $sql = "UPDATE usuarios 
                 SET nome = ?, email = ?, senha = ?, tipo = ?
-                WHERE id = ?";
+                WHERE idUsuarios = ?";
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $usuario->getNome());
@@ -90,7 +90,7 @@ class ClassUsuarioDAO
         } else {
             $sql = "UPDATE usuarios 
             SET nome = ?, email = ?, tipo = ?
-            WHERE id = ?";
+            WHERE idUsuarios = ?";
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $usuario->getNome());
@@ -111,7 +111,7 @@ class ClassUsuarioDAO
     {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT * FROM usuarios WHERE id = ?";
+            $sql = "SELECT * FROM usuarios WHERE idUsuarios = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $id);
             $stmt->execute();

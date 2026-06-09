@@ -54,7 +54,7 @@ class Produto{
     public function salvar()
     {
         $sql = "INSERT INTO produtos
-                (   nome,
+                (   nomeProd,
                     categoria,
                     preco,
                     foto1,
@@ -65,7 +65,7 @@ class Produto{
                 )
                 VALUES
                 (
-                    :nome,
+                    :nomeProd,
                     :categoria,
                     :preco,
                     :foto1,
@@ -77,7 +77,7 @@ class Produto{
 
         $stmt = $this->pdo->prepare($sql);
 
-        $stmt->bindValue(':nome', $this->nome);
+        $stmt->bindValue(':nomeProd', $this->nome);
         $stmt->bindValue(':categoria', $this->categoria);
         $stmt->bindValue(':preco', $this->preco);
         $stmt->bindValue(':foto1', $this->foto1);

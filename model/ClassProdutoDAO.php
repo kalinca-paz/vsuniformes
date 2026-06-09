@@ -11,7 +11,7 @@ class ClassProdutoDAO
     {
         $sql = "INSERT INTO produtos
         (
-            nome,
+            nomeProd,
             categoria,
             preco,
             foto1,
@@ -22,7 +22,7 @@ class ClassProdutoDAO
         )
         VALUES
         (
-            :nome,
+            :nomeProd,
             :categoria,
             :preco,
             :foto1,
@@ -36,7 +36,7 @@ class ClassProdutoDAO
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(":nome", $produto->getNome());
+        $stmt->bindValue(":nomeProd", $produto->getNome());
         $stmt->bindValue(":categoria", $produto->getCategoria());
         $stmt->bindValue(":preco", $produto->getPreco());
         $stmt->bindValue(":foto1", $produto->getFoto1());
@@ -50,7 +50,7 @@ class ClassProdutoDAO
 
     public function listarProdutos()
     {
-        $sql = "SELECT * FROM produtos ORDER BY idproduto DESC";
+        $sql = "SELECT * FROM produtos ORDER BY idProdutos DESC";
 
         $conn = Conexao::getInstance();
 
@@ -60,15 +60,15 @@ class ClassProdutoDAO
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buscarProduto($idproduto)
+    public function buscarProduto($idProdutos)
     {
         $sql = "SELECT * FROM produtos
-                WHERE idproduto = :idproduto";
+                WHERE idProdutos = :idProdutos";
 
         $conn = Conexao::getInstance();
 
         $stmt = $conn->prepare($sql);
-        $stmt->bindValue(":idproduto", $idproduto);
+        $stmt->bindValue(":idProdutos", $idProdutos);
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -77,7 +77,7 @@ class ClassProdutoDAO
     public function atualizarProduto(ClassProduto $produto)
     {
         $sql = "UPDATE produtos SET
-                nome = :nome,
+                nomeProd = :nomeProd,
                 categoria = :categoria,
                 preco = :preco,
                 foto1 = :foto1,
@@ -85,14 +85,14 @@ class ClassProdutoDAO
                 foto3 = :foto3,
                 descricao = :descricao,
                 estoque = :estoque
-                WHERE idproduto = :idproduto";
+                WHERE idProdutos = :idProdutos";
 
         $conn = Conexao::getInstance();
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(":idproduto", $produto->getIdproduto());
-        $stmt->bindValue(":nome", $produto->getNome());
+        $stmt->bindValue(":idProdutos", $produto->getIdproduto());
+        $stmt->bindValue(":nomeProd", $produto->getNome());
         $stmt->bindValue(":categoria", $produto->getCategoria());
         $stmt->bindValue(":preco", $produto->getPreco());
         $stmt->bindValue(":foto1", $produto->getFoto1());
@@ -104,14 +104,14 @@ class ClassProdutoDAO
         return $stmt->execute();
     }
 
-    public function excluirProduto($idproduto){
+    public function excluirProduto($idProdutos){
     $sql = "DELETE FROM produtos
-            WHERE idproduto = :idproduto";
+            WHERE idProdutos = :idProdutos";
 
     $conn = Conexao::getInstance();
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindValue(':idproduto', $idproduto);
+    $stmt->bindValue(':idProdutos', $idProdutos);
 
     return $stmt->execute();
    }

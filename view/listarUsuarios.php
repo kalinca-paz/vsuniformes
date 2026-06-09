@@ -117,17 +117,17 @@ a:last-child:hover {
         <?php foreach ($novoUsuario as $usuario): ?>
 
         <tr>
-            <td><?php echo $usuario['id']; ?></td>
+            <td><?php echo $usuario['idUsuarios']; ?></td>
             <td><?php echo $usuario['nome']; ?></td>
             <td><?php echo $usuario['email']; ?></td>
             <td><?php echo $usuario['tipo']; ?></td>
 
             <td>
-                <a href="editarUsuarios.php?id=<?php echo $usuario['id']; ?>">
+                <a href="editarUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
                     Editar
                 </a>
  
-               <a href="../controller/excluirUsuarios.php?id=<?php echo $usuario['id']; ?>">
+               <a href="../controller/excluirUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
                     Excluir
                 </a>
             </td>

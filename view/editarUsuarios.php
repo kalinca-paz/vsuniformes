@@ -5,14 +5,14 @@ require_once "../model/ClassUsuarioDAO.php";
 require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
-$id = $_GET['id'];
+$id = $_GET['idUsuarios'];
 
 $usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
     $novoUsuario = new ClassUsuario();
 
-    $novoUsuario->setId($_POST['id']);
+    $novoUsuario->setId($_POST['idUsuarios']);
     $novoUsuario->setNome($_POST['nome']);
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
@@ -85,7 +85,7 @@ if ($_POST) {
     <h2>Editar Usuário</h2>
     <form method="POST">
         <input type="hidden" name="id"
-        value="<?php echo $usuario['id']; ?>">
+        value="<?php echo $usuario['idUsuarios']; ?>">
 
         <label>Nome</label>
         <input type="text" name="nome"
