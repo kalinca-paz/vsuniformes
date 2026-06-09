@@ -85,6 +85,9 @@ class Produto{
         $stmt->bindValue(':foto3', $this->foto3);
         $stmt->bindValue(':descricao', $this->descricao);
         $stmt->bindValue(':estoque', $this->estoque);
+        $stmt->bindValue(':modelo', $this->modelo);
+        $stmt->bindValue(':tamanho', $this->tamanho);
+        $stmt->bindValue(':cor', $this->cor);
 
 
         return $stmt->execute();

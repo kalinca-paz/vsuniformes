@@ -10,27 +10,31 @@ class ClassProdutoDAO
     public function cadastrarProduto(ClassProduto $produto)
     {
         $sql = "INSERT INTO produtos
-        (
-            nomeProd,
-            categoria,
-            preco,
-            foto1,
-            foto2,
-            foto3,
-            descricao,
-            estoque
-        )
-        VALUES
-        (
-            :nomeProd,
-            :categoria,
-            :preco,
-            :foto1,
-            :foto2,
-            :foto3,
-            :descricao,
-            :estoque
-        )";
+(
+    nomeProd,
+    categoria,
+    modelo,
+    tamanho,
+    cor,
+    preco,
+    foto1,
+    foto2,
+    foto3,
+    estoque
+)
+VALUES
+(
+    :nomeProd,
+    :categoria,
+    :modelo,
+    :tamanho,
+    :cor,
+    :preco,
+    :foto1,
+    :foto2,
+    :foto3,
+    :estoque
+)";
 
         $conn = Conexao::getInstance();
 
@@ -44,6 +48,9 @@ class ClassProdutoDAO
         $stmt->bindValue(":foto3", $produto->getFoto3());
         $stmt->bindValue(":descricao", $produto->getDescricao());
         $stmt->bindValue(":estoque", $produto->getEstoque());
+        $stmt->bindValue(':modelo', $modelo->getModelo());
+        $stmt->bindValue(':tamanho', $tamanho->getTamanho());
+        $stmt->bindValue(':cor', $cor->getCor());
 
         return $stmt->execute();
     }
@@ -84,7 +91,10 @@ class ClassProdutoDAO
                 foto2 = :foto2,
                 foto3 = :foto3,
                 descricao = :descricao,
-                estoque = :estoque
+                estoque = :estoque,
+                modelo = :modelo,
+                tamanho = :tamanho,
+                cor = :cor
                 WHERE idProdutos = :idProdutos";
 
         $conn = Conexao::getInstance();
