@@ -20,21 +20,19 @@ session_start();
                 <li><a href="view/sobre.php">Sobre</a></li>
                 <li><a href="view/contatos.php">Contato</a></li>
                 <li><a href="view/portfolio.php">Portfólio</a></li> 
-                <li><a href="view/login.php">Login</a></li>
-            </ul>
+                
         <div class="user-area">
             <?php
             if (isset($_SESSION['nome'])) {
                 echo "<span>Bem-vindo, " . htmlspecialchars($_SESSION['nome']) . "</span> ";
                 
                 if ($_SESSION['tipo'] == 'admin') {
-                    echo "<ul>";
                     echo "<li><a href='view/painelAdmin.php'>Painel</a></li>";
-                    echo "<li><a href='controller/logout.php'>Sair</a></li>";
-                    echo "</ul>";
+                    echo "<li><a href='controller/logout.php'>Sair</a></li></ul>";
                 }
             } else {
-                echo "<a href='view/login.php'>Login</a>";
+                echo "<li><a href='view/login.php'>Login</a></li>
+                </ul>";
             }
             ?>
         </div>
