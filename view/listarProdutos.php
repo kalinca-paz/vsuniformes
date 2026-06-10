@@ -17,6 +17,7 @@ session_start();
     <link rel=stylesheet href="../css/style.css">
 
 
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -147,7 +148,9 @@ $produtos = $produtoDAO->listarProdutos();
                         <?php endif; ?>
                     </td>
 
+
                     <td><?= $produto['nomeProd']; ?></td>
+
 
                     <td><?= $produto['categoria']; ?></td>
 
@@ -158,11 +161,13 @@ $produtos = $produtoDAO->listarProdutos();
                     <td><?= $produto['estoque']; ?></td>
 
                     <td>
+
                             <a href="editarProduto.php?idProdutos=<?php echo $produto['idProdutos']; ?>">
                                 Editar
                             </a>
 
                             <a href="../controller/excluirProduto.php?=<?php echo $produto['idProdutos']; ?>"
+
                             onclick="return confirm('Deseja realmente excluir este produto?')">
                             Excluir
                             </a>

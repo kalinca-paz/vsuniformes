@@ -18,8 +18,8 @@ class ClassProduto
     {
         return $this->idProdutos;
     }
-
     public function setIdProdutos($idProdutos)
+
     {
         $this->idProdutos = $idProdutos;
     }

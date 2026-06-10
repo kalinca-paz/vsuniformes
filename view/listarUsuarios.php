@@ -117,17 +117,29 @@ a:last-child:hover {
         <?php foreach ($novoUsuario as $usuario): ?>
 
         <tr>
+<<<<<<< HEAD
             <td><?php echo $usuario['idUsuarios'];?></td>
+=======
+            <td><?php echo $usuario['idUsuarios']; ?></td>
+>>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
             <td><?php echo $usuario['nome']; ?></td>
             <td><?php echo $usuario['email']; ?></td>
             <td><?php echo $usuario['tipo']; ?></td>
 
             <td>
+<<<<<<< HEAD
                 <a href="editarUsuarios.php?idUsuarios=<?php echo $usuario['idUsuarios']; ?>">
                     Editar
                 </a>
  
                <a href="../controller/excluirUsuarios.php?idUsuarios=<?php echo $usuario['idUsuarios']; ?>">
+=======
+                <a href="editarUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
+                    Editar
+                </a>
+ 
+               <a href="../controller/excluirUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
+>>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
                     Excluir
                 </a>
             </td>
