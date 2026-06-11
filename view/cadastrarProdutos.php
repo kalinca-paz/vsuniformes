@@ -34,13 +34,13 @@ session_start();
       <a href="#">Sobre</a>
       <a href="#">Serviços</a>
         <?php
-            if (isset($_SESSION['nome'])) {
+           if (isset($_SESSION['nome'])) {
             echo "Bem-vindo, " . $_SESSION['nome'];
-            echo "<a href='../view/painelAdmin.php'>Painel Admin</a>";
-            echo ' | <a href="controller/logout.php">Sair</a>';
-            } else {
+            echo " | <a href='../view/painelAdmin.php'>Painel Admin</a>";
+            echo ' | <a href="../controller/logout.php">Sair</a>';
+        } else {
             echo '<a href="../view/login.php">Login</a>';
-            }
+        }
         ?>
     </nav>
   </header>
@@ -59,16 +59,28 @@ if(isset($_SESSION['mensagem'])){
       enctype="multipart/form-data">
 
     <label>Nome</label>
-    <input type="text" name="nome" required>
+    <input type="text" name="nomeProd" required>
 
     <label>Categoria</label>
     <input type="text" name="categoria" required>
 
+    <label>Modelo</label>
+    <input type="text" name="modelo" required>
+
+    <label>Tamanho</label>
+    <input type="text" name="tamanho" required>
+
+    <label>Cor</label>
+    <input type="text" name="cor" required>
+
     <label>Preço</label>
-    <input type="number"
-           step="0.01"
-           name="preco"
-           required>
+    <input type="number" step="0.01" name="preco" required>
+
+    <label>Descrição</label>
+    <textarea name="descricao" rows="5" required></textarea>
+
+    <label>Estoque</label>
+    <input type="number" name="estoque" required>
 
     <label>Foto 1</label>
     <input type="file" name="foto1">
@@ -79,19 +91,7 @@ if(isset($_SESSION['mensagem'])){
     <label>Foto 3</label>
     <input type="file" name="foto3">
 
-    <label>Descrição</label>
-    <textarea name="descricao"
-              rows="5"
-              required></textarea>
-
-    <label>Estoque</label>
-    <input type="number"
-           name="estoque"
-           required>
-
-    <button type="submit">
-        Salvar Produto
-    </button>
+    <button type="submit">Salvar Produto</button>
 
 </form>
 

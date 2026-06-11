@@ -32,30 +32,30 @@ session_start();
 
     <div style="display:inline-block; margin:20px; text-align:center;">
         <a href="../view/listarUsuarios.php">
-            <img src="../imagem/usuario.jpg" width="300px" alt="Usuários">
+            <img src="../img/boneco.png" width="300px" alt="Usuários">
         </a>
         <p>Listar Usuários</p>
     </div>
 
     <div style="display:inline-block; margin:20px; text-align:center;">
         <a href="../view/cadastrarProdutos.php">
-            <img src="../imagem/usuario.jpg" width="300px" alt="Cadastrar Produtos">
+            <img src="../img/boneco.png" width="300px" alt="Cadastrar Produtos">
         </a>
         <p>Cadastrar Produtos</p>
     </div>
 
     <div style="display:inline-block; margin:20px; text-align:center;">
         <a href="../view/listarProdutos.php">
-            <img src="../imagem/usuario.jpg" width="300px" alt="Produtos">
+            <img src="../img/boneco.png" width="300px" alt="Produtos">
         </a>
         <p>Listar Produtos</p>
     </div>
 
     <div style="display:inline-block; margin:20px; text-align:center;">
-        <a href="../view/listarFuncionarios.php">
-            <img src="../imagem/usuario.jpg" width="300px" alt="Funcionários">
+        <a href="../view/listarClientes.php">
+            <img src="../img/boneco.png" width="300px" alt="Clientes">
         </a>
-        <p>Listar Funcionários</p>
+        <p>Listar Clientes</p>
     </div>
 
 </center>

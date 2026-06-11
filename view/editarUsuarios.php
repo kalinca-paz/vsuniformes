@@ -1,42 +1,45 @@
-<!--editarUsuarios.php -->
 <?php
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassUsuarioDAO.php";
 require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
-$id = $_GET['idUsuarios'];
+
+$id = $_GET['idUsuario'];
 
 $usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
+
     $novoUsuario = new ClassUsuario();
 
-    $novoUsuario->setId($_POST['idUsuarios']);
+    $novoUsuario->setId($_POST['idUsuario']);
     $novoUsuario->setNome($_POST['nome']);
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
 
-    //acrescentar senha
+    // senha opcional
     $novoUsuario->setSenha($_POST['senha']);
 
     $resultado = $usuarioDAO->alterarUsuario($novoUsuario);
-    if($resultado) {
+
+    if ($resultado) {
         echo "<script>
                 alert('Usuário alterado com sucesso!');
                 window.location.href = 'listarUsuarios.php';
-            </script>";
+              </script>";
     } else {
         echo "Erro ao alterar usuário";
     }
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <?php include 'includes/head.php';?>
-    
+    <?php include 'includes/head.php'; ?>
     <title>Editar Usuário</title>
+
     <style>
     body {
         font-family: Arial;
@@ -50,15 +53,14 @@ if ($_POST) {
         background: white;
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h2 {
         text-align: center;
     }
 
-    input,
-    select {
+    input, select {
         width: 100%;
         padding: 10px;
         margin-top: 10px;
@@ -79,56 +81,51 @@ if ($_POST) {
     }
     </style>
 </head>
+
 <body>
-<?php include 'includes/menu.php';?>
+
+<?php include 'includes/menu.php'; ?>
+
 <div class="container">
+
     <h2>Editar Usuário</h2>
+
     <form method="POST">
-<<<<<<< HEAD
-        <input type="hidden" name="idUsuarios"
-=======
-        <input type="hidden" name="id"
->>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
-        value="<?php echo $usuario['idUsuarios']; ?>">
+
+        <input type="hidden" name="idUsuario"
+               value="<?= $usuario['idUsuario']; ?>">
 
         <label>Nome</label>
         <input type="text" name="nome"
-        value="<?php echo $usuario['nome']; ?>">
+               value="<?= $usuario['nome']; ?>">
 
-        <!-- Adicionando senha -->
-        <label for="senha">Senha</label>
-        <input type="text" name="senha">
+        <label>Senha (deixe vazio para não alterar)</label>
+        <input type="password" name="senha">
 
         <label>Email</label>
         <input type="email" name="email"
-        value="<?php echo $usuario['email']; ?>">
+               value="<?= $usuario['email']; ?>">
 
         <label>Tipo</label>
-
         <select name="tipo">
+
             <option value="admin"
-                <?php
-                    if($usuario['tipo']=="admin"){
-                        echo "selected";
-                    }
-                ?>>
+                <?= ($usuario['tipo'] == "admin") ? "selected" : ""; ?>>
                 Admin
             </option>
 
             <option value="usuario"
-                <?php
-                if($usuario['tipo']=="usuario"){
-                    echo "selected";
-                }
-                ?>>
-              Usuário
+                <?= ($usuario['tipo'] == "usuario") ? "selected" : ""; ?>>
+                Usuário
             </option>
+
         </select>
 
-        <button type="submit">
-            Salvar Alterações
-        </button>
+        <button type="submit">Salvar Alterações</button>
+
     </form>
+
 </div>
+
 </body>
 </html>

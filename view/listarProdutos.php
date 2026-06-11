@@ -1,188 +1,44 @@
-<!--listarProdutos.php -->
-<?php
-require_once "../conexao/Conexao.php";
-require_once "../model/ClassProdutoDAO.php";
-require_once "../model/ClassProduto.php";
+<tbody>
 
-session_start();
-?>
+<?php foreach($produtos as $produto): ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
+    <tr>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Produtos</title>
-    <link rel=stylesheet href="../css/style.css">
+        <td><?= $produto['idProduto']; ?></td>
 
+        <td>
+            <?php if(!empty($produto['foto1'])): ?>
+                <img src="../uploads/produtos/<?= $produto['foto1']; ?>" width="80">
+            <?php endif; ?>
+        </td>
 
+        <td><?= $produto['nomeProd']; ?></td>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 30px;
-        }
+        <td><?= $produto['categoria']; ?></td>
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 95%;
-            margin: auto;
-        }
+        <td>
+            R$ <?= number_format($produto['preco'], 2, ',', '.'); ?>
+        </td>
 
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
+        <td><?= $produto['estoque']; ?></td>
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+        <td>
 
-        thead {
-            background-color: #4CAF50;
-            color: white;
-        }
+            <a class="btn-editar"
+               href="editarProduto.php?idProduto=<?= $produto['idProduto']; ?>">
+                Editar
+            </a>
 
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
+            <a class="btn-excluir"
+               href="../controller/excluirProduto.php?idProduto=<?= $produto['idProduto']; ?>"
+               onclick="return confirm('Deseja realmente excluir este produto?')">
+                Excluir
+            </a>
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+        </td>
 
-        .btn-editar {
-            background-color: #2196F3;
-            color: white;
-            padding: 6px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-        }
+    </tr>
 
-        .btn-excluir {
-            background-color: #f44336;
-            color: white;
-            padding: 6px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-        }
+<?php endforeach; ?>
 
-        img {
-            border-radius: 5px;
-        }
-    </style>
-</head>
-
-<body>
-
- <!-- HEADER -->
-    <header>
-        <h1>MinhaEmpresa</h1>
-        <nav>
-            <a href="../index.php">Início</a>
-            <a href="#">Sobre</a>
-            <a href="#">Serviços</a>
-            <!-- <a href="view/login.php">Login</a> -->
-            <?php
-            if (isset($_SESSION['nomeProd'])) {
-                echo "Bem-vindo, " . $_SESSION['nomeProd'];
-                 echo ' | <a href="../controller/logout.php">Sair</a>';
-                // echo '<a href="../view/login.php">Login</a>';
-               
-            } else {
-                echo '<a href="../view/login.php">Login</a>';
-            }
-            ?>
-        </nav>
-    </header>
-
-
-    
-<?php
-
-$produtoDAO = new ClassProdutoDAO();
-$produtos = $produtoDAO->listarProdutos();
-
-?>
-
-<div class="container">
-
-    <h2>Listar Produtos</h2>
-
-    <table>
-
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Foto</th>
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Preço</th>
-                <th>Estoque</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <?php foreach($produtos as $produto): ?>
-
-                <tr>
-
-                    <td><?= $produto['nomeProd']; ?></td>
-
-                    <td>
-                        <?php if(!empty($produto['foto1'])): ?>
-                            <img src="../uploads/produtos/<?= $produto['foto1']; ?>" width="80">
-                        <?php endif; ?>
-                    </td>
-
-
-                    <td><?= $produto['nomeProd']; ?></td>
-
-
-                    <td><?= $produto['categoria']; ?></td>
-
-                    <td>
-                        R$ <?= number_format($produto['preco'], 2, ',', '.'); ?>
-                    </td>
-
-                    <td><?= $produto['estoque']; ?></td>
-
-                    <td>
-
-                            <a href="editarProduto.php?idProdutos=<?php echo $produto['idProdutos']; ?>">
-                                Editar
-                            </a>
-
-                            <a href="../controller/excluirProduto.php?=<?php echo $produto['idProdutos']; ?>"
-
-                            onclick="return confirm('Deseja realmente excluir este produto?')">
-                            Excluir
-                            </a>
-
-                    </td>
-
-                </tr>
-
-            <?php endforeach; ?>
-
-        </tbody>
-
-    </table>
-
-</div>
-
-</body>
-</html>
+</tbody>

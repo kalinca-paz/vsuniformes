@@ -1,49 +1,65 @@
-<!-- ClassUsuario.php -->
 <?php
 
-class ClassUsuario { //COMEÇO ClassUsuario
-private $nome; //visível somente nesse arquivo;
-private $email;
-private $senha;
-private $tipo;
-private $id;
+class ClassUsuario
+{
+    private $idUsuarios;
+    private $nome;
+    private $email;
+    private $senha;
+    private $tipo;
 
-//GETTERS
-    public function getNome(){
+    // GETTERS
+
+    public function getId()
+    {
+        return $this->idUsuarios;
+    }
+
+    public function getNome()
+    {
         return $this->nome;
     }
-    public function getEmail(){
+
+    public function getEmail()
+    {
         return $this->email;
     }
-    public function getSenha(){
+
+    public function getSenha()
+    {
         return $this->senha;
     }
-    public function getTipo(){
+
+    public function getTipo()
+    {
         return $this->tipo;
     }
-    public function getId(){
-        return $this->id;
-    }
-// SETTERS
 
-    public function setNome($nome){
+    // SETTERS
+
+    public function setId($idUsuarios)
+    {
+        $this->idUsuarios = $idUsuarios;
+    }
+
+    public function setNome($nome)
+    {
         $this->nome = $nome;
     }
-    public function setEmail($email){
+
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
-    public function setSenha($senha){
+
+    public function setSenha($senha)
+    {
         $this->senha = $senha;
     }
-    public function setTipo($tipo){
+
+    public function setTipo($tipo)
+    {
         $this->tipo = $tipo;
     }
-    public function setId($id){
-        $this->id = $id;
-    }
-
-}//FIM ClassUsuario.php
-
-
-
+}
 ?>

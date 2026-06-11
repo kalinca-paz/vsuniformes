@@ -1,124 +1,186 @@
 -- =========================
--- DADOS USUÁRIOS
+-- USUARIOS
 -- =========================
 
 INSERT INTO usuarios (nome, email, senha, tipo)
 VALUES
-('Ka', 'ka@out.com', MD5('123456'), 'admin'),
-('João Silva', 'joao@email.com', MD5('123456'), 'usuario'),
-('Maria Oliveira', 'maria@email.com', MD5('123456'), 'usuario');
+('kalinca', 'ka@out.com', MD5('1234'), 'Admin'),
+('João Silva', 'joao@vsuniformes.com', MD5('123456'), 'Cliente'),
+('Maria Souza', 'maria@vsuniformes.com', MD5('123456'), 'Cliente'),
+('Carlos Lima', 'carlos@vsuniformes.com', MD5('123456'), 'Cliente');
 
 -- =========================
--- DADOS CLIENTES
+-- CLIENTES
 -- =========================
 
-INSERT INTO clientes
-(nomeCliente, telefone, email, cpf, cnpj, tipo, razaoSocial)
+INSERT INTO clientes (
+    nomeCliente,
+    telefone,
+    email,
+    cpf,
+    cnpj,
+    endereco,
+    cep,
+    bairro,
+    cidade,
+    uf,
+    tipo,
+    razaoSocial,
+    dataCadastro,
+    Usuario_idUsuario
+)
 VALUES
-
 (
-'Escola Futuro',
-'(61) 99999-1111',
-'contato@escolafuturo.com',
-NULL,
-'12.345.678/0001-90',
-'PJ',
-'Escola Futuro LTDA'
+    'Ana Pereira',
+    '(61)99999-1111',
+    'ana@email.com',
+    '123.456.789-01',
+    NULL,
+    'Rua das Flores, 100',
+    '70600-000',
+    'Centro',
+    'Brasília',
+    'DF',
+    'Pessoa Física',
+    NULL,
+    NOW(),
+    1
 ),
-
 (
-'Academia Power Fit',
-'(61) 99999-2222',
-'financeiro@powerfit.com',
-NULL,
-'98.765.432/0001-10',
-'PJ',
-'Power Fit Academia'
+    'Escola Futuro',
+    '(61)3333-4444',
+    'contato@escolafuturo.com',
+    NULL,
+    '12.345.678/0001-99',
+    'Av. Principal, 500',
+    '70700-000',
+    'Asa Sul',
+    'Brasília',
+    'DF',
+    'Pessoa Jurídica',
+    'Escola Futuro LTDA',
+    NOW(),
+    2
 ),
-
 (
-'Carlos Mendes',
-'(61) 99999-3333',
-'carlos@email.com',
-'123.456.789-00',
-NULL,
-'PF',
-NULL
+    'Pedro Martins',
+    '(61)98888-7777',
+    'pedro@email.com',
+    '987.654.321-00',
+    NULL,
+    'Rua A, 250',
+    '70800-000',
+    'Taguatinga',
+    'Brasília',
+    'DF',
+    'Pessoa Física',
+    NULL,
+    NOW(),
+    3
 );
 
 -- =========================
--- DADOS PRODUTOS
+-- PRODUTOS
 -- =========================
 
-INSERT INTO produtos
-(nomeProd, categoria, modelo, tamanho, cor, descricao, preco, foto1, foto2, foto3, estoque)
+INSERT INTO produtos (
+    nomeProd,
+    categoria,
+    modelo,
+    tamanho,
+    cor,
+    descricao,
+    preco,
+    foto1,
+    foto2,
+    foto3,
+    estoque
+)
 VALUES
-
 (
-'Camiseta Escolar',
-'Uniforme Escolar',
-'Gola Redonda',
-'M',
-'Azul',
-'Camiseta escolar confeccionada em malha fria de alta qualidade.',
-35.90,
-'camiseta1.jpg',
-'camiseta2.jpg',
-'camiseta3.jpg',
-150
+    'Camiseta Escolar',
+    'Uniforme Escolar',
+    'Gola Careca',
+    'M',
+    'Branco',
+    'Camiseta padrão escolar',
+    39.90,
+    'camiseta1.jpg',
+    NULL,
+    NULL,
+    100
 ),
-
 (
-'Calça Escolar',
-'Uniforme Escolar',
-'Moletom',
-'G',
-'Preta',
-'Calça escolar confortável e resistente para uso diário.',
-79.90,
-'calca1.jpg',
-'calca2.jpg',
-'calca3.jpg',
-80
+    'Calça Escolar',
+    'Uniforme Escolar',
+    'Moletom',
+    'G',
+    'Azul Marinho',
+    'Calça escolar de moletom',
+    69.90,
+    'calca1.jpg',
+    NULL,
+    NULL,
+    50
 ),
-
 (
-'Agasalho Esportivo',
-'Uniforme Esportivo',
-'Jaqueta',
-'GG',
-'Vermelho',
-'Agasalho esportivo completo ideal para atividades físicas.',
-129.90,
-'agasalho1.jpg',
-'agasalho2.jpg',
-'agasalho3.jpg',
-50
+    'Jaleco',
+    'Profissional',
+    'Manga Longa',
+    'GG',
+    'Branco',
+    'Jaleco para laboratório',
+    89.90,
+    'jaleco1.jpg',
+    NULL,
+    NULL,
+    30
 );
 
 -- =========================
--- DADOS PEDIDOS
+-- PEDIDOS
 -- =========================
 
-INSERT INTO pedidos
-(dataEntrega, valor, Clientes_idCliente)
+INSERT INTO pedidos (
+    dataEntrega,
+    valor,
+    Cliente_idCliente
+)
 VALUES
-
-('2026-06-20', 11580.00, 1),
-('2026-06-25', 6495.00, 2),
-('2026-06-30', 718.00, 3);
+('2026-07-01', 399.00, 1),
+('2026-07-05', 699.00, 2),
+('2026-07-10', 269.70, 3);
 
 -- =========================
--- DADOS ITENS DOS PEDIDOS
+-- ITENSPRODUTOS
 -- =========================
 
-INSERT INTO itensprodutos
-(Produtos_idProdutos, Pedidos_idPedidos, itemProduto, valorProdutos, quant)
+INSERT INTO itensprodutos (
+    Produto_idProduto,
+    Pedido_idPedido,
+    itemProduto,
+    valorProdutos,
+    quant
+)
 VALUES
-
-(1, 1, 'Camiseta Escolar', 35.90, 100),
-(2, 1, 'Calça Escolar', 79.90, 100),
-
-(3, 2, 'Agasalho Esportivo', 129.90, 50),
-
-(1, 3, 'Camiseta Escolar', 35.90, 20);
+(
+    1,
+    1,
+    'Camiseta Escolar',
+    39.90,
+    10
+),
+(
+    2,
+    2,
+    'Calça Escolar',
+    69.90,
+    10
+),
+(
+    3,
+    3,
+    'Jaleco',
+    89.90,
+    3
+);

@@ -4,152 +4,128 @@ require_once '../model/ClassUsuarioDAO.php';
 require_once '../model/ClassUsuario.php';  
 
 session_start();
+
 echo "<h2 style='text-align:center;'>Bem vindo ".$_SESSION['nome']."</h2>";
 
 $usuarioDAO = new ClassUsuarioDAO();
-$novoUsuario =$usuarioDAO->listarUsuarios() ;
-
+$novoUsuario = $usuarioDAO->listarUsuarios();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <?php include 'includes/head.php';?>
-<title>Listar Usuários</title>
-    <?php include 'includes/menu.php';?>
+    <?php include 'includes/head.php'; ?>
+    <title>Listar Usuários</title>
+    <?php include 'includes/menu.php'; ?>
+
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 30px;
-}
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 30px;
+        }
 
-/* Container da tabela */
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    margin: auto;
-}
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 90%;
+            margin: auto;
+        }
 
-/* Título */
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-/* Tabela */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-/* Cabeçalho */
-thead {
-    background-color: #4CAF50;
-    color: white;
-}
+        thead {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-/* Células */
-th,
-td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
 
-/* Efeito hover */
-tr:hover {
-    background-color: #f1f1f1;
-}
+        tr:hover {
+            background-color: #f1f1f1;
+        }
 
-/* Links */
-a {
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
-}
+        a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+        }
 
-/* Botão editar */
-a:first-child {
-    background-color: #2196F3;
-}
+        a:first-child {
+            background-color: #2196F3;
+        }
 
-/* Botão excluir */
-a:last-child {
-    background-color: #f44336;
-}
+        a:last-child {
+            background-color: #f44336;
+        }
 
-/* Hover dos botões */
-a:first-child:hover {
-    background-color: #0b7dda;
-}
+        a:first-child:hover {
+            background-color: #0b7dda;
+        }
 
-a:last-child:hover {
-    background-color: #da190b;
-}
-</style>
-        
+        a:last-child:hover {
+            background-color: #da190b;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <h2>Listar Usuários </h2>
-       <table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Tipo</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+<div class="container">
 
-    <tbody>
+    <h2>Listar Usuários</h2>
 
-        <?php foreach ($novoUsuario as $usuario): ?>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-        <tr>
-<<<<<<< HEAD
-            <td><?php echo $usuario['idUsuarios'];?></td>
-=======
-            <td><?php echo $usuario['idUsuarios']; ?></td>
->>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
-            <td><?php echo $usuario['nome']; ?></td>
-            <td><?php echo $usuario['email']; ?></td>
-            <td><?php echo $usuario['tipo']; ?></td>
+        <tbody>
+            <?php foreach ($novoUsuario as $usuario): ?>
+                <tr>
+                    <td><?= $usuario['idUsuario']; ?></td>
+                    <td><?= $usuario['nome']; ?></td>
+                    <td><?= $usuario['email']; ?></td>
+                    <td><?= $usuario['tipo']; ?></td>
 
-            <td>
-<<<<<<< HEAD
-                <a href="editarUsuarios.php?idUsuarios=<?php echo $usuario['idUsuarios']; ?>">
-                    Editar
-                </a>
- 
-               <a href="../controller/excluirUsuarios.php?idUsuarios=<?php echo $usuario['idUsuarios']; ?>">
-=======
-                <a href="editarUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
-                    Editar
-                </a>
- 
-               <a href="../controller/excluirUsuarios.php?id=<?php echo $usuario['idUsuarios']; ?>">
->>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
-                    Excluir
-                </a>
-            </td>
-        </tr>
+                    <td>
+                        <a href="editarUsuarios.php?idUsuario=<?= $usuario['idUsuario']; ?>">
+                            Editar
+                        </a>
 
-        <?php endforeach; ?>
+                        <a href="../controller/excluirUsuarios.php?idUsuario=<?= $usuario['idUsuario']; ?>">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
-    </tbody>
-</table>
-     
 </div>
 </body>
 </html>

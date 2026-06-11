@@ -1,13 +1,9 @@
-
-<!-- Produto.php -->
- 
- <?php
+<?php
 require_once("../conexao/Conexao.php");
 
-class Produto{
+class Produto {
     private $pdo;
-    
-    private $idproduto;
+
     private $nome;
     private $categoria;
     private $preco;
@@ -17,44 +13,24 @@ class Produto{
     private $descricao;
     private $estoque;
 
-
-
     public function __construct(){
-        $this->pdo = conexao::getInstance();
+        $this->pdo = Conexao::getInstance();
     }
 
-
-    // metodos get e set:
-    public function setNome($nome){
-        $this->nome = $nome;
-    }
-    public function setCategoria($categoria){
-        $this->categoria = $categoria;
-    }
-    public function setPreco($preco){
-        $this->preco = $preco;
-    }
-    public function setFoto1($foto1){
-        $this->foto1 = $foto1;
-    }
-    public function setFoto2($foto2){
-        $this->foto2 = $foto2;
-    }
-    public function setFoto3($foto3){
-        $this->foto3 = $foto3;
-    }
-    public function setDescricao($descricao){
-        $this->descricao = $descricao;
-    }
-    public function setEstoque($estoque){
-        $this->estoque = $estoque;
-    }
-
+    // SETTERS
+    public function setNome($nome){ $this->nome = $nome; }
+    public function setCategoria($categoria){ $this->categoria = $categoria; }
+    public function setPreco($preco){ $this->preco = $preco; }
+    public function setFoto1($foto1){ $this->foto1 = $foto1; }
+    public function setFoto2($foto2){ $this->foto2 = $foto2; }
+    public function setFoto3($foto3){ $this->foto3 = $foto3; }
+    public function setDescricao($descricao){ $this->descricao = $descricao; }
+    public function setEstoque($estoque){ $this->estoque = $estoque; }
 
     public function salvar()
     {
-        $sql = "INSERT INTO produtos
-                (   nomeProd,
+        $sql = "INSERT INTO produtos (
+                    nomeProd,
                     categoria,
                     preco,
                     foto1,
@@ -62,9 +38,7 @@ class Produto{
                     foto3,
                     descricao,
                     estoque
-                )
-                VALUES
-                (
+                ) VALUES (
                     :nomeProd,
                     :categoria,
                     :preco,
@@ -85,11 +59,8 @@ class Produto{
         $stmt->bindValue(':foto3', $this->foto3);
         $stmt->bindValue(':descricao', $this->descricao);
         $stmt->bindValue(':estoque', $this->estoque);
-        $stmt->bindValue(':modelo', $this->modelo);
-        $stmt->bindValue(':tamanho', $this->tamanho);
-        $stmt->bindValue(':cor', $this->cor);
-
 
         return $stmt->execute();
     }
 }
+?>

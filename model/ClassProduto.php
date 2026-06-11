@@ -1,12 +1,13 @@
-<!--ClassProduto.php -->
-
 <?php
 
 class ClassProduto
 {
-    private $idProdutos;
+    private $idProduto;
     private $nomeProd;
     private $categoria;
+    private $modelo;
+    private $tamanho;
+    private $cor;
     private $preco;
     private $foto1;
     private $foto2;
@@ -14,16 +15,18 @@ class ClassProduto
     private $descricao;
     private $estoque;
 
-    public function getIdProdutos()
+    // ID
+    public function getId()
     {
-        return $this->idProdutos;
-    }
-    public function setIdProdutos($idProdutos)
-
-    {
-        $this->idProdutos = $idProdutos;
+        return $this->idProduto;
     }
 
+    public function setId($idProduto)
+    {
+        $this->idProduto = $idProduto;
+    }
+
+    // Nome
     public function getNome()
     {
         return $this->nomeProd;
@@ -34,6 +37,7 @@ class ClassProduto
         $this->nomeProd = $nomeProd;
     }
 
+    // Categoria
     public function getCategoria()
     {
         return $this->categoria;
@@ -44,6 +48,40 @@ class ClassProduto
         $this->categoria = $categoria;
     }
 
+    // Modelo
+    public function getModelo()
+    {
+        return $this->modelo;
+    }
+
+    public function setModelo($modelo)
+    {
+        $this->modelo = $modelo;
+    }
+
+    // Tamanho
+    public function getTamanho()
+    {
+        return $this->tamanho;
+    }
+
+    public function setTamanho($tamanho)
+    {
+        $this->tamanho = $tamanho;
+    }
+
+    // Cor
+    public function getCor()
+    {
+        return $this->cor;
+    }
+
+    public function setCor($cor)
+    {
+        $this->cor = $cor;
+    }
+
+    // Preço
     public function getPreco()
     {
         return $this->preco;
@@ -54,6 +92,7 @@ class ClassProduto
         $this->preco = $preco;
     }
 
+    // Fotos
     public function getFoto1()
     {
         return $this->foto1;
@@ -84,6 +123,7 @@ class ClassProduto
         $this->foto3 = $foto3;
     }
 
+    // Descrição
     public function getDescricao()
     {
         return $this->descricao;
@@ -94,6 +134,7 @@ class ClassProduto
         $this->descricao = $descricao;
     }
 
+    // Estoque
     public function getEstoque()
     {
         return $this->estoque;

@@ -1,29 +1,47 @@
-<!-- processaLogin.php --
 <?php
+session_start();
+
 require_once '../model/ClassUsuario.php';
 require_once '../model/ClassUsuarioDAO.php';
 require_once '../conexao/Conexao.php';
 
-// criando o objeto usuário
 $novoUsuario = new ClassUsuario();
 
-// setando os dados vindos do formulário
-$novoUsuario->setEmail($_POST['email']);
-$novoUsuario->setSenha($_POST['senha']);
+$email = $_POST['email'];
+$senha = md5($_POST['senha']);
+
+$novoUsuario->setEmail($email);
+$novoUsuario->setSenha($senha);
 
 $usuarioDAO = new ClassUsuarioDAO();
-
 $usuario = $usuarioDAO->buscaUsuario($novoUsuario);
 
 if ($usuario) {
+
+    
+    $_SESSION['idUsuarios'] = $usuario['idUsuarios'];
+    $_SESSION['nome'] = $usuario['nome'];
+    $_SESSION['tipo'] = $usuario['tipo'];
+
     echo "
     <script>
         alert('Login realizado com sucesso!');
-        window.location.href = '../view/listarUsuarios.php';
+
+        if ('{$usuario['tipo']}' === 'admin') {
+            window.location.href = '../view/listarUsuarios.php';
+        } else {
+            window.location.href = '../index.php';
+        }
+
     </script>
     ";
-} else {
-    echo "Usuário ou senha inválidos";
-}
 
+} else {
+    echo "
+    <script>
+        alert('Usuário ou senha inválidos');
+        window.location.href = '../view/login.php';
+    </script>
+    ";
+}
 ?>
