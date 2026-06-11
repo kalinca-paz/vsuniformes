@@ -4,11 +4,12 @@ session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassProdutoDAO.php";
 
-if (!isset($_GET['id'])) {
+
+if (!isset($_GET['idProdutos'])) {
     die("Produto não informado.");
 }
 
-$idproduto = $_GET['id'];
+$idproduto = $_GET['idProdutos'];
 
 $produtoDAO = new ClassProdutoDAO();
 $produto = $produtoDAO->buscarProduto($idproduto);
@@ -83,12 +84,21 @@ if (!$produto) {
 
     <input type="hidden"
            name="idproduto"
+<<<<<<< HEAD
+           value="<?php echo $produto['idProdutos']; ?>">
+
+    <label>Nome</label>
+    <input type="text"
+           name="nomeProd"
+           value="<?php echo $produto['nomeProd']; ?>"
+=======
            value="<?php echo $produto['idproduto']; ?>">
 
     <label>Nome</label>
     <input type="text"
            name="nome"
            value="<?php echo $produto['nome']; ?>"
+>>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
            required>
 
     <label>Categoria</label>

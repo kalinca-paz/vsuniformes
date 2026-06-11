@@ -34,8 +34,8 @@ session_start();
       <a href="#">Sobre</a>
       <a href="#">Serviços</a>
         <?php
-            if (isset($_SESSION['nome'])) {
-            echo "Bem-vindo, " . $_SESSION['nome'];
+            if (isset($_SESSION['nomeProd'])) {
+            echo "Bem-vindo, " . $_SESSION['nomeProd'];
             echo "<a href='../view/painelAdmin.php'>Painel Admin</a>";
             echo ' | <a href="controller/logout.php">Sair</a>';
             } else {

@@ -5,7 +5,7 @@
 class ClassProduto
 {
     private $idProdutos;
-    private $nome;
+    private $nomeProd;
     private $categoria;
     private $preco;
     private $foto1;
@@ -14,24 +14,24 @@ class ClassProduto
     private $descricao;
     private $estoque;
 
-    public function getIdproduto()
+    public function getIdProdutos()
     {
         return $this->idProdutos;
     }
+    public function setIdProdutos($idProdutos)
 
-    public function setIdproduto($idProdutos)
     {
         $this->idProdutos = $idProdutos;
     }
 
     public function getNome()
     {
-        return $this->nome;
+        return $this->nomeProd;
     }
 
-    public function setNome($nome)
+    public function setNome($nomeProd)
     {
-        $this->nome = $nome;
+        $this->nomeProd = $nomeProd;
     }
 
     public function getCategoria()

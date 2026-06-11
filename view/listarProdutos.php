@@ -14,7 +14,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Produtos</title>
-    <link rel=stylesheet href="../css/estilo.css">
+    <link rel=stylesheet href="../css/style.css">
+
 
 
     <style>
@@ -94,8 +95,8 @@ session_start();
             <a href="#">Serviços</a>
             <!-- <a href="view/login.php">Login</a> -->
             <?php
-            if (isset($_SESSION['nome'])) {
-                echo "Bem-vindo, " . $_SESSION['nome'];
+            if (isset($_SESSION['nomeProd'])) {
+                echo "Bem-vindo, " . $_SESSION['nomeProd'];
                  echo ' | <a href="../controller/logout.php">Sair</a>';
                 // echo '<a href="../view/login.php">Login</a>';
                
@@ -139,7 +140,7 @@ $produtos = $produtoDAO->listarProdutos();
 
                 <tr>
 
-                    <td><?= $produto['idproduto']; ?></td>
+                    <td><?= $produto['nomeProd']; ?></td>
 
                     <td>
                         <?php if(!empty($produto['foto1'])): ?>
@@ -147,7 +148,9 @@ $produtos = $produtoDAO->listarProdutos();
                         <?php endif; ?>
                     </td>
 
-                    <td><?= $produto['nome']; ?></td>
+
+                    <td><?= $produto['nomeProd']; ?></td>
+
 
                     <td><?= $produto['categoria']; ?></td>
 
@@ -158,11 +161,13 @@ $produtos = $produtoDAO->listarProdutos();
                     <td><?= $produto['estoque']; ?></td>
 
                     <td>
-                            <a href="editarProduto.php?id=<?php echo $produto['idproduto']; ?>">
+
+                            <a href="editarProduto.php?idProdutos=<?php echo $produto['idProdutos']; ?>">
                                 Editar
                             </a>
 
-                            <a href="../controller/excluirProduto.php?id=<?php echo $produto['idproduto']; ?>"
+                            <a href="../controller/excluirProduto.php?=<?php echo $produto['idProdutos']; ?>"
+
                             onclick="return confirm('Deseja realmente excluir este produto?')">
                             Excluir
                             </a>

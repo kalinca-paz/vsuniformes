@@ -6,12 +6,12 @@ require_once "../model/ClassProdutoDAO.php";
 
 $produto = new ClassProduto();
 
-$produto->setIdproduto($_POST['idproduto']);
-$produto->setIdnome($_POST['nome']);
-$produto->setIdCategoria($_POST['categoria']);
-$produto->setIdPreco($_POST['preco']);
-$produto->setIdDescricao($_POST['descricao']);
-$produto->setIdEstoque($_POST['estoque']);
+$produto->setIdprodutos($_POST['idproduto']);
+$produto->setNome($_POST['nome']);
+$produto->setCategoria($_POST['categoria']);
+$produto->setPreco($_POST['preco']);
+$produto->setDescricao($_POST['descricao']);
+$produto->setEstoque($_POST['estoque']);
 
 $diretorio = "../uploads/produtos/";
 

@@ -84,7 +84,11 @@ if ($_POST) {
 <div class="container">
     <h2>Editar Usuário</h2>
     <form method="POST">
+<<<<<<< HEAD
+        <input type="hidden" name="idUsuarios"
+=======
         <input type="hidden" name="id"
+>>>>>>> e6ec54cb21e34494f6cb07045ef965cf6c25c532
         value="<?php echo $usuario['idUsuarios']; ?>">
 
         <label>Nome</label>
