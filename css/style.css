@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET E VARIÁVEIS GERAIS
+   1. CONFIGURAÇÕES GERAIS
    ========================================================================== */
 * {
     margin: 0;
@@ -279,7 +279,63 @@ footer a {
 footer a:hover {
     color: #a78bfa;
 }
+/* ==========================================================================
+   10. CARROSSEL DE IMAGENS (HEADER DA PÁGINA INICIAL)
+   ========================================================================== */
+.carrossel {
+    position: relative; /* Crucial para ancorar os botões absolutos lá dentro */
+    max-width: 500px;   /* Um tamanho excelente para fotos na seção sobre */
+    height: 350px;      /* Define uma altura fixa para padronizar as fotos */
+    margin: 20px auto;  /* Centraliza na página e dá espaçamento */
+    overflow: hidden;   /* Esconde as imagens que estão na fila lateral */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Suaviza o movimento do JS */
+}
+
+.slides img {
+    width: 100%;        /* Força a imagem a ocupar todo o espaço do container */
+    height: 100%;
+    flex-shrink: 0;     /* Impede que o flexbox esmague as imagens */
+    object-fit: cover;  /* Preenche o espaço sem distorcer as fotos dos uniformes */
+}
+
+.btn-slide {
+    position: absolute; /* Faz os botões flutuarem sobre a imagem */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente com precisão */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 40, 85, 0.75); /* Azul escuro com leve transparência */
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5; /* Garante que fique acima das imagens */
+}
+
+.btn-slide:hover {
+    background: rgba(0, 40, 85, 1); /* Fica 100% sólido ao passar o mouse */
+}
+
+.esquerda { 
+    left: 15px; 
+}
+
+.direita { 
+    right: 15px; 
+}
 /* ==========================================================================
    10. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */

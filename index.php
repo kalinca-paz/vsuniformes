@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +12,33 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <title>Início - VS Uniformes</title>
 </head>
+
 <body>
     <header>
-        <a href="view/sobre.php"><img src="img/home.jpg" class="logo" alt="logo da vs uniformes"></a>
+        <a href="view/sobre.php">
+            <img src="img/home.jpg" class="logo" alt="logo da vs uniformes">
+        </a>
         <nav>
             <ul>
                 <li><a href="index.php">Início</a></li>
                 <li><a href="view/sobre.php">Sobre</a></li>
                 <li><a href="view/contatos.php">Contato</a></li>
-                <li><a href="view/portfolio.php">Portfólio</a></li> 
-                
-        <div class="user-area">
-            <?php
-            if (isset($_SESSION['nome'])) {
-                echo "<span>Bem-vindo, " . htmlspecialchars($_SESSION['nome']) . "</span> ";
-                
-                if ($_SESSION['tipo'] == 'admin') {
-                    echo "<li><a href='view/painelAdmin.php'>Painel</a></li>";
-                    echo "<li><a href='controller/logout.php'>Sair</a></li></ul>";
-                }
-            } else {
-                echo "<li><a href='view/login.php'>Login</a></li>
-                </ul>";
-            }
-            ?>
-        </div>
-    </nav>
+                <li><a href="view/portfolio.php">Portfólio</a></li>
+
+                <?php if (isset($_SESSION['nome'])): ?>
+                    <li><span class="welcome-text">Bem-vindo, <?php echo htmlspecialchars($_SESSION['nome']); ?></span></li>
+
+                    <?php if ($_SESSION['tipo'] == 'admin'): ?>
+                        <li><a href="view/painelAdmin.php">Painel</a></li>
+                    <?php endif; ?>
+
+                    <li><a href="controller/logout.php">Sair</a></li>
+
+                <?php else: ?>
+                    <li><a href="view/login.php">Login</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
@@ -45,10 +47,15 @@ session_start();
         <a class="btn-orcamento" href="view/orcamento.php"> Faça seu orçamento </a>
     </section>
 
-    <section class="sobre">
-        <div class="container">
-            <h2>Sobre Nós</h2>
-            <p>Somos uma empresa familiar focada em confecção de uniformes e bordados profissionais e executivos com qualidade para nossos clientes.</p>
+    <section class="portfolio">
+        <div class="carrossel">
+            <div class="slides">
+                <img src="img/Gemini_Generated_Image_es2cbaes2cbaes2c (1).png">
+                <img src="img/Gemini_Generated_Image_fjiorfjiorfjiorf.png">
+                <img src="img/Gemini_Generated_Image_ktkxnpktkxnpktkx.png">
+            </div>
+            <button class="btn-slide esquerda">&#10094;</button>
+            <button class="btn-slide direita">&#10095;</button>
         </div>
     </section>
 
@@ -83,6 +90,7 @@ session_start();
     </section>
 
     <?php include 'view/includes/footer.php'; ?>
-
+    <script src="slide.js"></script>
 </body>
+
 </html>
