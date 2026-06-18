@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS
+   CONFIGURAÇÕES GERAIS
    ========================================================================== */
 * {
     margin: 0;
@@ -18,7 +18,7 @@
 }
 
 /* ==========================================================================
-   2. TIPOGRAFIA E ESTILOS BASE
+   TIPOGRAFIA E ESTILOS BASE
    ========================================================================== */
 body {
     font-family: 'Times New Roman', Times, serif;
@@ -36,7 +36,7 @@ p {
 }
 
 /* ==========================================================================
-   3. ESTRUTURA DE LAYOUT
+   ESTRUTURA DE LAYOUT
    ========================================================================== */
 section {
     padding: 60px 40px;
@@ -58,7 +58,7 @@ section {
 }
 
 /* ==========================================================================
-   4. CABEÇALHO E NAVEGAÇÃO (HEADER/NAV)
+   CABEÇALHO E NAVEGAÇÃO (HEADER/NAV)
    ========================================================================== */
 header {
     background: var(--texto);
@@ -104,7 +104,7 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-   5. BANNER PRINCIPAL (HERO)
+   BANNER PRINCIPAL (HERO)
    ========================================================================== */
 .hero {
     background: linear-gradient(#00000098, #a4a4a437), url('../img/home.png');
@@ -126,161 +126,17 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-   6. COMPONENTES: BOTÕES E CARDS
+   SEÇÃO PORTFOLIO
    ========================================================================== */
-.btn-orcamento {
-    display: inline-block;
-    background-color: #14532d;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-orcamento:hover {
-    background-color: #166534;
-}
-
-.card {
-    flex: 1;
-    min-width: 250px;
-    padding: 20px;
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    background: #f9f9f9;
-    transition: transform 0.3s ease;
-    /* Adicionado para deixar o hover suave */
-}
-
-.card:hover {
-    transform: translateY(-15px);
-}
-
-.cartao {
-    margin: 100px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    /* Fundo do cartão */
-    padding: 30px;
-    border-radius: 15px;
-    /* Bordas arredondadas */
-    max-width: 450px;
-    /* Largura do cartão */
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
-    /* Sombra roxa bem suave */
-    border-left: 6px solid #a78bfa;
-    /* Detalhe em barra lilás na esquerda */
-}
-
-/* Nome e profissão */
-h3 {
-    color: #4c1d95;
-    /* Roxo escuro */
-    margin-top: 0;
-}
-
-/* Linha das tecnologias */
-.tecnologias {
-    color: #7c3aed;
-    /* Lilás vibrante */
-    font-weight: bold;
-}
-
-/* Texto da biografia */
-.texto {
-    color: #4b5563;
-    /* Cinza escuro para leitura confortável */
-    line-height: 1.5;
-    /* Espaço entre as linhas */
-}
-
-/* ==========================================================================
-   7. FORMULÁRIOS E LOGIN
-   ========================================================================== */
-.form {
-    display: grid;
-    place-items: center;
-}
-
-.tituloForm {
-    text-align: center;
-    padding: 20px;
-}
-
-input {
+.portfolio {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
-    border: 1px solid #afafaf;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-input:focus {
-    border-color: #0a192f;
-    outline: none;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-button[type="submit"] {
-    background: #1f4c8f;
-    color: #ffffff;
-}
-
-button[type="button"] {
-    background: #cccccc;
-    color: #ffffff;
+    margin: 20px;
 }
 
 /* ==========================================================================
-   8. MAPA 
-   ========================================================================== */
-.mapa-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-}
-
-.mapa-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* ==========================================================================
-   9. RODAPÉ (FOOTER)
-   ========================================================================== */
-footer {
-    background: #0a192f;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    justify-content: space-around;
-}
-
-footer a {
-    color: #ffffff;
-}
-
-footer a:hover {
-    color: #a78bfa;
-}
-/* ==========================================================================
-   10. CARROSSEL DE IMAGENS (HEADER DA PÁGINA INICIAL)
+   CARROSSEL DE IMAGENS
    ========================================================================== */
 .carrossel {
     position: relative; /* Crucial para ancorar os botões absolutos lá dentro */
@@ -336,37 +192,188 @@ footer a:hover {
 .direita { 
     right: 15px; 
 }
+
+.texto-slide {
+    margin: 20px;
+    display: block;
+}
+
+.texto-slide h1 {
+    font-size: 50px;
+    line-height: 1.1;
+    color: var(--menu-foco);
+}
+
+.texto-slide p {
+    padding-top: 20px;
+}
+
 /* ==========================================================================
-   10. RESPONSIVIDADE (MEDIA QUERIES)
+   COMPONENTES: BOTÕES E CARDS
+   ========================================================================== */
+.btn-orcamento {
+    display: inline-block;
+    background-color: #14532d;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-orcamento:hover {
+    background-color: #166534;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+}
+
+.cartao {
+    margin: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 450px;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    border-left: 6px solid #a78bfa;
+}
+
+h3 {
+    color: #4c1d95;
+    margin-top: 0;
+}
+
+.tecnologias {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.texto {
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS E LOGIN
+   ========================================================================== */
+.form {
+    display: grid;
+    place-items: center;
+}
+
+.tituloForm {
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+input:focus {
+    border-color: #0a192f;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button[type="submit"] {
+    background: #1f4c8f;
+    color: #ffffff;
+}
+
+button[type="button"] {
+    background: #cccccc;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MAPA 
+   ========================================================================== */
+.mapa-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background: #0a192f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #a78bfa;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 768px) {
 
-    /* --- Ajuste do Mapa (que você já tinha) --- */
     .mapa-container {
         aspect-ratio: 1 / 1;
     }
 
-    /* --- NOVO: Ajuste do Cabeçalho e Menu --- */
     header {
         flex-direction: column;
-        /* Empilha o título "VS uniformes" e o Menu */
         padding: 15px 0 0 0;
-        /* Remove os espaços laterais para o menu colar na tela */
     }
 
     header h1 {
         margin-bottom: 15px;
-        /* Dá um respiro entre o título e a barra azul do menu */
     }
 
     nav {
         width: 100%;
-        /* Garante que a barra azul vá de ponta a ponta na tela */
     }
 
     nav ul {
         flex-direction: column;
-        /* Coloca os links (Início, Sobre, etc.) um embaixo do outro */
         width: 100%;
     }
 
@@ -376,7 +383,6 @@ footer a:hover {
 
     nav ul li a {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        /* Cria uma linha clarinha e elegante separando cada botão */
         padding: 15px;
     }
 }

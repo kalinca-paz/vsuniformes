@@ -16,7 +16,7 @@ session_start();
 <body>
     <header>
         <a href="view/sobre.php">
-            <img src="img/home.jpg" class="logo" alt="logo da vs uniformes">
+            <img src="img/home1.png" class="logo" alt="logo da vs uniformes">
         </a>
         <nav>
             <ul>
@@ -48,6 +48,10 @@ session_start();
     </section>
 
     <section class="portfolio">
+        <div class="texto-slide">
+                <h1>Conheça mais sobre nossos trabalhos</h1>
+                <p>Cada peça do nosso portfolio é construida cuidadosamente. Prestamos atenção em cada detalhe para sempre entregarmos o melhor para nossos clientes.</p>
+            </div>
         <div class="carrossel">
             <div class="slides">
                 <img src="img/Gemini_Generated_Image_es2cbaes2cbaes2c (1).png">
