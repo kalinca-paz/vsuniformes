@@ -19,25 +19,63 @@ session_start();
             <img src="img/home1.png" class="logo" alt="logo da vs uniformes">
         </a>
         <nav>
-            <ul>
-                <li><a href="index.php">Início</a></li>
-                <li><a href="view/sobre.php">Sobre</a></li>
-                <li><a href="view/contatos.php">Contato</a></li>
-                <li><a href="view/portfolio.php">Portfólio</a></li>
+        <ul>
 
-                <?php if (isset($_SESSION['nome'])): ?>
-                    <li><span class="welcome-text">Bem-vindo, <?php echo htmlspecialchars($_SESSION['nome']); ?></span></li>
+<?php if (isset($_SESSION['nome'])): ?>
 
-                    <?php if ($_SESSION['tipo'] == 'admin'): ?>
-                        <li><a href="view/painelAdmin.php">Painel</a></li>
-                    <?php endif; ?>
+    <li>
+        <span class="welcome-text">
+            Bem-vindo, <?= htmlspecialchars($_SESSION['nome']); ?>
+        </span>
+    </li>
 
-                    <li><a href="controller/logout.php">Sair</a></li>
+    <li><a href="index.php">Início</a></li>
+    <li><a href="view/sobre.php">Sobre</a></li>
+    <li><a href="view/contatos.php">Contato</a></li>
+    <li><a href="view/portfolio.php">Portfólio</a></li>
 
-                <?php else: ?>
-                    <li><a href="view/login.php">Login</a></li>
-                <?php endif; ?>
-            </ul>
+    <?php if ($_SESSION['tipo'] == 'admin'): ?>
+
+        <li><a href="view/painelAdmin.php">Painel Admin</a></li>
+
+    <?php elseif ($_SESSION['tipo'] == 'usuario'): ?>
+
+        <li><a href="view/listarProdutosCarrinho.php">Comprar</a></li>
+
+        <?php
+        $qtdeCarrinho = 0;
+
+        if (isset($_SESSION['carrinho'])) {
+            foreach ($_SESSION['carrinho'] as $item) {
+                $qtdeCarrinho += $item['quantidade'];
+            }
+        }
+        ?>
+
+        <li>
+            <a href="view/carrinho.php">Carrinho (<?= $qtdeCarrinho; ?>)
+            </a>
+        </li>
+
+    <?php endif; ?>
+
+    <li>
+        <a href="controller/logout.php" class="sair">
+            Sair
+        </a>
+    </li>
+
+<?php else: ?>
+
+    <li><a href="index.php">Início</a></li>
+    <li><a href="view/sobre.php">Sobre</a></li>
+    <li><a href="view/contatos.php">Contato</a></li>
+    <li><a href="view/portfolio.php">Portfólio</a></li>
+    <li><a href="view/login.php">Login</a></li>
+
+<?php endif; ?>
+
+</ul>
         </nav>
     </header>
 

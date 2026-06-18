@@ -4,19 +4,17 @@ require_once '../model/ClassUsuarioDAO.php';
 require_once '../model/ClassUsuario.php';  
 
 session_start();
-
-echo "<h2 style='text-align:center;'>Bem vindo ".$_SESSION['nome']."</h2>";
-
 $usuarioDAO = new ClassUsuarioDAO();
 $novoUsuario = $usuarioDAO->listarUsuarios();
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
     <?php include 'includes/head.php'; ?>
+<head>
+    
     <title>Listar Usuários</title>
-    <?php include 'includes/menu.php'; ?>
+    
 
     <style>
         body {
@@ -89,6 +87,7 @@ $novoUsuario = $usuarioDAO->listarUsuarios();
 </head>
 
 <body>
+    <?php include 'includes/menu.php'; ?>
 <div class="container">
 
     <h2>Listar Usuários</h2>
@@ -127,5 +126,6 @@ $novoUsuario = $usuarioDAO->listarUsuarios();
     </table>
 
 </div>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

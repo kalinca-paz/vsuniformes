@@ -5,7 +5,7 @@
     <title>Sobre mim</title>
 </head>
 <body>
-<?php include 'includes/menu.php'; ?>
+<?php include 'includes/menu.php';?>
 
 <div class="cartao">
         <h3>Kalinca Souza Paz - Desenvolvedora Web</h3>

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Sobre Nós</title>
+    <title>Vs Uniformes - Sobre</title>
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>

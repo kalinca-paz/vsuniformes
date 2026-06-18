@@ -121,5 +121,14 @@ class ClassProdutoDAO
 
         return $stmt->execute();
     }
+    public function buscarProdutoPorId($idproduto){
+        $sql = "SELECT * FROM produtos
+                WHERE idProduto = :idProduto";
+        $conn = Conexao::getInstance();
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':idProduto', $idproduto);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
 }
 ?>

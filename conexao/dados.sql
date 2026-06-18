@@ -4,7 +4,7 @@
 
 INSERT INTO usuarios (nome, email, senha, tipo)
 VALUES
-('kalinca', 'ka@out.com', MD5('1234'), 'Admin'),
+('kalinca', 'kali@out.com', MD5('1234'), 'Admin'),
 ('João Silva', 'joao@vsuniformes.com', MD5('123456'), 'Cliente'),
 ('Maria Souza', 'maria@vsuniformes.com', MD5('123456'), 'Cliente'),
 ('Carlos Lima', 'carlos@vsuniformes.com', MD5('123456'), 'Cliente');

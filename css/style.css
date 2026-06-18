@@ -102,10 +102,19 @@ nav ul li a {
 nav ul li a:hover {
     background-color: var(--menu-foco); /* Muda o fundo para vermelho quando o mouse passa por cima */
 }
-
-.user-area {
-    background-color: #0056B3; /* Define uma cor de fundo específica para a área de usuário (login) */
+.welcome-text{
+    display: block;
+    justify-content: center;
+    padding: 15px 20px;
+    background-color: #2f73c1;
 }
+.sair{
+    background-color: darkred;
+}
+.sair:hover{
+    background-color: red;
+}
+
 
 /* ==========================================================================
    BANNER PRINCIPAL (HERO)

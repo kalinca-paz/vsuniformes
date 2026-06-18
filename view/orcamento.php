@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include 'includes/head.php';?>
-    <title>Orçamentos</title>
+    <title>Vs Uniformes - Orçamentos</title>
 </head>
 <body>
     <?php include 'includes/menu.php';?>
