@@ -49,9 +49,9 @@ session_start();
 
     <section class="portfolio">
         <div class="texto-slide">
-                <h1>Conheça mais sobre nossos trabalhos</h1>
-                <p>Cada peça do nosso portfolio é construida cuidadosamente. Prestamos atenção em cada detalhe para sempre entregarmos o melhor para nossos clientes.</p>
-            </div>
+            <h1>Nosso Trabalho</h1>
+            <p>Cada uniforme do nosso portfólio é construído com dedicação e precisão. Cuidamos de cada etapa da produção para garantir que sua equipe vista excelência, conforto e durabilidade.</p>
+        </div>
         <div class="carrossel">
             <div class="slides">
                 <img src="img/Gemini_Generated_Image_es2cbaes2cbaes2c (1).png">
@@ -65,21 +65,21 @@ session_start();
 
     <section class="servicos">
         <div class="container">
-            <h2>Serviços</h2>
+            <h2>Nossos Serviços</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Bordados</h3>
-                    <p>Personalização de alta qualidade para sua marca.</p>
+                    <h3>Bordados Computadorizados</h3>
+                    <p>Personalização de alta precisão com fios resistentes, garantindo a identidade da sua marca em destaque e com alta durabilidade.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Profissionais</h3>
-                    <p>Uniformes operacionais confortáveis e resistentes.</p>
+                    <h3>Uniformes Operacionais</h3>
+                    <p>Linha profissional desenvolvida com tecidos reforçados, oferecendo máximo conforto, segurança e resistência para o dia a dia.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Executivos</h3>
-                    <p>Linha social fina para escritórios e atendimento.</p>
+                    <h3>Linha Executiva</h3>
+                    <p>Camisaria e alfaiataria social fina com caimento impecável, ideal para transmitir elegância e credibilidade no ambiente corporativo.</p>
                 </div>
             </div>
         </div>
@@ -88,8 +88,23 @@ session_start();
     <section class="contato">
         <div class="container">
             <h2>Contato</h2>
-            <p>Email: u.vsuniformes@gmail.com</p>
-            <p>Telefone: (61) 9 9545-5248</p>
+            
+            <div class="grid-contato">
+                <div class="info-contato">
+                    <div class="info-item">
+                        <h4>E-mail Comercial</h4>
+                        <p>u.vsuniformes@gmail.com</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4>Telefone / WhatsApp</h4>
+                        <p>(61) 9 9545-5248</p>
+                    </div>
+                </div>
+
+                <div class="mapa-container">
+                     </div>
+            </div>
         </div>
     </section>
 

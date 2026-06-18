@@ -1,388 +1,506 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS
+   CONFIGURAÇÕES GERAIS E PALETA DE CORES
    ========================================================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;             /* Remove as margens padrão do navegador */
+    padding: 0;            /* Remove o espaçamento interno padrão do navegador */
+    box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total do elemento */
 }
 
 :root {
-    --menu-fundo: #0056B3;
-    --menu-foco: #E63946;
-    --texto: #1B263B;
-    --borda: #9cb5da;
-    --texto-suave: #778DA9;
-    --titulo: #002855;
-    --fundo: #F6F4F3;
+    --menu-fundo: #0056B3;   /* Azul intermediário para o fundo do menu */
+    --menu-foco: #E63946;    /* Vermelho vibrante para o efeito hover nos links */
+    --texto: #1B263B;        /* Azul escuro acinzentado para leitura de textos longos */
+    --borda: #9cb5da;        /* Azul claro pastel usado em linhas divisórias e bordas */
+    --texto-suave: #778DA9;  /* Azul acinzentado claro para títulos menores e subtítulos */
+    --titulo: #002855;       /* Azul marinho bem escuro para os títulos principais (h1, h2) */
+    --fundo: #F6F4F3;        /* Off-white (cinza quase branco) para o fundo geral do site */
 }
 
 /* ==========================================================================
    TIPOGRAFIA E ESTILOS BASE
    ========================================================================== */
 body {
-    font-family: 'Times New Roman', Times, serif;
-    line-height: 1.6;
-    color: var(--texto);
-    background-color: var(--fundo);
+    font-family: 'Times New Roman', Times, serif; /* Define a fonte clássica com serifa para o site */
+    line-height: 1.6;                             /* Define o espaçamento entre as linhas de texto */
+    color: var(--texto);                          /* Aplica a cor padrão de texto definida nas variáveis */
+    background-color: var(--fundo);               /* Aplica a cor de fundo padrão na página inteira */
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none; /* Remove o sublinhado padrão de todos os links */
 }
 
 p {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Cria um espaço abaixo de cada parágrafo para separar blocos de texto */
 }
 
 /* ==========================================================================
-   ESTRUTURA DE LAYOUT
+   ESTRUTURA DE LAYOUT GLOBAL
    ========================================================================== */
 section {
-    padding: 60px 40px;
+    padding: 60px 40px; /* Dá um grande espaçamento interno (cima/baixo e lados) em cada seção do site */
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
+    max-width: 1100px; /* Limita a largura máxima do conteúdo para não espalhar em telas gigantes */
+    margin: auto;      /* Centraliza o bloco do container na horizontal */
+    padding: 0 20px;   /* Cria um recuo de segurança nas laterais em telas menores */
 }
 
 .container h2 {
-    color: #476694;
+    color: var(--titulo);   /* Aplica o azul marinho escuro nos títulos h2 */
+    font-size: 32px;        /* Define o tamanho da fonte do h2 */
+    margin-bottom: 40px;    /* Empurra o conteúdo debaixo do título para baixo */
+    position: relative;     /* Permite posicionar elementos filhos com "absolute" em relação a ele */
 }
 
 .grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex;     /* Ativa o modelo Flexbox para alinhar os elementos filhos de lado */
+    gap: 30px;         /* Define a distância de separação fixa entre os elementos da grid */
+    flex-wrap: wrap;   /* Permite que os elementos pulem de linha se não couberem na mesma fileira */
 }
 
 /* ==========================================================================
-   CABEÇALHO E NAVEGAÇÃO (HEADER/NAV)
+   CABEÇALHO AND NAVEGAÇÃO (HEADER / NAV)
    ========================================================================== */
 header {
-    background: var(--texto);
-    padding: 0px 30px;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav {
-    background-color: var(--menu-fundo);
-    overflow: hidden;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: var(--menu-foco);
-}
-
-.user-area {
-    background-color: #0056B3;
+    background: var(--texto);       /* Define o fundo do topo com o tom escuro azul acinzentado */
+    padding: 0px 30px;              /* Espaçamento interno lateral de 30px nas bordas do cabeçalho */
+    color: #ffffff;                 /* Deixa as letras de textos soltos no cabeçalho brancas */
+    display: flex;                  /* Coloca a Logo e o Menu um ao lado do outro */
+    justify-content: space-between; /* Empurra a logo para a extrema esquerda e o menu para a direita */
 }
 
 .logo {
-    width: 200px;
-    padding: 10px;
-    display: block;
+    width: 200px;    /* Fixa a largura máxima da imagem da logo */
+    padding: 10px;   /* Margem interna para a logo não encostar nas bordas do cabeçalho */
+    display: block;  /* Remove espaçamentos fantasmas debaixo da imagem */
+}
+
+nav {
+    background-color: var(--menu-fundo); /* Define a cor de fundo azul do menu de navegação */
+    overflow: hidden;                    /* Garante que nada de dentro do nav escape suas bordas */
+}
+
+nav ul {
+    list-style-type: none;  /* Remove as bolinhas decorativas da lista do menu */
+    margin: 0;              /* Zera as margens da lista */
+    padding: 0;             /* Zera o espaçamento interno da lista */
+    display: flex;          /* Alinha os itens do menu (<li>) horizontalmente */
+    justify-content: center;/* Centraliza os botões do menu dentro do espaço disponível */
+}
+
+nav ul li a {
+    display: block;                  /* Faz o link ocupar toda a área do botão, facilitando o clique */
+    color: white;                    /* Texto do link em branco */
+    text-align: center;              /* Centraliza o texto dentro do botão */
+    padding: 15px 20px;              /* Define a altura e largura interna de cada botão do menu */
+    transition: background-color 0.3s ease; /* Suaviza a troca de cor ao passar o mouse */
+}
+
+nav ul li a:hover {
+    background-color: var(--menu-foco); /* Muda o fundo para vermelho quando o mouse passa por cima */
+}
+
+.user-area {
+    background-color: #0056B3; /* Define uma cor de fundo específica para a área de usuário (login) */
 }
 
 /* ==========================================================================
    BANNER PRINCIPAL (HERO)
    ========================================================================== */
 .hero {
+    /* Aplica uma camada escura transparente por cima da imagem de fundo para dar leitura ao texto */
     background: linear-gradient(#00000098, #a4a4a437), url('../img/home.png');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    text-align: center;
-    padding: 100px 20px;
+    background-size: cover;     /* Estica a imagem para preencher todo o espaço sem distorcer */
+    background-position: center;/* Garante que o centro da imagem fique sempre visível */
+    color: #ffffff;             /* Letras brancas para contrastar com o fundo escuro */
+    text-align: center;         /* Centraliza todos os textos do banner */
+    padding: 100px 20px;        /* Altura interna generosa para dar destaque ao banner principal */
 }
 
 .hero h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 40px;     /* Tamanho gigante para a frase principal de impacto */
+    margin-bottom: 20px; /* Afasta o título do parágrafo abaixo */
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 18px;     /* Texto de apoio levemente maior que o comum */
+    margin-bottom: 20px; /* Dá espaço caso haja um botão abaixo dele */
 }
 
 /* ==========================================================================
-   SEÇÃO PORTFOLIO
+   SEÇÃO SEVIÇOS (GRID DE CARDS)
    ========================================================================== */
-.portfolio {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 20px;
-}
-
-/* ==========================================================================
-   CARROSSEL DE IMAGENS
-   ========================================================================== */
-.carrossel {
-    position: relative; /* Crucial para ancorar os botões absolutos lá dentro */
-    max-width: 500px;   /* Um tamanho excelente para fotos na seção sobre */
-    height: 350px;      /* Define uma altura fixa para padronizar as fotos */
-    margin: 20px auto;  /* Centraliza na página e dá espaçamento */
-    overflow: hidden;   /* Esconde as imagens que estão na fila lateral */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.slides {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out; /* Suaviza o movimento do JS */
-}
-
-.slides img {
-    width: 100%;        /* Força a imagem a ocupar todo o espaço do container */
-    height: 100%;
-    flex-shrink: 0;     /* Impede que o flexbox esmague as imagens */
-    object-fit: cover;  /* Preenche o espaço sem distorcer as fotos dos uniformes */
-}
-
-.btn-slide {
-    position: absolute; /* Faz os botões flutuarem sobre a imagem */
-    top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente com precisão */
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0, 40, 85, 0.75); /* Azul escuro com leve transparência */
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5; /* Garante que fique acima das imagens */
-}
-
-.btn-slide:hover {
-    background: rgba(0, 40, 85, 1); /* Fica 100% sólido ao passar o mouse */
-}
-
-.esquerda { 
-    left: 15px; 
-}
-
-.direita { 
-    right: 15px; 
-}
-
-.texto-slide {
-    margin: 20px;
-    display: block;
-}
-
-.texto-slide h1 {
-    font-size: 50px;
-    line-height: 1.1;
-    color: var(--menu-foco);
-}
-
-.texto-slide p {
-    padding-top: 20px;
-}
-
-/* ==========================================================================
-   COMPONENTES: BOTÕES E CARDS
-   ========================================================================== */
-.btn-orcamento {
-    display: inline-block;
-    background-color: #14532d;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-orcamento:hover {
-    background-color: #166534;
-}
-
 .card {
-    flex: 1;
-    min-width: 250px;
-    padding: 20px;
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    background: #f9f9f9;
-    transition: transform 0.3s ease;
+    flex: 1;             /* Faz o card esticar igualmente para ocupar o espaço irmão na mesma linha */
+    min-width: 280px;    /* Define que o card não pode esmagar menos que 280px de largura */
+    padding: 30px;       /* Espaço interno generoso para afastar os textos das bordas do card */
+    border: 1px solid var(--borda); /* Aplica a linha de contorno azul pastel */
+    border-radius: 12px; /* Arredonda os cantos do card de forma moderna */
+    background: #ffffff; /* Fundo totalmente branco para o card se destacar do fundo do site */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra cinza bem clarinha de profundidade */
+    /* Cria uma animação suave de movimento e sombra combinando transições */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-10px); /* Faz o card flutuar para cima 10px ao passar o mouse */
+    box-shadow: 0 12px 24px rgba(0, 56, 179, 0.15); /* Aumenta a sombra e aplica um leve tom azul da marca */
+}
+
+.card h3 {
+    font-size: 22px;     /* Tamanho do título interno do serviço */
+    margin-bottom: 15px; /* Afasta o título do texto descritivo */
+    color: var(--titulo);/* Usa o azul marinho escuro no título */
+}
+
+.card p {
+    font-size: 15px;     /* Texto descritivo confortável para leitura rápida */
+    color: var(--texto); /* Cor padrão escura */
+    line-height: 1.6;    /* Altura de linha ajustada para melhor legibilidade */
+    margin-bottom: 0;    /* Remove a margem inferior para o texto assentar perfeitamente */
+}
+
+/* ==========================================================================
+   SEÇÃO PORTFÓLIO E CARROSSEL
+   ========================================================================== */
+.portfolio {
+    display: flex;                  /* Coloca a caixa de texto e o carrossel lado a lado */
+    justify-content: space-between; /* Empurra o texto para a esquerda e o carrossel para a direita */
+    align-items: center;            /* Alinha os dois verticalmente pelo meio */
+    gap: 40px;                      /* Impede de qualquer forma que eles se encostem */
+    max-width: 1200px;              /* Largura máxima um pouco maior para o portfólio expandir bem */
+    margin: 40px auto;              /* Centraliza o bloco na tela e dá margem acima/abaixo */
+    padding: 20px;                  /* Margem interna de segurança */
+}
+
+.texto-slide {
+    max-width: 600px;       /* Restringe o texto para não ficar comprido demais e difícil de ler */
+    margin: 20px 0;         /* Espaço acima e abaixo da caixa de texto */
+    display: flex;          /* Ativa flexbox interno */
+    flex-direction: column; /* Organiza os itens (h1, p) verticalmente */
+    justify-content: center;/* Alinha o conteúdo verticalmente */
+}
+
+.texto-slide h1 {
+    font-size: 42px;        /* Título de destaque grande */
+    line-height: 1.2;       /* Linhas mais próximas por ser um título de fonte grande */
+    color: var(--titulo);   /* Azul escuro */
+    font-weight: 700;       /* Deixa o título em negrito pesado */
+    position: relative;     /* Necessário para ancorar a barra decorativa debaixo dele */
+    padding-bottom: 15px;   /* Abre espaço para a barra decorativa não tocar as letras */
+    margin-bottom: 20px;    /* Afasta o título do parágrafo explicativo */
+}
+
+/* Cria a barrinha decorativa azul embaixo do h1 do portfólio */
+.texto-slide h1::after {
+    content: '';                     /* Obrigatório para renderizar elementos falsos (pseudo-elements) */
+    position: absolute;              /* Desvincula o fluxo do texto e flutua o elemento */
+    bottom: 0;                       /* Alinha na base do h1 */
+    left: 0;                         /* Alinha na extrema esquerda */
+    width: 60px;                     /* Comprimento horizontal da barrinha */
+    height: 4px;                     /* Espessura vertical da barrinha */
+    background-color: var(--menu-fundo); /* Aplica o azul intermediário da marca */
+    border-radius: 2px;              /* Arredonda as pontas da barra decorativa */
+}
+
+.texto-slide p {
+    font-size: 18px;       /* Letra descritiva elegante e bem legível */
+    color: var(--texto);   /* Tom escuro padrão */
+    line-height: 1.7;      /* Texto levemente mais espaçado para passar refinamento */
+    margin: 0;             /* Zera as margens externas */
+    text-align: justify;   /* Alinha o texto perfeitamente nos blocos esquerdo e direito */
+}
+
+/* Estrutura do Caixa do Carrossel */
+.carrossel {
+    position: relative;    /* Permite que as setas flutuem e fiquem presas dentro dele */
+    max-width: 500px;      /* Largura ideal para a caixinha de exibição de imagens */
+    height: 350px;         /* Mantém todas as fotos padronizadas nessa altura fixa */
+    margin: 20px auto;     /* Espaçamento e centralização automática */
+    overflow: hidden;      /* Esconde as imagens que estão na fila esperando o slide passar */
+    border-radius: 10px;   /* Bordas arredondadas na caixinha de fotos */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais marcada para destacar as fotos */
+}
+
+/* Fita comprida de imagens que se move horizontalmente via JS */
+.slides {
+    display: flex;         /* Coloca as fotos coladas uma na outra horizontalmente */
+    width: 100%;           /* Ocupa a largura total da caixa mãe */
+    height: 100%;          /* Ocupa a altura total da caixa mãe */
+    transition: transform 0.5s ease-in-out; /* Suaviza o movimento de deslizar das fotos */
+}
+
+.slides img {
+    width: 100%;           /* Garante que cada foto ocupe exatamente 100% da largura do carrossel */
+    height: 100%;          /* Garante o preenchimento de altura total */
+    flex-shrink: 0;        /* Impede o flexbox de esmagar as imagens para tentar fazê-las caber juntas */
+    object-fit: cover;     /* Corta e enquadra as fotos sem esticá-las ou distorcê-las */
+}
+
+/* Botões de passar slide (Setas) */
+.btn-slide {
+    position: absolute;    /* Flutua o botão por cima da imagem */
+    top: 50%;              /* Joga o botão para o meio da altura do carrossel */
+    transform: translateY(-50%); /* Ajuste fino perfeito para centralizar na vertical */
+    width: 40px;           /* Largura do botão circular */
+    height: 40px;          /* Altura do botão circular */
+    border-radius: 50%;    /* Transforma o quadrado em círculo perfeito */
+    border: none;          /* Remove as bordas feias padrões de botões */
+    background: rgba(0, 40, 85, 0.75); /* Fundo azul escuro com transparência elegante */
+    color: white;          /* Cor da seta branca */
+    font-size: 20px;       /* Tamanho da seta interna */
+    cursor: pointer;       /* Transforma a seta do mouse em mãozinha de clique */
+    transition: background-color 0.2s ease; /* Suaviza a mudança de cor do hover */
+    display: flex;         /* Ativa o flexbox interno */
+    align-items: center;    /* Centraliza a seta na vertical dentro do círculo */
+    justify-content: center;/* Centraliza a seta na horizontal dentro do círculo */
+    z-index: 5;            /* Garante que o botão fique na camada acima das fotos */
+}
+
+.btn-slide:hover {
+    background: rgba(0, 40, 85, 1); /* Remove a transparência do botão quando passa o mouse */
+}
+
+.esquerda { left: 15px; }  /* Cola a seta da esquerda a 15px de distância da borda esquerda */
+.direita { right: 15px; }   /* Cola a seta da direita a 15px de distância da borda direita */
+
+/* ==========================================================================
+   COMPONENTES ISOLADOS (BOTÕES EXTRA, CARTÕES E AFILIADOS)
+   ========================================================================== */
+.btn-orcamento {
+    display: inline-block;          /* Permite aplicar padding e margem sem quebrar o fluxo da linha */
+    background-color: #14532d;      /* Fundo verde escuro (passa ideia de segurança e dinheiro/orçamento) */
+    color: #ffffff;                 /* Letras brancas */
+    padding: 12px 24px;             /* Tamanho interno do botão (altura x largura) */
+    border-radius: 5px;             /* Cantos sutilmente arredondados */
+    font-size: 16px;                /* Tamanho padrão confortável para botões */
+    transition: background-color 0.3s ease; /* Transição suave na cor do botão no hover */
+    cursor: pointer;                /* Ícone de clique no mouse */
+}
+
+.btn-orcamento:hover {
+    background-color: #166534;      /* Tom de verde levemente mais claro ao passar o mouse */
 }
 
 .cartao {
-    margin: 100px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 450px;
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
-    border-left: 6px solid #a78bfa;
+    margin: 100px auto;             /* Centraliza o cartão e dá um grande espaço acima/abaixo dele */
+    background-color: white;        /* Fundo branco */
+    padding: 30px;                  /* Espaçamento interno em todas as direções do cartão */
+    border-radius: 15px;            /* Cantos bem arredondados e simpáticos */
+    max-width: 450px;               /* Largura restrita para manter o formato de cartão de visitas */
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15); /* Sombra roxa bem clarinha e flutuante */
+    border-left: 6px solid #a78bfa; /* Barra decorativa lilás na lateral esquerda do cartão */
 }
 
 h3 {
-    color: #4c1d95;
-    margin-top: 0;
+    color: #4c1d95;                 /* Cor roxo escuro para os títulos h3 desse bloco */
+    margin-top: 0;                  /* Remove qualquer margem acima dele */
 }
 
 .tecnologias {
-    color: #7c3aed;
-    font-weight: bold;
+    color: #7c3aed;                 /* Letras em tom lilás vivo */
+    font-weight: bold;              /* Destaca as palavras em negrito */
 }
 
 .texto {
-    color: #4b5563;
-    line-height: 1.5;
+    color: #4b5563;                 /* Cinza grafite intermediário para leitura amigável */
+    line-height: 1.5;               /* Altura de linha ajustada */
 }
 
 /* ==========================================================================
-   FORMULÁRIOS E LOGIN
+   FORMULÁRIOS E TELAS DE LOGIN
    ========================================================================== */
 .form {
-    display: grid;
-    place-items: center;
+    display: grid;       /* Ativa o modelo grid */
+    place-items: center; /* Centraliza o formulário de forma absoluta na vertical e horizontal */
 }
 
 .tituloForm {
-    text-align: center;
-    padding: 20px;
+    text-align: center;  /* Centraliza o texto do título do form */
+    padding: 20px;       /* Espaço interno ao redor do título */
 }
 
 input {
-    padding: 10px;
-    border: 1px solid #afafaf;
-    border-radius: 5px;
-    margin-top: 5px;
+    padding: 10px;       /* Espaço confortável para digitar dentro do campo */
+    border: 1px solid #afafaf; /* Linha de contorno cinza suave */
+    border-radius: 5px;  /* Cantos do input levemente suavizados */
+    margin-top: 5px;     /* Afasta o input do elemento de cima */
 }
 
 input:focus {
-    border-color: #0a192f;
-    outline: none;
+    border-color: #0a192f; /* Troca a borda por um azul bem escuro quando o usuário clica para digitar */
+    outline: none;         /* Remove aquela borda preta padrão feia que os navegadores colocam */
 }
 
 button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px;       /* Tamanho interno padrão para os botões do formulário */
+    border: none;        /* Elimina as bordas nativas */
+    border-radius: 5px;  /* Cantos suavizados */
+    cursor: pointer;     /* Cursor de clique ativo */
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 0.8;        /* Dá uma leve sumidinha sutil no botão para indicar que o mouse está em cima */
 }
 
 button[type="submit"] {
-    background: #1f4c8f;
-    color: #ffffff;
+    background: #1f4c8f; /* Botão de envio (principal) ganha um fundo azul focado */
+    color: #ffffff;      /* Letras brancas */
 }
 
 button[type="button"] {
-    background: #cccccc;
-    color: #ffffff;
+    background: #cccccc; /* Botão secundário (como cancelar) ganha cor cinza neutra */
+    color: #ffffff;      /* Letras brancas */
 }
 
 /* ==========================================================================
-   MAPA 
+   SEÇÃO CONTATO E INTEGRAÇÃO COM MAPAS
    ========================================================================== */
+.contato .grid-contato {
+    display: flex;                  /* Coloca a caixa de texto informativa e o mapa lado a lado */
+    justify-content: space-between; /* Afasta ao máximo as informações do mapa */
+    gap: 40px;                      /* Espaçamento em branco de segurança entre os dois blocos */
+    background: #ffffff;            /* Caixa ganha fundo branco para se destacar */
+    padding: 40px;                  /* Espaçamento interno generoso */
+    border-radius: 12px;            /* Bordas suavizadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra leve decorativa */
+    border-right: 6px solid var(--menu-fundo);  /* Barra decorativa azul na ponta direita da caixa */
+}
+
+.info-contato {
+    max-width: 450px; /* Limita a largura do bloco de textos informativos */
+}
+
+.info-item {
+    margin-bottom: 25px; /* Separa cada bloco de contato (como espaço entre o email e o telefone) */
+}
+
+.info-item h4 {
+    font-size: 14px;                /* Texto pequeno e discreto para a etiqueta (label) */
+    text-transform: uppercase;      /* Transforma todas as letras em MAIÚSCULAS */
+    letter-spacing: 1px;            /* Afasta levemente as letras uma das outras para estilo moderno */
+    color: var(--texto-suave);      /* Aplica a cor cinza-azulada clara */
+    margin-bottom: 5px;             /* Cola o h4 perto do dado informativo abaixo */
+}
+
+.info-item p {
+    font-size: 18px;                /* Dado destacado em tamanho maior */
+    font-weight: bold;              /* Texto em negrito forte */
+    color: var(--titulo);           /* Aplica o azul escuro da marca */
+    margin: 0;                      /* Remove as margens sobressalentes */
+}
+
 .mapa-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    width: 100%;                    /* Faz a caixa do mapa preencher o espaço total disponível */
+    aspect-ratio: 16 / 9;           /* Mantém a proporção de tela de cinema (widescreen) perfeita */
+    border-radius: 8px;             /* Arredonda os cantos da moldura do mapa */
+    overflow: hidden;               /* Corta as pontas quadradas do mapa do Google para obedecer o border-radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no mapa */
+    margin: 0 auto;                 /* Centralização */
 }
 
 .mapa-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+    width: 100%;                    /* Obriga o mapa do Google a ocupar toda a largura da caixinha */
+    height: 100%;                   /* Obriga o mapa do Google a ocupar toda a altura da caixinha */
+    border: none;                   /* Tira contornos feios que o Google injeta por padrão */
 }
 
 /* ==========================================================================
    RODAPÉ (FOOTER)
    ========================================================================== */
 footer {
-    background: #0a192f;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    justify-content: space-around;
+    background: #0a192f;            /* Fundo azul marinho escuro quase preto */
+    color: white;                   /* Letras brancas */
+    text-align: center;             /* Centraliza os créditos */
+    padding: 20px;                  /* Margem interna para o rodapé respirar */
+    justify-content: space-around;  /* Distribui itens internos de maneira equilibrada */
 }
 
 footer a {
-    color: #ffffff;
+    color: #ffffff;                 /* Links do rodapé em branco */
 }
 
 footer a:hover {
-    color: #a78bfa;
+    color: #a78bfa;                 /* Links mudam para lilás claro ao passar o mouse */
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERIES)
+   REGRAS DE RESPONSIVIDADE (MEDIA QUERIES - CELULARES ATÉ 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-
-    .mapa-container {
-        aspect-ratio: 1 / 1;
+    
+    .container h2 {
+        text-align: center;   /* Centraliza todos os títulos de seções no celular */
+        margin-bottom: 30px;  /* Diminui um pouco o espaço abaixo deles no celular */
     }
 
     header {
-        flex-direction: column;
-        padding: 15px 0 0 0;
+        flex-direction: column; /* Empilha a logo em cima e o menu embaixo no celular */
+        padding: 15px 0 0 0;    /* Zera os paddings laterais para o menu grudar nas pontas da tela */
     }
 
     header h1 {
-        margin-bottom: 15px;
+        margin-bottom: 15px;    /* Afasta o título da loja do menu azul abaixo */
     }
 
     nav {
-        width: 100%;
+        width: 100%;            /* Força a barra do menu a ir de ponta a ponta na tela do celular */
     }
 
     nav ul {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: column; /* Faz os links (Início, Sobre...) ficarem um embaixo do outro */
+        width: 100%;            /* Ocupa a largura total */
     }
 
     nav ul li {
-        width: 100%;
+        width: 100%;            /* Cada linha do link ocupa toda a largura da tela */
     }
 
     nav ul li a {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha fina divisória entre cada botão */
+        padding: 15px;          /* Aumenta a área de toque do dedo no celular */
+    }
+
+    .portfolio {
+        flex-direction: column; /* Empilha o texto descritivo e as fotos no celular */
+        margin: 20px auto;      /* Diminui as margens externas */
+        gap: 20px;              /* Diminui o espaçamento de separação */
+    }
+
+    .texto-slide {
+        max-width: 100%;        /* Libera a caixa de texto para usar toda a largura disponível */
+        text-align: center;     /* Centraliza o texto descritivo no celular */
+        margin: 10px 0 30px 0;  /* Abre espaço abaixo dele para empurrar o carrossel */
+    }
+    
+    .texto-slide h1 {
+        font-size: 32px;        /* Reduz o tamanho do título para não quebrar feio em telas finas */
+    }
+
+    .texto-slide h1::after {
+        left: 50%;                     /* Move a ponta esquerda da barra decorativa para o centro */
+        transform: translateX(-50%);   /* Centraliza perfeitamente a barrinha azul debaixo do título */
+    }
+
+    .texto-slide p {
+        font-size: 16px;        /* Reduz o tamanho da letra para telas pequenas */
+        text-align: center;     /* Modifica o alinhamento de "justify" para centralizado, combinando mais com mobile */
+    }
+
+    .contato .grid-contato {
+        flex-direction: column; /* Empilha as informações de texto acima e o mapa abaixo */
+        padding: 30px 20px;     /* Reduz o espaçamento interno para caber em telas estreitas */
+        text-align: center;     /* Centraliza as informações textuais de contato */
+    }
+    
+    .info-contato {
+        max-width: 100%;        /* Libera as informações de contato para usar toda a largura da tela */
+    }
+
+    .mapa-container {
+        aspect-ratio: 1 / 1;    /* Transforma o mapa em um quadrado perfeito (1:1), formato ideal para celulares */
     }
 }
