@@ -1,6 +1,6 @@
 <!-- atualizarProduto.php -->
 <?php
-
+session_start();
 require_once "../model/ClassProduto.php";
 require_once "../model/ClassProdutoDAO.php";
 

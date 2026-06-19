@@ -26,19 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $_SESSION['mensagem'] =
                 "Item da venda cadastrado com sucesso!";
-
         } else {
 
             $_SESSION['mensagem'] =
                 "Não foi possível cadastrar o item.";
-
         }
-
     } catch (Exception $e) {
 
         $_SESSION['mensagem'] =
             "Erro: " . $e->getMessage();
-
     }
 
     header("Location: ../view/cadastrarProdutos.php");

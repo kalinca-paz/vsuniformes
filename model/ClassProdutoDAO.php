@@ -107,7 +107,6 @@ class ClassProdutoDAO
         $stmt->bindValue(":descricao", $produto->getDescricao());
         $stmt->bindValue(":estoque", $produto->getEstoque());
         
-        exit;
         return $stmt->execute();
     }
 

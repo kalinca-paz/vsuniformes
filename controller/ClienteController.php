@@ -67,7 +67,6 @@ switch($acao){
 
     $id = $_GET['idCliente'] ?? null;
     $cliente->excluir($id);
-        $cliente->excluir($id);
 
         echo "<script>
             alert('Cliente excluído com sucesso!');

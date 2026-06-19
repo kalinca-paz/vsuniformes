@@ -11,30 +11,13 @@ session_start();
 <body>
 <?php include 'includes/menu.php'; ?>
 
-   <header>
-    <h1>MinhaEmpresa2</h1>
-    <nav>
-      <a href="../index.php">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Serviços</a>
-        <?php
-            if (isset($_SESSION['nome'])) {
-            echo "Bem-vindo, " . $_SESSION['nome'];
-            echo "<a href='../view/painelAdmin.php'>Painel Admin</a>";
-            echo ' | <a href="controller/logout.php">Sair</a>';
-            } else {
-            echo '<a href="../view/login.php">Login</a>';
-            }
-        ?>
-    </nav>
-  </header>
 
 <h2>Cadastro de Cliente</h2>
 
 <form action="../controller/ClienteController.php" method="post">
     <input type="hidden" name="acao" value="cadastrar">
     Nome:<br>
-    <input type="text" name="nome" required><br><br>
+    <input type="text" name="nomeCliente" required><br><br>
     Endereço:<br>
     <input type="text" name="endereco" required><br><br>
     CEP:<br>

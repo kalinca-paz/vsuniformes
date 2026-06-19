@@ -18,36 +18,20 @@ if (!$dados) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/estilo.css">
+<?php include 'includes/head.php';?>
 <title>Editar Cliente</title>
+
 </head>
-
 <body>
+<?php include 'includes/menu.php';?>
 
-<header>
-    <h1>MinhaEmpresa</h1>
-    <nav>
-        <a href="../index.php">Início</a>
-
-        <?php
-        if (isset($_SESSION['nome'])) {
-            echo "Bem-vindo, " . $_SESSION['nome'];
-            echo ' | <a href="../controller/logout.php">Sair</a>';
-        } else {
-            echo '<a href="../view/login.php">Login</a>';
-        }
-        ?>
-    </nav>
-</header>
 
 <h2>Editar Cliente</h2>
 
 <form action="../controller/ClienteController.php" method="post">
 
     <input type="hidden" name="acao" value="editar">
-    <input type="hidden" name="idCliente" value="<?= $dados['idCliente'] ?>">
+    <input type="hidden" name="nomeCliente" value="<?= $dados['nomeCliente'] ?>">
 
     Nome:<br>
     <input type="text" name="nomeCliente"
@@ -113,6 +97,7 @@ if (!$dados) {
     <button type="submit">Atualizar</button>
 
 </form>
+<?php include 'includes/footer.php'?>
 
 </body>
 </html>
