@@ -66,8 +66,6 @@ class Produto {
         $stmt->bindValue(':nomeProd', $this->nome);
         $stmt->bindValue(':categoria', $this->categoria);
         $stmt->bindValue(':modelo', $this->modelo);
-        $stmt->bindValue(':categoria', $this->categoria);
-        $stmt->bindValue(':modelo', $this->modelo);
         $stmt->bindValue(':tamanho', $this->tamanho);
         $stmt->bindValue(':cor', $this->cor);
         $stmt->bindValue(':descricao', $this->descricao);

@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $novoUsuario->setId($_GET['id']);
     $usuarioDAO = new ClassUsuarioDAO();
 
-    if ($usuarioDAO->excluirUsuarios($novoUsuario)) {
+    if ($usuarioDAO->excluirUsuarios($novoUsuario->getId())) {
         header('Location: ../view/listarUsuarios.php');
         exit;
     } else {

@@ -4,11 +4,11 @@ session_start();
 
 require_once("../model/ProdutoVenda.php");
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (empty($_POST['produtos_id']) || empty($_POST['vendas_id']) || ) {
-    $_SESSION['mensagem'] = "Preencha todos os campos.";
-    header("Location: ../view/cadastrarProdutos.php");
-    exit;
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+     {
+    if (empty($_POST['produtos_id']) || empty($_POST['vendas_id']) || empty($_POST['itemVendido']) || empty($_POST['valorItem'])) {
+        header("Location: ../view/cadastrarProdutos.php");
+        exit;
 }
 
     $produtos_id = $_POST['produtos_id'];

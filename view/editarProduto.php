@@ -20,9 +20,9 @@ if (!$produto) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php include 'includes/head.php'; ?>
+
 <head>
-    <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <title>Editar Produto</title>
 </head>
 
