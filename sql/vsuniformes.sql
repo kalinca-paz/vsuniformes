@@ -149,9 +149,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `senha`, `tipo`) VALUES
 (1, 'kalinca', 'ka@out.com', '81dc9bdb52d04dc20036dbd8313ed055', 'admin'),
-(2, 'João Silva', 'joao@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cliente'),
-(3, 'Maria Souza', 'maria@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cliente'),
-(4, 'Carlos Lima', 'carlos@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cliente'),
+(2, 'João Silva', 'joao@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'cliente'),
+(3, 'Maria Souza', 'maria@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'cliente'),
+(4, 'Carlos Lima', 'carlos@vsuniformes.com', 'e10adc3949ba59abbe56e057f20f883e', 'cliente'),
 (5, 'ze', 'ze@out.com', 'e10adc3949ba59abbe56e057f20f883e', 'usuario');
 
 --

@@ -3,11 +3,11 @@
 
 require_once "../model/ClassProdutoDAO.php";
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['idProduto'])) {
     die("Produto não informado.");
 }
 
-$idproduto = $_GET['id'];
+$idproduto = $_GET['idProduto'];
 
 $produtoDAO = new ClassProdutoDAO();
 

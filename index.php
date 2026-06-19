@@ -36,9 +36,9 @@ session_start();
 
     <?php if ($_SESSION['tipo'] == 'admin'): ?>
 
-        <li><a href="view/painelAdmin.php">Painel Admin</a></li>
+        <li><a href="view/painelAdmin.php">Painel</a></li>
 
-    <?php elseif ($_SESSION['tipo'] == 'usuario'): ?>
+    <?php elseif ($_SESSION['tipo'] == 'cliente'): ?>
 
         <li><a href="view/listarProdutosCarrinho.php">Comprar</a></li>
 

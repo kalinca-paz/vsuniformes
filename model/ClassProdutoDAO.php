@@ -106,27 +106,28 @@ class ClassProdutoDAO
         $stmt->bindValue(":foto3", $produto->getFoto3());
         $stmt->bindValue(":descricao", $produto->getDescricao());
         $stmt->bindValue(":estoque", $produto->getEstoque());
-
+        
+        exit;
         return $stmt->execute();
     }
 
-    public function excluirProduto($idProduto)
+    public function excluirProduto($produto)
     {
         $sql = "DELETE FROM produtos WHERE idProduto = :idProduto";
 
         $conn = Conexao::getInstance();
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':idProduto', $idProduto);
+        $stmt->bindValue(':idProduto', $produto);
 
         return $stmt->execute();
     }
-    public function buscarProdutoPorId($idproduto){
+    public function buscarProdutoPorId($produto){
         $sql = "SELECT * FROM produtos
                 WHERE idProduto = :idProduto";
         $conn = Conexao::getInstance();
         $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':idProduto', $idproduto);
+        $stmt->bindValue(':idProduto', $produto);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
   }

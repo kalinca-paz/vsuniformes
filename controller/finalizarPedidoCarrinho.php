@@ -10,7 +10,7 @@ Aqui futuramente você poderá:
 unset($_SESSION['carrinho']);
 ?>
 <script>
-    alert('✅ Pedido realizado com sucesso!');
+    alert('Pedido realizado com sucesso!');
     window.location.href = '../view/listarProdutosCarrinho.php';
 </script>
 

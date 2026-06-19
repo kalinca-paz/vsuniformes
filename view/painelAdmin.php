@@ -1,45 +1,68 @@
-  <?php
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php include 'includes/head.php'; ?>
-  <title>Painel de Administração</title>
+    <?php include 'includes/head.php'; ?>
+    <title>Painel de Administração</title>
 </head>
 <body>
-<?php include 'includes/menu.php'; ?>
-<?php include 'includes/footer.php'; ?>
-    <h2>Painel Admin</h2>
 
-    <div style="display:inline-block; margin:20px; text-align:center;">
-        <a href="../view/listarUsuarios.php">
-            <img src="../img/boneco.png" width="300px" alt="Usuários">
+<?php include 'includes/menu.php'; ?>
+
+<h2 class="tituloForm">Painel Administrativo</h2>
+
+<div class="admin-grid">
+
+    <!-- USUÁRIOS -->
+    <div class="card-admin">
+        <a href="listarUsuarios.php">
+            <img src="../img/boneco.png" alt="Usuários">
         </a>
-        <p>Listar Usuários</p>
+        <p>Usuários</p>
     </div>
 
-    <div style="display:inline-block; margin:20px; text-align:center;">
-        <a href="../view/cadastrarProdutos.php">
-            <img src="../img/boneco.png" width="300px" alt="Cadastrar Produtos">
+    <div class="card-admin">
+        <a href="listarClientes.php">
+            <img src="../img/boneco.png" alt="Clientes">
+        </a>
+        <p>Clientes</p>
+    </div>
+
+    <div class="card-admin">
+        <a href="cadastrarClientes.php">
+            <img src="../img/boneco.png" alt="Cadastrar Clientes">
+        </a>
+        <p>Cadastrar Clientes</p>
+    </div>
+
+    <!-- PRODUTOS -->
+    <div class="card-admin">
+        <a href="listarProdutos.php">
+            <img src="../img/boneco.png" alt="Produtos">
+        </a>
+        <p>Produtos</p>
+    </div>
+
+    <div class="card-admin">
+        <a href="cadastrarProdutos.php">
+            <img src="../img/boneco.png" alt="Cadastrar Produtos">
         </a>
         <p>Cadastrar Produtos</p>
     </div>
 
-    <div style="display:inline-block; margin:20px; text-align:center;">
-        <a href="../view/listarProdutos.php">
-            <img src="../img/boneco.png" width="300px" alt="Produtos">
+    <!-- CARRINHO -->
+    <div class="card-admin">
+        <a href="listarProdutosCarrinho.php">
+            <img src="../img/boneco.png" alt="Carrinho">
         </a>
-        <p>Listar Produtos</p>
+        <p>Carrinho</p>
     </div>
 
-    <div style="display:inline-block; margin:20px; text-align:center;">
-        <a href="../view/listarClientes.php">
-            <img src="../img/boneco.png" width="300px" alt="Clientes">
-        </a>
-        <p>Listar Clientes</p>
-    </div>
+</div>
 
-</center>
+<?php include 'includes/footer.php'; ?>
+
+</body>
+</html>

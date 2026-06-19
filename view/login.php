@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,10 +11,10 @@
     <?php include 'includes/menu.php'; ?>
 
     <main class="login-container">
-        <div class="login-box card">
-            <h1 class="tituloForm">Acesso ao Sistema</h1>
+        <div class="login-box">
+            <h1 class="tituloForm">Login</h1>
             
-            <form action="../controller/validarLogin.php" method="post" class="form">
+            <form action="../controller/validarLogin.php" method="post" class="form card-login">
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>

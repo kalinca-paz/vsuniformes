@@ -1,6 +1,6 @@
 <!-- menu.php -->
 <header>
-    <a href="../view/sobre.php">
+    <a href="../sobre.php">
         <img src="../img/home1.png" class="logo" alt="logo da vs uniformes">
     </a>
 
@@ -16,20 +16,20 @@
             <?php endif; ?>
 
             <li><a href="../index.php">Início</a></li>
-            <li><a href="../view/sobre.php">Sobre</a></li>
-            <li><a href="../view/contatos.php">Contato</a></li>
-            <li><a href="../view/portfolio.php">Portfólio</a></li>
+            <li><a href="sobre.php">Sobre</a></li>
+            <li><a href="contatos.php">Contato</a></li>
+            <li><a href="portfolio.php">Portfólio</a></li>
 
             <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'admin'): ?>
 
                 <li>
-                    <a href="../view/painelAdmin.php">Painel</a>
+                    <a href="painelAdmin.php">Painel</a>
                 </li>
 
             <?php elseif (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'cliente'): ?>
 
                 <li>
-                    <a href="../view/listarProdutosCarrinho.php">Comprar</a>
+                    <a href="listarProdutosCarrinho.php">Comprar</a>
                 </li>
 
                 <?php
@@ -43,7 +43,7 @@
                 ?>
 
                 <li>
-                    <a href="../view/carrinho.php">
+                    <a href="carrinho.php">
                         Carrinho (<?= $qtdeCarrinho; ?>)
                     </a>
                 </li>
@@ -58,7 +58,7 @@
                 </li>
             <?php else: ?>
                 <li>
-                    <a href="../view/login.php">
+                    <a href="login.php">
                         Login
                     </a>
                 </li>

@@ -27,23 +27,7 @@ session_start();
         </style>
 </head>
 <body>
-   <header>
-    <h1>MinhaEmpresa2</h1>
-    <nav>
-      <a href="../index.php">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Serviços</a>
-        <?php
-            if (isset($_SESSION['nomeProd'])) {
-            echo "Bem-vindo, " . $_SESSION['nomeProd'];
-            echo "<a href='../view/painelAdmin.php'>Painel Admin</a>";
-            echo ' | <a href="controller/logout.php">Sair</a>';
-            } else {
-            echo '<a href="../view/login.php">Login</a>';
-            }
-        ?>
-    </nav>
-  </header>
+   
 
 <h2>Cadastro de Produto</h2>
 

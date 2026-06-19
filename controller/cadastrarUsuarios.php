@@ -2,22 +2,13 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
+<?php include '../view/includes/head.php'; ?>
+
     <title>Cadastro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-
-<header>
-    <h1>MinhaEmpresa</h1>
-    <nav>
-        <a href="../index.php">Início</a>
-        <a href="#">Sobre</a>
-        <a href="#">Serviços</a>
-    </nav>
-</header>
+<?php include '../view/includes/menu.php'; ?>
 
 <h1 class="tituloForm">Cadastro de Usuário</h1>
 
@@ -42,7 +33,7 @@
         <label>Tipo de usuário:</label><br>
         <select name="tipo" required>
             <option value="">Selecione</option>
-            <option value="usuario">Usuário</option>
+            <option value="cliente">Cliente</option>
             <option value="admin">Admin</option>
         </select>
     </p>
@@ -53,6 +44,6 @@
     </p>
 
 </form>
-
+<?php include '../view/includes/footer.php'; ?>
 </body>
 </html>
