@@ -51,8 +51,7 @@ switch($acao){
             'uf'            => $_POST['uf'],
             'tipo'          => $_POST['tipo'],
             'razaoSocial'   => $_POST['razaoSocial'] ?? null,
-            /*'Usuario_idUsuario' => $_SESSION['id']*/
-            'Usuario_idUsuario' => 1
+            'Usuario_idUsuario' => $_SESSION['id']
         ];
 
         $cliente->atualizar($dados);

@@ -31,7 +31,7 @@ session_start();
     </div>
 
     <div class="card-admin">
-        <a href="cadastrarClientes.php">
+        <a href="cadastrarCliente.php">
             <img src="../img/boneco.png" alt="Cadastrar Clientes">
         </a>
         <p>Cadastrar Clientes</p>

@@ -22,7 +22,7 @@ if ($usuario) {
     $_SESSION['nome'] = $usuario['nome'];
     $_SESSION['tipo'] = $usuario['tipo'];
 
-    if ($usuario['tipo'] == 'Administrador') {
+    if ($usuario['tipo'] == 'admin') {
 
         echo "
         <script>
