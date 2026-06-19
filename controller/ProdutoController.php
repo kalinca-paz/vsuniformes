@@ -1,6 +1,7 @@
 <?php
-require_once("../model/Produto.php");
 session_start();
+require_once("../model/Produto.php");
+
 
 function uploadImagem($campo)
 {

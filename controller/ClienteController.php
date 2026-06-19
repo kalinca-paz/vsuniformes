@@ -40,6 +40,7 @@ switch($acao){
     case 'editar':
 
         $dados = [
+            'idCliente' => $_POST['idCliente'],
             'nomeCliente'   => $_POST['nomeCliente'],
             'telefone'      => $_POST['telefone'],
             'email'         => $_POST['email'],

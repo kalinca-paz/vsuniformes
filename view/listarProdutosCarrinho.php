@@ -1,17 +1,18 @@
 <!--listarProdutosCarrinho.php -->
 <?php
+session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassProdutoDAO.php";
 require_once "../model/ClassProduto.php";
 
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <?php include 'includes/head.php'; ?>
-
+</head>
 <body>
 
  <!-- HEADER -->

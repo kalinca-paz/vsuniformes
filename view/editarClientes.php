@@ -31,7 +31,7 @@ if (!$dados) {
 <form action="../controller/ClienteController.php" method="post">
 
     <input type="hidden" name="acao" value="editar">
-    <input type="hidden" name="nomeCliente" value="<?= $dados['nomeCliente'] ?>">
+    <input type="hidden" name="idCliente" value="<?= $dados['idCliente'] ?>">
 
     Nome:<br>
     <input type="text" name="nomeCliente"
