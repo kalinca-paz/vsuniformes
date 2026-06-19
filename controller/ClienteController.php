@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/Cliente.php";
 
@@ -64,8 +65,8 @@ switch($acao){
 
     case 'excluir':
 
-        $id = $_GET['idCliente'] ?? null;
-
+    $id = $_GET['idCliente'] ?? null;
+    $cliente->excluir($id);
         $cliente->excluir($id);
 
         echo "<script>

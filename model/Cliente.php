@@ -23,7 +23,7 @@ class Cliente {
             tipo,
             razaoSocial,
             dataCadastro,
-            Usuarios_idUsuarios
+            Usuario_idUsuario
         ) VALUES (
             :nomeCliente,
             :telefone,
@@ -38,7 +38,7 @@ class Cliente {
             :tipo,
             :razaoSocial,
             NOW(),
-            :Usuarios_idUsuarios
+            :Usuario_idUsuario
         )";
     
         $stmt = $this->pdo->prepare($sql);
@@ -56,7 +56,7 @@ class Cliente {
             ':uf'                => $dados['uf'],
             ':tipo'              => $dados['tipo'],
             ':razaoSocial'       => $dados['razaoSocial'],
-            ':Usuarios_idUsuarios' => $dados['Usuarios_idUsuarios']
+            ':Usuario_idUsuario' => $dados['Usuario_idUsuario']
         ]);
     }
 
@@ -122,6 +122,16 @@ class Cliente {
             ':idCliente'     => $dados['idCliente']
         ]);
     }
+
+    public function excluir($id){
+
+    $sql = "DELETE FROM clientes WHERE idCliente = :id";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+    return $stmt->execute();
+}
 }
 
 ?>
