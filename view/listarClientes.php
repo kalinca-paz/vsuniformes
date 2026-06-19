@@ -10,122 +10,62 @@ $clientes = $cliente->listar();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lista de Clientes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/estilo.css">
-
-<style>
-body {
-    font-family: Arial;
-    background: #f4f7fc;
-    margin: 0;
-    padding: 30px;
-}
-
-.container {
-    width: 95%;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background: #4CAF50;
-    color: white;
-}
-
-a {
-    padding: 6px 10px;
-    text-decoration: none;
-    color: white;
-    border-radius: 5px;
-}
-
-.editar {
-    background: #36b9cc;
-}
-
-.excluir {
-    background: #e74a3b;
-}
-</style>
+    <?php include 'includes/head.php'; ?>
+    <title>Vs Uniformes - Lista de Clientes</title>
 </head>
-
 <body>
+    
+    <?php include 'includes/menu.php'; ?>
 
-<header>
-    <h1>MinhaEmpresa2</h1>
-    <nav>
-        <a href="../index.php">Início</a>
+    <main class="container">
 
-        <?php
-        if (isset($_SESSION['nome'])) {
-            echo "Bem-vindo, " . $_SESSION['nome'];
-            echo " | <a href='../controller/logout.php'>Sair</a>";
-        } else {
-            echo '<a href="../view/login.php">Login</a>';
-        }
-        ?>
-    </nav>
-</header>
+        <h2 class="tituloForm">Lista de Clientes</h2>
 
-<div class="container">
+        <table class="tabela-preco">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
 
-<h2>Lista de Clientes</h2>
+            <tbody>
+                <?php if (!empty($clientes)): ?>
+                    <?php foreach($clientes as $c): ?>
+                        <tr>
+                            <td><?= $c['idCliente'] ?></td>
+                            <td><?= $c['nomeCliente'] ?></td>
+                            <td><?= $c['telefone'] ?></td>
+                            <td><?= $c['email'] ?></td>
 
-<table>
-<thead>
-<tr>
-    <th>ID</th>
-    <th>Nome</th>
-    <th>Telefone</th>
-    <th>Email</th>
-    <th>Ações</th>
-</tr>
-</thead>
+                            <td>
+                                <a href="editarClientes.php?idCliente=<?= $c['idCliente'] ?>" class="tecnologias">
+                                    Editar
+                                </a>
 
-<tbody>
-<?php foreach($clientes as $c): ?>
-<tr>
-    <td><?= $c['idCliente'] ?></td>
-    <td><?= $c['nomeCliente'] ?></td>
-    <td><?= $c['telefone'] ?></td>
-    <td><?= $c['email'] ?></td>
+                                <a href="../controller/ClienteController.php?acao=excluir&idCliente=<?= $c['idCliente'] ?>" class="alerta-erro" onclick="return confirm('Deseja realmente excluir este cliente?')">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="5" class="texto" style="text-align: center;">
+                            Nenhum cliente cadastrado.
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
 
-    <td>
-        <a class="editar"
-           href="editarClientes.php?idCliente=<?= $c['idCliente'] ?>">
-           Editar
-        </a>
+    </main>
 
-        <a class="excluir"
-           href="../controller/ClienteController.php?acao=excluir&idCliente=<?= $c['idCliente'] ?>"
-           onclick="return confirm('Deseja excluir?')">
-           Excluir
-        </a>
-    </td>
-</tr>
-<?php endforeach; ?>
-</tbody>
-
-</table>
-
-</div>
-
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

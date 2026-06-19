@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php include 'includes/head.php'; ?>
     <title>Vs Uniformes - Orçamentos</title>
 </head>
 <body>
-    <?php include 'includes/menu.php';?>
-    <section>
+    <?php include 'includes/menu.php'; ?>
 
-        <h2>
-            Escolha seu orçamento
-        </h2>
+    <main class="container">
+        
+        <h2 class="tituloForm">Escolha seu orçamento</h2>
 
-        <div class="container-orcamentos">
+        <div class="grid">
             
-            <div class="card-orca">
+            <div class="card">
                 <h3>Bordados</h3>
-                <table class="tabela-orca">
+                <table class="tabela-preco">
                     <thead>
                         <tr>
                             <th>Tipo de Bordado</th>
@@ -28,31 +27,31 @@
                     <tbody>
                         <tr>
                             <td>Frente</td>
-                            <td>10(min.)</td>
+                            <td>10 (min.)</td>
                             <td>10cm x 10cm</td>
                             <td>R$ 10,00</td>
                         </tr>
                         <tr>
                             <td>Bolso</td>
-                            <td>10(min.)</td>
+                            <td>10 (min.)</td>
                             <td>8cm x 8cm</td>
                             <td>R$ 20,00</td>
                         </tr>
                         <tr>
                             <td>Calça</td>
-                            <td>10(min.)</td>
+                            <td>10 (min.)</td>
                             <td>12cm x 12cm</td>
                             <td>R$ 30,00</td>
                         </tr>
                         <tr>
                             <td>Costa</td>
-                            <td>10(min.)</td>
+                            <td>10 (min.)</td>
                             <td>25cm x 25cm</td>
                             <td>R$ 40,00</td>
                         </tr>
                         <tr>
                             <td>Logo Especial</td>
-                            <td>10(min.)</td>
+                            <td>10 (min.)</td>
                             <td>30cm x 30cm</td>
                             <td>R$ 50,00</td>
                         </tr>
@@ -60,9 +59,9 @@
                 </table>
             </div>
 
-            <div class="card-orca">
+            <div class="card">
                 <h3>Camisaria</h3>
-                <table class="tabela-orca">
+                <table class="tabela-preco">
                     <thead>
                         <tr>
                             <th>Tipo de Camisa</th>
@@ -106,9 +105,9 @@
                 </table>
             </div>
 
-            <div class="card-orca">
+            <div class="card">
                 <h3>Peças Especiais</h3>
-                <table class="tabela-orca">
+                <table class="tabela-preco">
                     <thead>
                         <tr>
                             <th>Peça</th>
@@ -153,8 +152,8 @@
             </div>
 
         </div>
+    </main>
 
-    </section>
+    <?php include 'includes/footer.php'; ?>
 </body>
-
 </html>

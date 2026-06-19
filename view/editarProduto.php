@@ -1,11 +1,10 @@
-<!-- editarProduto.php -->
 <?php
 session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassProdutoDAO.php";
 
 if (!isset($_GET['idProduto'])) {
-    die("Produto não informado.");
+    die("<div class='container'><div class='alerta-erro'>Produto não informado.</div></div>");
 }
 
 $idproduto = $_GET['idProduto'];
@@ -14,126 +13,117 @@ $produtoDAO = new ClassProdutoDAO();
 $produto = $produtoDAO->buscarProduto($idproduto);
 
 if (!$produto) {
-    die("Produto não encontrado.");
+    die("<div class='container'><div class='alerta-erro'>Produto não encontrado.</div></div>");
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Editar Produto</title>
+    <title>Vs Uniformes - Editar Produto</title>
 </head>
-
 <body>
 
-<?php include 'includes/menu.php'; ?>
+    <?php include 'includes/menu.php'; ?>
 
-<h2>Editar Produto</h2>
+    <main class="container">
 
-<form action="../controller/atualizarProduto.php"
-      method="post"
-      enctype="multipart/form-data">
+        <h2 class="tituloForm">Editar Produto</h2>
 
-    <input type="hidden"
-           name="idProduto"
-           value="<?php echo $produto['idProduto']; ?>">
+        <form action="../controller/atualizarProduto.php" method="post" enctype="multipart/form-data" class="form">
 
-    <label>Nome</label>
-    <input type="text"
-           name="nomeProd"
-           value="<?php echo $produto['nomeProd']; ?>"
-           required>
+            <input type="hidden" name="idProduto" value="<?= $produto['idProduto']; ?>">
 
-    <label>Categoria</label>
-    <input type="text"
-           name="categoria"
-           value="<?php echo $produto['categoria']; ?>"
-           required>
+            <div class="input-group">
+                <label for="nomeProd">Nome do Produto</label>
+                <input type="text" id="nomeProd" name="nomeProd" value="<?= $produto['nomeProd']; ?>" required>
+            </div>
 
+            <div class="grid" style="gap: 15px;">
+                <div class="input-group" style="flex: 1; min-width: 200px;">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" name="categoria" value="<?= $produto['categoria']; ?>" required>
+                </div>
 
-    <label>Modelo</label>
-    <input type="text"
-           name="modelo"
-           value="<?php echo $produto['modelo']; ?>"
-           required>
+                <div class="input-group" style="flex: 1; min-width: 200px;">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo" name="modelo" value="<?= $produto['modelo']; ?>" required>
+                </div>
+            </div>
 
-    <label>Tamanho</label>
-    <input type="text"
-           name="tamanho"
-           value="<?php echo $produto['tamanho']; ?>"
-           required>
+            <div class="grid" style="gap: 15px; margin-top: -5px;">
+                <div class="input-group" style="flex: 1; min-width: 130px;">
+                    <label for="tamanho">Tamanho</label>
+                    <input type="text" id="tamanho" name="tamanho" value="<?= $produto['tamanho']; ?>" required>
+                </div>
 
-    <label>Cor</label>
-    <input type="text"
-           name="cor"
-           value="<?php echo $produto['cor']; ?>"
-           required>
+                <div class="input-group" style="flex: 1; min-width: 130px;">
+                    <label for="cor">Cor</label>
+                    <input type="text" id="cor" name="cor" value="<?= $produto['cor']; ?>" required>
+                </div>
 
-    <label>Preço</label>
-    <input type="number"
-           step="0.01"
-           name="preco"
-           value="<?php echo $produto['preco']; ?>"
-           required>
+                <div class="input-group" style="flex: 1; min-width: 130px;">
+                    <label for="preco">Preço (R$)</label>
+                    <input type="number" id="preco" step="0.01" name="preco" value="<?= $produto['preco']; ?>" required>
+                </div>
 
-    <label>Descrição</label>
-    <textarea name="descricao"
-              rows="6"
-              required><?php echo $produto['descricao']; ?></textarea>
+                <div class="input-group" style="flex: 1; min-width: 130px;">
+                    <label for="estoque">Estoque</label>
+                    <input type="number" id="estoque" name="estoque" value="<?= $produto['estoque']; ?>" required>
+                </div>
+            </div>
 
-    <label>Estoque</label>
-    <input type="number"
-           name="estoque"
-           value="<?php echo $produto['estoque']; ?>"
-           required>
+            <div class="input-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" rows="5" required><?= $produto['descricao']; ?></textarea>
+            </div>
 
-    <!-- IMAGENS -->
+            <h3 class="tecnologias" style="margin-top: 10px; border-bottom: 1px solid var(--borda); padding-bottom: 5px;">Imagens do Produto</h3>
+            
+            <div class="grid" style="justify-content: space-between; gap: 20px;">
+                
+                <div class="input-group" style="flex: 1; min-width: 150px; text-align: center;">
+                    <label>Foto Principal</label>
+                    <?php if (!empty($produto['foto1'])): ?>
+                        <img src="../uploads/produtos/<?= $produto['foto1']; ?>" class="card-admin" style="display: block; margin: 10px auto; max-height: 120px; width: auto;" alt="Foto 1">
+                    <?php endif; ?>
+                    <input type="file" name="foto1" style="font-size: 12px; padding: 5px;">
+                    <input type="hidden" name="foto1_atual" value="<?= $produto['foto1']; ?>">
+                </div>
 
-    <div class="foto">
-        <label>Foto 1 Atual</label><br>
+                <div class="input-group" style="flex: 1; min-width: 150px; text-align: center;">
+                    <label>Foto Lateral / Detalhe</label>
+                    <?php if (!empty($produto['foto2'])): ?>
+                        <img src="../uploads/produtos/<?= $produto['foto2']; ?>" class="card-admin" style="display: block; margin: 10px auto; max-height: 120px; width: auto;" alt="Foto 2">
+                    <?php endif; ?>
+                    <input type="file" name="foto2" style="font-size: 12px; padding: 5px;">
+                    <input type="hidden" name="foto2_atual" value="<?= $produto['foto2']; ?>">
+                </div>
 
-        <?php if (!empty($produto['foto1'])): ?>
-            <img src="../uploads/produtos/<?php echo $produto['foto1']; ?>" width="150">
-        <?php endif; ?>
+                <div class="input-group" style="flex: 1; min-width: 150px; text-align: center;">
+                    <label>Foto Traseira / Interna</label>
+                    <?php if (!empty($produto['foto3'])): ?>
+                        <img src="../uploads/produtos/<?= $produto['foto3']; ?>" class="card-admin" style="display: block; margin: 10px auto; max-height: 120px; width: auto;" alt="Foto 3">
+                    <?php endif; ?>
+                    <input type="file" name="foto3" style="font-size: 12px; padding: 5px;">
+                    <input type="hidden" name="foto3_atual" value="<?= $produto['foto3']; ?>">
+                </div>
 
-        <input type="file" name="foto1">
+            </div>
 
-        <input type="hidden" name="foto1_atual" value="<?php echo $produto['foto1']; ?>">
-    </div>
+            <div class="botoes-grupo" style="flex-direction: row; gap: 15px; margin-top: 20px;">
+                <button type="submit" style="flex: 2;" class="btn-orcamento">Atualizar Produto</button>
+                <a href="listarProdutos.php" style="flex: 1; display: block;">
+                    <button type="button" style="width: 100%;">Voltar</button>
+                </a>
+            </div>
 
-    <div class="foto">
-        <label>Foto 2 Atual</label><br>
+        </form>
 
-        <?php if (!empty($produto['foto2'])): ?>
-            <img src="../uploads/produtos/<?php echo $produto['foto2']; ?>" width="150">
-        <?php endif; ?>
+    </main>
 
-        <input type="file" name="foto2">
-        <input type="hidden" name="foto2_atual" value="<?php echo $produto['foto2']; ?>">
-    </div>
-
-    <div class="foto">
-        <label>Foto 3 Atual</label><br>
-
-        <?php if (!empty($produto['foto3'])): ?>
-            <img src="../uploads/produtos/<?php echo $produto['foto3']; ?>" width="150">
-        <?php endif; ?>
-
-        <input type="file" name="foto3">
-        <input type="hidden" name="foto3_atual" value="<?php echo $produto['foto3']; ?>">
-    </div>
-
-    <button type="submit">Atualizar Produto</button>
-
-    <a href="listarProdutos.php">
-        <button type="button">Voltar</button>
-    </a>
-
-</form>
-
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 
 </body>
 </html>

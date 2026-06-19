@@ -5,20 +5,15 @@ require_once "../model/ClassUsuarioDAO.php";
 require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
-
 $id = $_GET['idUsuario'];
-
 $usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
-
     $novoUsuario = new ClassUsuario();
-
     $novoUsuario->setId($_POST['idUsuario']);
     $novoUsuario->setNome($_POST['nome']);
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
-
     // senha opcional
     $novoUsuario->setSenha($_POST['senha']);
 
@@ -30,7 +25,7 @@ if ($_POST) {
                 window.location.href = 'listarUsuarios.php';
               </script>";
     } else {
-        echo "Erro ao alterar usuário";
+        echo "<div class='container'><div class='alerta-erro'>Erro ao alterar usuário.</div></div>";
     }
 }
 ?>
@@ -39,94 +34,56 @@ if ($_POST) {
 <html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Editar Usuário</title>
-
-    <style>
-    body {
-        font-family: Arial;
-        background-color: #f4f4f4;
-        padding: 30px;
-    }
-
-    .container {
-        width: 400px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-        text-align: center;
-    }
-
-    input, select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-        background: #2196F3;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #0b7dda;
-    }
-    </style>
+    <title>Vs Uniformes - Editar Usuário</title>
 </head>
-
 <body>
 
-<?php include 'includes/menu.php'; ?>
+    <?php include 'includes/menu.php'; ?>
 
-<div class="container">
+    <main class="container">
 
-    <h2>Editar Usuário</h2>
+        <h2 class="tituloForm">Editar Usuário</h2>
 
-    <form method="POST">
+        <form method="POST" class="form">
 
-        <input type="hidden" name="idUsuario"
-               value="<?= $usuario['idUsuario']; ?>">
+            <input type="hidden" name="idUsuario" value="<?= $usuario['idUsuario']; ?>">
 
-        <label>Nome</label>
-        <input type="text" name="nome"
-               value="<?= $usuario['nome']; ?>">
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" value="<?= $usuario['nome']; ?>" required>
+            </div>
 
-        <label>Senha (deixe vazio para não alterar)</label>
-        <input type="password" name="senha">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<?= $usuario['email']; ?>" required>
+            </div>
 
-        <label>Email</label>
-        <input type="email" name="email"
-               value="<?= $usuario['email']; ?>">
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Deixe vazio para não alterar">
+            </div>
 
-        <label>Tipo</label>
-        <select name="tipo">
+            <div class="input-group">
+                <label for="tipo">Tipo de Conta</label>
+                <select id="tipo" name="tipo">
+                    <option value="admin" <?= ($usuario['tipo'] == "admin") ? "selected" : ""; ?>>
+                        Administrador
+                    </option>
+                    <option value="usuario" <?= ($usuario['tipo'] == "usuario") ? "selected" : ""; ?>>
+                        Usuário Padrão
+                    </option>
+                </select>
+            </div>
 
-            <option value="admin"
-                <?= ($usuario['tipo'] == "admin") ? "selected" : ""; ?>>
-                Admin
-            </option>
+            <div class="botoes-grupo">
+                <button type="submit">Salvar Alterações</button>
+            </div>
 
-            <option value="usuario"
-                <?= ($usuario['tipo'] == "usuario") ? "selected" : ""; ?>>
-                Usuário
-            </option>
+        </form>
 
-        </select>
+    </main>
 
-        <button type="submit">Salvar Alterações</button>
-
-    </form>
-
-</div>
+    <?php include 'includes/footer.php'; ?>
 
 </body>
 </html>
