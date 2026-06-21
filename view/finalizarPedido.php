@@ -1,7 +1,6 @@
+<!-- finalizarPedido.php -->
 <?php
 session_start();
-
-$total = 0;
 if(isset($_SESSION['carrinho'])){
     foreach($_SESSION['carrinho'] as $item){
         $total += $item['preco'] * $item['quantidade'];
@@ -9,45 +8,32 @@ if(isset($_SESSION['carrinho'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <?php include 'includes/head.php'; ?>
-    <title>Vs Uniformes - Finalizar Pedido</title>
+<meta charset="utf-8">
+<?php include 'includes/head.php'; ?>
+<title>Finalizar Pedido</title>
+
 </head>
 <body>
-    <?php include 'includes/menu.php'; ?>
+<?php include 'includes/menu.php';?>
 
-    <main class="container">
-        
-        <h2 class="tituloForm">🛒 Finalizar Pedido</h2>
-        
-        <form action="../controller/finalizarPedidoCarrinho.php" method="POST" class="form">
-            
-            <div class="info-item" style="text-align: center; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--borda);">
-                <h4>Valor Total do Pedido</h4>
-                <p style="font-size: 24px; color: #14532d;">R$ <?= number_format($total, 2, ',', '.'); ?></p>
-            </div>
+<div class="container">
+    <h2>🛒 Finalizar Pedido</h2>
+    <div class="total">
+        Total: R$ <?= number_format($total,2,',','.'); ?>
+    </div>
+    <form action="../controller/finalizarPedidoCarrinho.php" method="POST">
+        <label>Nome Completo</label>
+        <input type="text" name="nome" required>
 
-            <div class="input-group">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-            </div>
+        <label>Endereço de Entrega</label>
+        <textarea name="endereco" required></textarea>
 
-            <div class="input-group">
-                <label for="endereco">Endereço de Entrega</label>
-                <textarea id="endereco" name="endereco" rows="4" placeholder="Rua, número, bairro, cidade e CEP" required></textarea>
-            </div>
-
-            <div class="botoes-grupo">
-                <button type="submit" class="btn-orcamento">
-                    Confirmar Pedido
-                </button>
-            </div>
-            
-        </form>
-
-    </main>
-
-    <?php include 'includes/footer.php'; ?>
+        <button type="submit">
+            Confirmar Pedido
+        </button>
+    </form>
+</div>
 </body>
 </html>

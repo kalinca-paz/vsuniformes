@@ -6,27 +6,11 @@ session_start();
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <title>Itens da Venda</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=stylesheet href="../css/estilo.css">
-<style>
-        body{
-            width:1000px;
-            margin:auto;
-            font-family:Arial;
-        }
-        input, textarea{
-            width:100%;
-            padding:10px;
-            margin-bottom:10px;
-        }
-        button{
-            padding:10px 20px;
-        }
-        </style>
 </head>
 <body>
+<?php include 'includes/menu.php'; ?>
 <h2>Cadastro de Produto</h2>
 
 <?php

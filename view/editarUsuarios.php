@@ -1,3 +1,4 @@
+<!-- editarUsuarios.php -->
 <?php
 session_start();
 require_once "../conexao/Conexao.php";
@@ -5,15 +6,20 @@ require_once "../model/ClassUsuarioDAO.php";
 require_once "../model/ClassUsuario.php";
 
 $usuarioDAO = new ClassUsuarioDAO();
+
 $id = $_GET['idUsuario'];
+
 $usuario = $usuarioDAO->buscarUsuarioPorId($id);
 
 if ($_POST) {
+
     $novoUsuario = new ClassUsuario();
+
     $novoUsuario->setId($_POST['idUsuario']);
     $novoUsuario->setNome($_POST['nome']);
     $novoUsuario->setEmail($_POST['email']);
     $novoUsuario->setTipo($_POST['tipo']);
+
     // senha opcional
     $novoUsuario->setSenha($_POST['senha']);
 
@@ -25,7 +31,7 @@ if ($_POST) {
                 window.location.href = 'listarUsuarios.php';
               </script>";
     } else {
-        echo "<div class='container'><div class='alerta-erro'>Erro ao alterar usuário.</div></div>";
+        echo "Erro ao alterar usuário";
     }
 }
 ?>
@@ -34,56 +40,53 @@ if ($_POST) {
 <html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Vs Uniformes - Editar Usuário</title>
+    <title>Editar Usuário</title>
 </head>
+
 <body>
 
-    <?php include 'includes/menu.php'; ?>
+<?php include 'includes/menu.php'; ?>
 
-    <main class="container">
+<div class="container">
 
-        <h2 class="tituloForm">Editar Usuário</h2>
+    <h2>Editar Usuário</h2>
 
-        <form method="POST" class="form">
+    <form method="POST">
 
-            <input type="hidden" name="idUsuario" value="<?= $usuario['idUsuario']; ?>">
+        <input type="hidden" name="idUsuario"
+               value="<?= $usuario['idUsuario']; ?>">
 
-            <div class="input-group">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" value="<?= $usuario['nome']; ?>" required>
-            </div>
+        <label>Nome</label>
+        <input type="text" name="nome"
+               value="<?= $usuario['nome']; ?>">
 
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?= $usuario['email']; ?>" required>
-            </div>
+        <label>Senha (deixe vazio para não alterar)</label>
+        <input type="password" name="senha">
 
-            <div class="input-group">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Deixe vazio para não alterar">
-            </div>
+        <label>Email</label>
+        <input type="email" name="email"
+               value="<?= $usuario['email']; ?>">
 
-            <div class="input-group">
-                <label for="tipo">Tipo de Conta</label>
-                <select id="tipo" name="tipo">
-                    <option value="admin" <?= ($usuario['tipo'] == "admin") ? "selected" : ""; ?>>
-                        Administrador
-                    </option>
-                    <option value="usuario" <?= ($usuario['tipo'] == "usuario") ? "selected" : ""; ?>>
-                        Usuário Padrão
-                    </option>
-                </select>
-            </div>
+        <label>Tipo</label>
+        <select name="tipo">
 
-            <div class="botoes-grupo">
-                <button type="submit">Salvar Alterações</button>
-            </div>
+            <option value="admin"
+                <?= ($usuario['tipo'] == "admin") ? "selected" : ""; ?>>
+                Admin
+            </option>
 
-        </form>
+            <option value="usuario"
+                <?= ($usuario['tipo'] == "usuario") ? "selected" : ""; ?>>
+                Usuário
+            </option>
 
-    </main>
+        </select>
 
-    <?php include 'includes/footer.php'; ?>
+        <button type="submit">Salvar Alterações</button>
+
+    </form>
+
+</div>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!-- cadastrarCliente.php -->
 <?php
 session_start();
 ?>

@@ -1,66 +1,71 @@
+<!--listarProdutosCarrinho.php -->
 <?php
 session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassProdutoDAO.php";
 require_once "../model/ClassProduto.php";
 
-$produtoDAO = new ClassProdutoDAO();
-$produtos = $produtoDAO->listarProdutos();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Vs Uniformes - Nossos Produtos</title>
 </head>
 <body>
 
-    <?php include 'includes/menu.php'; ?>  
+ <!-- HEADER -->
+  <?php include 'includes/menu.php'; ?>  
+<?php
 
-    <main class="container">
+$produtoDAO = new ClassProdutoDAO();
+$produtos = $produtoDAO->listarProdutos();
 
-        <h2 class="tituloForm">Nossos Produtos</h2>
+?><div class="container">
 
-        <div class="grid">
+    <h2>Nossos Produtos</h2>
 
-            <?php foreach($produtos as $produto): ?>
+    <div class="container-produtos">
 
-                <div class="card card-admin">
+        <?php foreach($produtos as $produto): ?>
 
-                    <?php if(!empty($produto['foto1'])): ?>
-                        <img src="../uploads/produtos/<?= $produto['foto1']; ?>" alt="<?= $produto['nomeProd']; ?>">
-                    <?php else: ?>
-                        <img src="../imagem/carrinho.jpg" alt="Imagem padrão">
-                    <?php endif; ?>
+            <div class="card-produto">
 
-                    <div class="info-produto">
+                <?php if(!empty($produto['foto1'])): ?>
+                    <img src="../uploads/produtos/<?php echo $produto['foto1']; ?>">
+                <?php else: ?>
+                    <img src="../imagem/carrinho.jpg">
+                <?php endif; ?>
 
-                        <h3 class="tecnologias"><?= $produto['nomeProd']; ?></h3>
+                <div class="info-produto">
 
-                        <p class="texto" style="margin-bottom: 5px;">
-                            <strong>Categoria:</strong> <?= $produto['categoria']; ?>
-                        </p>
-
-                        <p class="texto" style="font-size: 18px; font-weight: bold; color: var(--titulo); margin-bottom: 15px;">
-                            R$ <?= number_format($produto['preco'], 2, ',', '.'); ?>
-                        </p>
-
-                        <div class="botoes-grupo">
-                            <a class="btn-orcamento" href="../controller/adicionarCarrinho.php?id=<?= $produto['idProduto']; ?>">
-                                Adicionar ao Carrinho
-                            </a>
-                        </div>
-
+                    <div class="nome-produto">
+                        <?php echo $produto['nomeProd']; ?>
                     </div>
+
+                    <div class="categoria">
+                        <?php echo $produto['categoria']; ?>
+                    </div>
+
+                    <div class="preco">
+                        R$ <?php echo number_format($produto['preco'],2,',','.'); ?>
+                    </div>
+
+                    <a class="btn-comprar"
+                       href="../controller/adicionarCarrinho.php?id=<?php echo $produto['idProduto']; ?>">
+                       Comprar
+                    </a>
 
                 </div>
 
-            <?php endforeach; ?>
+            </div>
 
-        </div>
+        <?php endforeach; ?>
 
-    </main>
+    </div>
 
-    <?php include 'includes/footer.php'; ?>
+</div>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

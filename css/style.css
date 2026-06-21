@@ -10,12 +10,11 @@
 :root {
     --menu-fundo: #0056B3;   /* Azul intermediário para o fundo do menu */
     --menu-foco: #E63946;    /* Vermelho vibrante para o efeito hover nos links */
-    --texto: #1B263B;        /* Azul escuro acinzetado para leitura de textos longos */
+    --texto: #1B263B;        /* Azul escuro acinzentado para leitura de textos longos */
     --borda: #9cb5da;        /* Azul claro pastel usado em linhas divisórias e bordas */
     --texto-suave: #778DA9;  /* Azul acinzentado claro para títulos menores e subtítulos */
     --titulo: #002855;       /* Azul marinho bem escuro para os títulos principais (h1, h2) */
     --fundo: #F6F4F3;        /* Off-white (cinza quase branco) para o fundo geral do site */
-    --erro: #dc2626;         /* Vermelho suave para alertas de erro e exclusões */
 }
 
 /* ==========================================================================
@@ -39,8 +38,8 @@ p {
 /* ==========================================================================
    ESTRUTURA DE LAYOUT GLOBAL
    ========================================================================== */
-section, main {
-    padding: 60px 40px; /* Dá um grande espaçamento interno em cada seção/conteúdo principal do site */
+section {
+    padding: 60px 40px; /* Dá um grande espaçamento interno (cima/baixo e lados) em cada seção do site */
 }
 
 .container {
@@ -103,22 +102,19 @@ nav ul li a {
 nav ul li a:hover {
     background-color: var(--menu-foco); /* Muda o fundo para vermelho quando o mouse passa por cima */
 }
-
-.welcome-text {
+.welcome-text{
     display: block;
     justify-content: center;
     padding: 15px 20px;
     background-color: #2f73c1;
-    color: white;
 }
-
-.sair {
+.sair{
     background-color: darkred;
 }
-
-.sair:hover {
+.sair:hover{
     background-color: red;
 }
+
 
 /* ==========================================================================
    BANNER PRINCIPAL (HERO)
@@ -144,7 +140,7 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-   SEÇÃO SEVIÇOS / CARDS GLOBAIS
+   SEÇÃO SEVIÇOS (GRID DE CARDS)
    ========================================================================== */
 .card {
     flex: 1;             /* Faz o card esticar igualmente para ocupar o espaço irmão na mesma linha */
@@ -209,7 +205,7 @@ nav ul li a:hover {
 
 /* Cria a barrinha decorativa azul embaixo do h1 do portfólio */
 .texto-slide h1::after {
-    content: '';                     /* Obrigatório para renderizar elementos falsos */
+    content: '';                     /* Obrigatório para renderizar elementos falsos (pseudo-elements) */
     position: absolute;              /* Desvincula o fluxo do texto e flutua o elemento */
     bottom: 0;                       /* Alinha na base do h1 */
     left: 0;                         /* Alinha na extrema esquerda */
@@ -224,7 +220,7 @@ nav ul li a:hover {
     color: var(--texto);   /* Tom escuro padrão */
     line-height: 1.7;      /* Texto levemente mais espaçado para passar refinamento */
     margin: 0;             /* Zera as margens externas */
-    text-align: justify;   /* Alinha o texto perfeitamente nos blocos */
+    text-align: justify;   /* Alinha o texto perfeitamente nos blocos esquerdo e direito */
 }
 
 /* Estrutura do Caixa do Carrossel */
@@ -249,7 +245,7 @@ nav ul li a:hover {
 .slides img {
     width: 100%;           /* Garante que cada foto ocupe exatamente 100% da largura do carrossel */
     height: 100%;          /* Garante o preenchimento de altura total */
-    flex-shrink: 0;        /* Impede o flexbox de esmagar as imagens */
+    flex-shrink: 0;        /* Impede o flexbox de esmagar as imagens para tentar fazê-las caber juntas */
     object-fit: cover;     /* Corta e enquadra as fotos sem esticá-las ou distorcê-las */
 }
 
@@ -277,55 +273,21 @@ nav ul li a:hover {
     background: rgba(0, 40, 85, 1); /* Remove a transparência do botão quando passa o mouse */
 }
 
-.esquerda { left: 15px; }  /* Cola a seta da esquerda a 15px de distância */
-.direita { right: 15px; }   /* Cola a seta da direita a 15px de distância */
+.esquerda { left: 15px; }  /* Cola a seta da esquerda a 15px de distância da borda esquerda */
+.direita { right: 15px; }   /* Cola a seta da direita a 15px de distância da borda direita */
 
 /* ==========================================================================
-   TABELAS DE PREÇOS E RELATÓRIOS
-   ========================================================================== */
-.tabela-preco {
-    width: 100%;
-    border-collapse: collapse; /* Funde as bordas duplas em linhas únicas */
-    margin: 15px 0;
-    font-size: 16px;
-    background-color: #ffffff;
-}
-
-.tabela-preco th, 
-.tabela-preco td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.tabela-preco th {
-    background-color: var(--titulo);
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.tabela-preco tbody tr:nth-child(even) {
-    background-color: #f8fafc; /* Efeito zebrado sutil nas linhas da tabela */
-}
-
-.tabela-preco tbody tr:hover {
-    background-color: #f1f5f9; /* Destaque ao passar o mouse sobre a linha */
-}
-
-/* ==========================================================================
-   COMPONENTES ISOLADOS E BOTÕES
+   COMPONENTES ISOLADOS (BOTÕES EXTRA, CARTÕES E AFILIADOS)
    ========================================================================== */
 .btn-orcamento {
     display: inline-block;          /* Permite aplicar padding e margem sem quebrar o fluxo da linha */
-    background-color: #14532d;      /* Fundo verde escuro (passa ideia de orçamento/segurança) */
+    background-color: #14532d;      /* Fundo verde escuro (passa ideia de segurança e dinheiro/orçamento) */
     color: #ffffff;                 /* Letras brancas */
     padding: 12px 24px;             /* Tamanho interno do botão (altura x largura) */
     border-radius: 5px;             /* Cantos sutilmente arredondados */
     font-size: 16px;                /* Tamanho padrão confortável para botões */
     transition: background-color 0.3s ease; /* Transição suave na cor do botão no hover */
     cursor: pointer;                /* Ícone de clique no mouse */
-    border: none;
-    text-align: center;
 }
 
 .btn-orcamento:hover {
@@ -360,31 +322,20 @@ h3 {
 /* ==========================================================================
    FORMULÁRIOS E TELAS DE LOGIN
    ========================================================================== */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh; /* Centraliza a caixa de login verticalmente na tela */
-}
-
-.login-box {
-    width: 100%;
-    max-width: 450px; /* Mantém a caixa de login compacta e elegante */
-}
-
-.form {
+   .form {
     max-width: 600px;
     margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     gap: 20px;
+
     background: #ffffff;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-right: 6px solid var(--menu-fundo);
 }
-
 .input-group {
     display: flex;
     flex-direction: column;
@@ -396,16 +347,19 @@ h3 {
     color: var(--titulo);
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #afafaf;
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.2s ease;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     border-color: var(--menu-fundo);
     outline: none;
 }
@@ -413,42 +367,18 @@ input:focus, select:focus, textarea:focus {
 .tituloForm {
     text-align: center;  /* Centraliza o texto do título do form */
     padding: 20px;       /* Espaço interno ao redor do título */
-    color: var(--titulo);
 }
 
-.botoes-grupo {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+input {
+    padding: 10px;       /* Espaço confortável para digitar dentro do campo */
+    border: 1px solid #afafaf; /* Linha de contorno cinza suave */
+    border-radius: 5px;  /* Cantos do input levemente suavizados */
+    margin-top: 5px;     /* Afasta o input do elemento de cima */
 }
 
-/* Caixa de aviso de erro em PHP (Sessão) */
-.alerta-erro {
-    background-color: #fee2e2;
-    color: var(--erro);
-    border: 1px solid #fca5a5;
-    padding: 12px;
-    border-radius: 6px;
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-/* Transforma o link de exclusão em um botão vermelho suave */
-a.alerta-erro {
-    display: inline-block;
-    background-color: var(--erro);
-    color: #ffffff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-left: 8px;
-    transition: background-color 0.2s ease;
-}
-
-a.alerta-erro:hover {
-    background-color: #b91c1c;
+input:focus {
+    border-color: #0a192f; /* Troca a borda por um azul bem escuro quando o usuário clica para digitar */
+    outline: none;         /* Remove aquela borda preta padrão feia que os navegadores colocam */
 }
 
 button {
@@ -459,7 +389,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.9;
+    opacity: 0.8;        /* Dá uma leve sumidinha sutil no botão para indicar que o mouse está em cima */
 }
 
 button[type="submit"] {
@@ -491,13 +421,13 @@ button[type="button"] {
 }
 
 .info-item {
-    margin-bottom: 25px; /* Separa cada bloco de contato */
+    margin-bottom: 25px; /* Separa cada bloco de contato (como espaço entre o email e o telefone) */
 }
 
 .info-item h4 {
     font-size: 14px;                /* Texto pequeno e discreto para a etiqueta (label) */
     text-transform: uppercase;      /* Transforma todas as letras em MAIÚSCULAS */
-    letter-spacing: 1px;            /* Afasta levemente as letras uma das outras */
+    letter-spacing: 1px;            /* Afasta levemente as letras uma das outras para estilo moderno */
     color: var(--texto-suave);      /* Aplica a cor cinza-azulada clara */
     margin-bottom: 5px;             /* Cola o h4 perto do dado informativo abaixo */
 }
@@ -513,7 +443,7 @@ button[type="button"] {
     width: 100%;                    /* Faz a caixa do mapa preencher o espaço total disponível */
     aspect-ratio: 16 / 9;           /* Mantém a proporção de tela de cinema (widescreen) perfeita */
     border-radius: 8px;             /* Arredonda os cantos da moldura do mapa */
-    overflow: hidden;               /* Corta as pontas quadradas do mapa do Google */
+    overflow: hidden;               /* Corta as pontas quadradas do mapa do Google para obedecer o border-radius */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no mapa */
     margin: 0 auto;                 /* Centralização */
 }
@@ -542,21 +472,41 @@ footer a {
 footer a:hover {
     color: #a78bfa;                 /* Links mudam para lilás claro ao passar o mouse */
 }
+.admin-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+}
 
-/* ==========================================================================
-   PAINEL ADMINISTRATIVO (REDUZIDO E OTIMIZADO)
-   ========================================================================== */
+.card-admin {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+   
+    transition: .3s;
+    border-right: 6px solid var(--menu-fundo);
+    border-bottom: 6px solid var(--menu-fundo);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
 .admin-section {
     margin: 15px auto;
 }
 
-/* Removemos estilos redundantes do .card-admin pois ele agora estende a classe .card */
-.card-admin img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 15px;
+.admin-grid {
+    gap: 10px;
 }
 
+.card-admin:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.10);
+}
+
+.card-admin img {
+    width: 200px;
+}
 /* ==========================================================================
    REGRAS DE RESPONSIVIDADE (MEDIA QUERIES - CELULARES ATÉ 768px)
    ========================================================================== */
@@ -569,7 +519,7 @@ footer a:hover {
 
     header {
         flex-direction: column; /* Empilha a logo em cima e o menu embaixo no celular */
-        padding: 15px 0 0 0;    /* Zera os paddings laterais para o menu grudar nas pontas */
+        padding: 15px 0 0 0;    /* Zera os paddings laterais para o menu grudar nas pontas da tela */
     }
 
     header h1 {
@@ -590,7 +540,7 @@ footer a:hover {
     }
 
     nav ul li a {
-        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha fina divisória */
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha fina divisória entre cada botão */
         padding: 15px;          /* Aumenta a área de toque do dedo no celular */
     }
 
@@ -607,30 +557,30 @@ footer a:hover {
     }
     
     .texto-slide h1 {
-        font-size: 32px;        /* Reduz o tamanho do título para não quebrar feio */
+        font-size: 32px;        /* Reduz o tamanho do título para não quebrar feio em telas finas */
     }
 
     .texto-slide h1::after {
         left: 50%;                     /* Move a ponta esquerda da barra decorativa para o centro */
-        transform: translateX(-50%);   /* Centraliza perfeitamente a barrinha azul */
+        transform: translateX(-50%);   /* Centraliza perfeitamente a barrinha azul debaixo do título */
     }
 
     .texto-slide p {
         font-size: 16px;        /* Reduz o tamanho da letra para telas pequenas */
-        text-align: center;     /* Modifica o alinhamento para centralizado no mobile */
+        text-align: center;     /* Modifica o alinhamento de "justify" para centralizado, combinando mais com mobile */
     }
 
     .contato .grid-contato {
         flex-direction: column; /* Empilha as informações de texto acima e o mapa abaixo */
-        padding: 30px 20px;     /* Reduz o espaçamento interno */
+        padding: 30px 20px;     /* Reduz o espaçamento interno para caber em telas estreitas */
         text-align: center;     /* Centraliza as informações textuais de contato */
     }
     
     .info-contato {
-        max-width: 100%;        /* Libera as informações de contato */
+        max-width: 100%;        /* Libera as informações de contato para usar toda a largura da tela */
     }
 
     .mapa-container {
-        aspect-ratio: 1 / 1;    /* Transforma o mapa em um quadrado perfeito (1:1) */
+        aspect-ratio: 1 / 1;    /* Transforma o mapa em um quadrado perfeito (1:1), formato ideal para celulares */
     }
 }

@@ -1,3 +1,4 @@
+<!-- listarClientes.php -->
 <?php
 session_start();
 
@@ -10,62 +11,58 @@ $clientes = $cliente->listar();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <?php include 'includes/head.php'; ?>
-    <title>Vs Uniformes - Lista de Clientes</title>
+<?php include 'includes/head.php'; ?>
+<title>Lista de Clientes</title>
 </head>
+
 <body>
-    
-    <?php include 'includes/menu.php'; ?>
 
-    <main class="container">
+<?php include 'includes/menu.php'; ?>
 
-        <h2 class="tituloForm">Lista de Clientes</h2>
+<div class="container">
 
-        <table class="tabela-preco">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>Email</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
+<h2>Lista de Clientes</h2>
 
-            <tbody>
-                <?php if (!empty($clientes)): ?>
-                    <?php foreach($clientes as $c): ?>
-                        <tr>
-                            <td><?= $c['idCliente'] ?></td>
-                            <td><?= $c['nomeCliente'] ?></td>
-                            <td><?= $c['telefone'] ?></td>
-                            <td><?= $c['email'] ?></td>
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Telefone</th>
+    <th>Email</th>
+    <th>Ações</th>
+</tr>
+</thead>
 
-                            <td>
-                                <a href="editarClientes.php?idCliente=<?= $c['idCliente'] ?>" class="tecnologias">
-                                    Editar
-                                </a>
+<tbody>
+<?php foreach($clientes as $c): ?>
+<tr>
+    <td><?= $c['idCliente'] ?></td>
+    <td><?= $c['nomeCliente'] ?></td>
+    <td><?= $c['telefone'] ?></td>
+    <td><?= $c['email'] ?></td>
 
-                                <a href="../controller/ClienteController.php?acao=excluir&idCliente=<?= $c['idCliente'] ?>" class="alerta-erro" onclick="return confirm('Deseja realmente excluir este cliente?')">
-                                    Excluir
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="5" class="texto" style="text-align: center;">
-                            Nenhum cliente cadastrado.
-                        </td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+    <td>
+        <a class="editar"
+           href="editarClientes.php?idCliente=<?= $c['idCliente'] ?>">
+           Editar
+        </a>
 
-    </main>
+        <a class="excluir"
+           href="../controller/ClienteController.php?acao=excluir&idCliente=<?= $c['idCliente'] ?>"
+           onclick="return confirm('Deseja excluir?')">
+           Excluir
+        </a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</tbody>
 
-    <?php include 'includes/footer.php'; ?>
+</table>
+
+</div>
+
 </body>
 </html>
