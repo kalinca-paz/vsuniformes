@@ -25,6 +25,14 @@ session_start();
     </div>
 
     <div class="card-admin">
+        <a href="cadastrarUsuarios.php">
+            <img src="../img/boneco.png" alt="Usuários">
+        </a>
+        <p>Cadastrar Usuários</p>
+    </div>
+
+
+    <div class="card-admin">
         <a href="listarClientes.php">
             <img src="../img/boneco.png" alt="Clientes">
         </a>

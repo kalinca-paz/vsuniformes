@@ -19,17 +19,15 @@ if(isset($_SESSION['carrinho'])){
 <?php include 'includes/menu.php'; ?>
 
 <div class="container">
-    <h2>🛒 Finalizar Pedido</h2>
-    <div class="total">
+    <h2>Finalizar Pedido</h2>
+    <div class="pedido">
+
+    
+
         Total: R$ <?= number_format($total,2,',','.'); ?>
     </div>
+
     <form action="../controller/finalizarPedidoCarrinho.php" method="POST">
-        <label>Nome Completo</label>
-        <input type="text" name="nome" required>
-
-        <label>Endereço de Entrega</label>
-        <textarea name="endereco" required></textarea>
-
         <button type="submit">Confirmar Pedido</button>
     </form>
 </div>

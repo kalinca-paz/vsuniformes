@@ -1,9 +1,10 @@
 <!-- editarClientes.php -->
 <?php
+session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/Cliente.php";
 
-session_start();
+
 
 $pdo = Conexao::getInstance();
 $cliente = new Cliente($pdo);

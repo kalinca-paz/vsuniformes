@@ -1,10 +1,10 @@
 <!-- listarUsuarios.php -->
-<?php 
+<?php
+session_start();
 require_once "../conexao/Conexao.php";
 require_once '../model/ClassUsuarioDAO.php';
 require_once '../model/ClassUsuario.php';  
 
-session_start();
 $usuarioDAO = new ClassUsuarioDAO();
 $novoUsuario = $usuarioDAO->listarUsuarios();
 ?>

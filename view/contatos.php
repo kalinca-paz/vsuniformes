@@ -1,6 +1,7 @@
 <!-- contatos.php -->
+ <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <?php include 'includes/head.php'; ?>
     <title>Contatos</title>

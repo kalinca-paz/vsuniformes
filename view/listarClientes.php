@@ -28,8 +28,11 @@ $clientes = $cliente->listar();
 <tr>
     <th>ID</th>
     <th>Nome</th>
-    <th>Telefone</th>
     <th>Email</th>
+    <th>CPF</th>
+    <th>CNPJ</th>
+    <th>Razão Social</th>
+    <th>Telefone</th>
     <th>Ações</th>
 </tr>
 </thead>
@@ -39,8 +42,12 @@ $clientes = $cliente->listar();
 <tr>
     <td><?= $c['idCliente'] ?></td>
     <td><?= $c['nomeCliente'] ?></td>
-    <td><?= $c['telefone'] ?></td>
     <td><?= $c['email'] ?></td>
+    <td><?= $c['cpf'] ?></td>
+    <td><?= $c['cnpj'] ?></td>
+    <td><?= $c['razaoSocial'] ?></td>
+    <td><?= $c['telefone'] ?></td>
+
 
     <td>
         <a class="editar"
