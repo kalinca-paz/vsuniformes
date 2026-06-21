@@ -9,14 +9,12 @@ $pdo = Conexao::getInstance();
 $cliente = new Cliente($pdo);
 $clientes = $cliente->listar();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<?php include 'includes/head.php'; ?>
-<title>Lista de Clientes</title>
+    <?php include 'includes/head.php'; ?>
+    <title>Lista de Clientes</title>
 </head>
-
 <body>
 
 <?php include 'includes/menu.php'; ?>
@@ -64,5 +62,6 @@ $clientes = $cliente->listar();
 
 </div>
 
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

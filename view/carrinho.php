@@ -4,13 +4,14 @@ session_start();
 $carrinho = $_SESSION['carrinho'] ?? [];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
     <title>Carrinho</title>
 </head>
 <body>
-<?php include 'includes/menu.php';?>
+<?php include 'includes/menu.php'; ?>
+
     <h2 align=center>Meu Carrinho</h2>
     <table border="1" width="80%">
         <tr>
@@ -25,32 +26,18 @@ $carrinho = $_SESSION['carrinho'] ?? [];
                 foreach ($carrinho as $item):
                     $subtotal = $item['preco'] * $item['quantidade'];
                     $total += $subtotal;
-
         ?>
             <tr>
-                <td>
-                    <?= $item['nomeProd']; ?>
-                </td>
-                <td>
-                    R$ <?= number_format($item['preco'], 2, ',', '.'); ?>
-                </td>
+                <td><?= $item['nomeProd']; ?></td>
+                <td>R$ <?= number_format($item['preco'], 2, ',', '.'); ?></td>
                 <td>
                     <form action="../controller/atualizarQuantidade.php" method="POST">
-                        <input type="hidden"
-                            name="id"
-                            value="<?= $item['idProduto']; ?>">
-                        <input type="number" 
-                            name="quantidade"
-                            value="<?= $item['quantidade']; ?>"
-                            min="1">
-                        <button type="submit">
-                            Atualizar
-                        </button>
+                        <input type="hidden" name="id" value="<?= $item['idProduto']; ?>">
+                        <input type="number" name="quantidade" value="<?= $item['quantidade']; ?>" min="1">
+                        <button type="submit">Atualizar</button>
                     </form>
                 </td>
-                <td>
-                    R$ <?= number_format($subtotal, 2, ',', '.'); ?>
-                </td>
+                <td>R$ <?= number_format($subtotal, 2, ',', '.'); ?></td>
                 <td>
                     <a href="../controller/removerCarrinho.php?id=<?= $item['idProduto']; ?>">
                         Remover
@@ -59,23 +46,17 @@ $carrinho = $_SESSION['carrinho'] ?? [];
             </tr>
         <?php endforeach; ?>
         <tr>
-            <td colspan="3">
-                <strong>Total</strong>
-            </td>
-            <td colspan="2">
-                <strong>
-                    R$ <?= number_format($total, 2, ',', '.'); ?>
-                </strong>
-            </td>
+            <td colspan="3"><strong>Total</strong></td>
+            <td colspan="2"><strong>R$ <?= number_format($total, 2, ',', '.'); ?></strong></td>
         </tr>
     </table>
     <br>
     <center>
-        <a href="listarProdutosCarrinho.php">
-            Continuar Comprando
-        </a>
+        <a href="listarProdutosCarrinho.php">Continuar Comprando</a>
         <br>
         <a href="finalizarPedido.php">Finalizar Pedido</a>
     </center>
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

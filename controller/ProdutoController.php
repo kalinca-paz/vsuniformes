@@ -26,13 +26,16 @@ try {
     $produto = new Produto();
 
     // Preenche os atributos do objeto
-    $produto->setNome($_POST['nome']);
+    $produto->setNome($_POST['nomeProd']);
     $produto->setCategoria($_POST['categoria']);
+    $produto->setDescricao($_POST['descricao']);
+    $produto->setModelo($_POST['modelo']);
+    $produto->setTamanho($_POST['tamanho']);
+    $produto->setCor($_POST['cor']);
     $produto->setPreco($_POST['preco']);
     $produto->setFoto1($foto1);
     $produto->setFoto2($foto2);
     $produto->setFoto3($foto3);
-    $produto->setDescricao($_POST['descricao']);
     $produto->setEstoque($_POST['estoque']);
 
     // Salva no banco

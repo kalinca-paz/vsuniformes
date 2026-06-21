@@ -2,13 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-<?php include '../view/includes/head.php'; ?>
-
+<?php include 'includes/head.php'; ?>
     <title>Cadastro</title>
 </head>
 
 <body>
-<?php include '../view/includes/menu.php'; ?>
+<?php include 'includes/menu.php'; ?>
 
 <h1 class="tituloForm">Cadastro de Usuário</h1>
 
@@ -44,6 +43,6 @@
     </p>
 
 </form>
-<?php include '../view/includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

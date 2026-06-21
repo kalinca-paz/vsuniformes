@@ -1,4 +1,4 @@
-<!--listarProdutosCarrinho.php -->
+<!-- listarProdutosCarrinho.php -->
 <?php
 session_start();
 require_once "../conexao/Conexao.php";

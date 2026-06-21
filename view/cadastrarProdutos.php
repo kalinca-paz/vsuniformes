@@ -2,15 +2,15 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <?php include 'includes/head.php'; ?>
-    <title>Itens da Venda</title>
+    <title>Cadastrar Produto</title>
 </head>
 <body>
 <?php include 'includes/menu.php'; ?>
+
 <h2>Cadastro de Produto</h2>
 
 <?php
@@ -61,5 +61,6 @@ if(isset($_SESSION['mensagem'])){
 
 </form>
 
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

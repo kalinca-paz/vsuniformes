@@ -2,6 +2,11 @@
 <?php
 session_start();
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <?php include 'includes/head.php'; ?>
+    <title>Painel de Administração</title>
 </head>
 <body>
 

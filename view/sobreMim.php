@@ -1,5 +1,9 @@
 <!-- sobreMim.php -->
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <?php include 'includes/head.php'; ?>
+    <title>Sobre mim</title>
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>

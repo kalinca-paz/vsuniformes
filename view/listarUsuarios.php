@@ -9,10 +9,11 @@ $usuarioDAO = new ClassUsuarioDAO();
 $novoUsuario = $usuarioDAO->listarUsuarios();
 ?>
 
-<!DOCTYPE html>
 <html lang="pt-BR">
+<head>
     <?php include 'includes/head.php'; ?>
-
+    <title>Listar Usuários</title>
+</head>
 <body>
     <?php include 'includes/menu.php'; ?>
 <div class="container">

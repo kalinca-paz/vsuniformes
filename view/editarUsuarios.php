@@ -35,14 +35,12 @@ if ($_POST) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <?php include 'includes/head.php'; ?>
     <title>Editar Usuário</title>
 </head>
-
 <body>
 
 <?php include 'includes/menu.php'; ?>
@@ -88,5 +86,6 @@ if ($_POST) {
 
 </div>
 
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

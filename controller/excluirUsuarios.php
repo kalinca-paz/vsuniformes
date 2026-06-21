@@ -2,9 +2,9 @@
 require_once '../model/ClassUsuarioDAO.php';
 require_once '../model/ClassUsuario.php';
 
-if (isset($_GET['id'])) {
+if (isset($_GET['idUsuario'])) {
     $novoUsuario = new ClassUsuario();
-    $novoUsuario->setId($_GET['id']);
+    $novoUsuario->setId($_GET['idUsuario']);
     $usuarioDAO = new ClassUsuarioDAO();
 
     if ($usuarioDAO->excluirUsuarios($novoUsuario->getId())) {

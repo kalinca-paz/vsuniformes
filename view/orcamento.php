@@ -1,13 +1,15 @@
 <!-- orcamento.php -->
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <?php include 'includes/head.php'; ?>
+    <title>Vs Uniformes - Orçamentos</title>
 </head>
 <body>
-    <?php include 'includes/menu.php';?>
+    <?php include 'includes/menu.php'; ?>
     <section>
 
-        <h2>
-            Escolha seu orçamento
-        </h2>
+        <h2>Escolha seu orçamento</h2>
 
         <div class="container-orcamentos">
             
@@ -152,6 +154,6 @@
         </div>
 
     </section>
+    <?php include 'includes/footer.php'; ?>
 </body>
-
 </html>
