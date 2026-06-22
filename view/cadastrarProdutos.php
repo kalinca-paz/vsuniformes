@@ -1,4 +1,3 @@
-<!-- cadastrarProdutos.php -->
 <?php
 session_start();
 ?>
@@ -10,56 +9,104 @@ session_start();
 </head>
 <body>
 <?php include 'includes/menu.php'; ?>
+<div class="container-voltar">
+        <a href="painelAdmin.php" class="btn-voltar">
+            &larr; Voltar ao Painel
+        </a>
+    </div>
 
-<h2>Cadastro de Produto</h2>
+<main class="container">
 
-<?php
-if(isset($_SESSION['mensagem'])){
-    echo "<p>" . $_SESSION['mensagem'] . "</p>";
-    unset($_SESSION['mensagem']);
-}
-?>
+    <h1 class="tituloForm">Cadastro de Produto</h1>
 
-<form action="../controller/ProdutoController.php"
-      method="post"
-      enctype="multipart/form-data">
+    <?php
+    if(isset($_SESSION['mensagem'])){
+        echo "<p class='alerta-sucesso'>" . $_SESSION['mensagem'] . "</p>";
+        unset($_SESSION['mensagem']);
+    }
+    ?>
 
-    <label>Nome</label>
-    <input type="text" name="nomeProd" required>
+    <form action="../controller/ProdutoController.php"
+          method="post"
+          enctype="multipart/form-data" class="form">
 
-    <label>Categoria</label>
-    <input type="text" name="categoria" required>
+    <p class="input-group">
+        <label>Nome</label>
+        <input type="text" name="nomeProd" required>
+    </p>
 
-    <label>Modelo</label>
-    <input type="text" name="modelo" required>
+    <p class="input-group">
+        <label>Categoria</label>
+        <input type="text" name="categoria" required>
+    </p>
 
-    <label>Tamanho</label>
-    <input type="text" name="tamanho" required>
+    <p class="input-group">
+        <label>Modelo</label>
+        <input type="text" name="modelo" required>
+    </p>
 
-    <label>Cor</label>
-    <input type="text" name="cor" required>
+    <p class="input-group">
+        <label>Tamanho</label>
+        <select name="tamanho" required>
+            <option value="" disabled selected>Selecione o tamanho</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="EXG">EXG</option>
+            <option value="Único">Tamanho Único</option>
+        </select>
+    </p>
 
-    <label>Preço</label>
-    <input type="number" step="0.01" name="preco" required>
+    <p class="input-group">
+        <label>Cor</label>
+        <select name="cor" required>
+            <option value="" disabled selected>Selecione a cor</option>
+            <option value="Branco">Branco</option>
+            <option value="Preto">Preto</option>
+            <option value="Azul Marinho">Azul Marinho</option>
+            <option value="Azul Royal">Azul Royal</option>
+            <option value="Cinza">Cinza</option>
+            <option value="Vermelho">Vermelho</option>
+            <option value="Verde">Verde</option>
+        </select>
+    </p>
 
-    <label>Descrição</label>
-    <textarea name="descricao" rows="5" required></textarea>
+    <p class="input-group">
+        <label>Preço</label>
+        <input type="number" step="0.01" name="preco" required>
+    </p>
 
-    <label>Estoque</label>
-    <input type="number" name="estoque" required>
+    <p class="input-group">
+        <label>Descrição</label>
+        <textarea name="descricao" rows="5" required></textarea>
+    </p>
 
-    <label>Foto 1</label>
-    <input type="file" name="foto1">
+    <p class="input-group">
+        <label>Estoque</label>
+        <input type="number" name="estoque" required>
+    </p>
 
-    <label>Foto 2</label>
-    <input type="file" name="foto2">
+    <p class="input-group">
+        <label>Foto 1</label>
+        <input type="file" name="foto1">
+    </p>
 
-    <label>Foto 3</label>
-    <input type="file" name="foto3">
+    <p class="input-group">
+        <label>Foto 2</label>
+        <input type="file" name="foto2">
+    </p>
 
-    <button type="submit">Salvar Produto</button>
+    <p class="input-group">
+        <label>Foto 3</label>
+        <input type="file" name="foto3">
+    </p>
 
-</form>
+        <button type="submit" class="btn-orcamento">Salvar Produto</button>
+
+    </form>
+
+</main>
 
 <?php include 'includes/footer.php'; ?>
 </body>

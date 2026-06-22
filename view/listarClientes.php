@@ -23,7 +23,7 @@ $clientes = $cliente->listar();
 
 <h2>Lista de Clientes</h2>
 
-<table>
+<table class="tabela">
 <thead>
 <tr>
     <th>ID</th>
@@ -50,12 +50,12 @@ $clientes = $cliente->listar();
 
 
     <td>
-        <a class="editar"
+        <a class="btn-card"
            href="editarClientes.php?idCliente=<?= $c['idCliente'] ?>">
            Editar
         </a>
 
-        <a class="excluir"
+        <a class="alerta-erro"
            href="../controller/ClienteController.php?acao=excluir&idCliente=<?= $c['idCliente'] ?>"
            onclick="return confirm('Deseja excluir?')">
            Excluir

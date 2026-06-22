@@ -1,71 +1,66 @@
-<!-- listarProdutosCarrinho.php -->
 <?php
 session_start();
 require_once "../conexao/Conexao.php";
 require_once "../model/ClassProdutoDAO.php";
 require_once "../model/ClassProduto.php";
 
-
+$produtoDAO = new ClassProdutoDAO();
+$produtos = $produtoDAO->listarProdutos();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <?php include 'includes/head.php'; ?>
+    <title>Vs Uniformes - Nossos Produtos</title>
 </head>
 <body>
 
- <!-- HEADER -->
-  <?php include 'includes/menu.php'; ?>  
-<?php
+    <?php include 'includes/menu.php'; ?>  
 
-$produtoDAO = new ClassProdutoDAO();
-$produtos = $produtoDAO->listarProdutos();
+    <main class="container">
 
-?><div class="container">
+        <h2>Nossos Produtos</h2>
 
-    <h2>Nossos Produtos</h2>
+        <div class="container-produtos">
 
-    <div class="container-produtos">
+            <?php foreach($produtos as $produto): ?>
 
-        <?php foreach($produtos as $produto): ?>
+                <div class="card card-produto">
 
-            <div class="card-produto">
+                    <?php if(!empty($produto['foto1'])): ?>
+                        <img src="../uploads/produtos/<?= $produto['foto1']; ?>" alt="<?= $produto['nomeProd']; ?>">
+                    <?php else: ?>
+                        <img src="../imagem/carrinho.jpg" alt="Imagem padrão">
+                    <?php endif; ?>
 
-                <?php if(!empty($produto['foto1'])): ?>
-                    <img src="../uploads/produtos/<?php echo $produto['foto1']; ?>">
-                <?php else: ?>
-                    <img src="../imagem/carrinho.jpg">
-                <?php endif; ?>
+                    <div class="info-produto">
 
-                <div class="info-produto">
+                        <div class="nome-produto">
+                            <?= $produto['nomeProd']; ?>
+                        </div>
 
-                    <div class="nome-produto">
-                        <?php echo $produto['nomeProd']; ?>
+                        <div class="categoria">
+                            <?= $produto['categoria']; ?>
+                        </div>
+
+                        <div class="preco">
+                            R$ <?= number_format($produto['preco'], 2, ',', '.'); ?>
+                        </div>
+
+                        <a class="btn-card" href="../controller/adicionarCarrinho.php?id=<?= $produto['idProduto']; ?>">
+                            Comprar
+                        </a>
+
                     </div>
-
-                    <div class="categoria">
-                        <?php echo $produto['categoria']; ?>
-                    </div>
-
-                    <div class="preco">
-                        R$ <?php echo number_format($produto['preco'],2,',','.'); ?>
-                    </div>
-
-                    <a class="btn-comprar"
-                       href="../controller/adicionarCarrinho.php?id=<?php echo $produto['idProduto']; ?>">
-                       Comprar
-                    </a>
 
                 </div>
 
-            </div>
+            <?php endforeach; ?>
 
-        <?php endforeach; ?>
+        </div>
 
-    </div>
+    </main>
 
-</div>
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

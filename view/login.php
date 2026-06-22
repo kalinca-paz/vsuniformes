@@ -12,7 +12,7 @@ session_start();
     <?php include 'includes/menu.php'; ?>
 
     <main class="login-container">
-        <div class="login-box card">
+        <div>
             <h1 class="tituloForm">Login</h1>
             
             <?php if (isset($_SESSION['mensagem'])): ?>
@@ -22,7 +22,7 @@ session_start();
                 <?php unset($_SESSION['mensagem']); ?>
             <?php endif; ?>
             
-            <form action="../controller/validarLogin.php" method="post" class="form card-login">
+            <form action="../controller/validarLogin.php" method="post" class="form">
                 <div class="input-group">
                     <label for="email" class="tecnologias">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>

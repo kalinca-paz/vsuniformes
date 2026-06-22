@@ -1,348 +1,361 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS E PALETA DE CORES
+   1. CONFIGURAÇÕES GERAIS, VARIÁVEIS E PALETA DE CORES
    ========================================================================== */
 * {
-    margin: 0;             /* Remove as margens padrão do navegador */
-    padding: 0;            /* Remove o espaçamento interno padrão do navegador */
-    box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total do elemento */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-    --menu-fundo: #0056B3;   /* Azul intermediário para o fundo do menu */
-    --menu-foco: #E63946;    /* Vermelho vibrante para o efeito hover nos links */
-    --texto: #1B263B;        /* Azul escuro acinzentado para leitura de textos longos */
-    --borda: #9cb5da;        /* Azul claro pastel usado em linhas divisórias e bordas */
-    --texto-suave: #778DA9;  /* Azul acinzentado claro para títulos menores e subtítulos */
-    --titulo: #002855;       /* Azul marinho bem escuro para os títulos principais (h1, h2) */
-    --fundo: #F6F4F3;        /* Off-white (cinza quase branco) para o fundo geral do site */
+    --menu-fundo: #0056B3;     /* Azul intermediário para o fundo do menu */
+    --menu-foco: #E63946;      /* Vermelho vibrante para hover */
+    --texto: #1B263B;          /* Azul escuro acinzentado para leitura */
+    --borda: #9cb5da;          /* Azul claro pastel para divisórias */
+    --texto-suave: #778DA9;    /* Azul acinzentado claro para subtítulos */
+    --titulo: #002855;         /* Azul marinho escuro para títulos h1, h2 */
+    --fundo: #F6F4F3;          /* Off-white para o fundo geral */
+    --sucesso: #14532d;        /* Verde escuro para botões de sucesso/compra */
+    --sucesso-hover: #166534;  /* Verde ligeiramente mais claro */
+    --erro: rgb(201, 0, 0);          /* Vermelho escuro para alertas/exclusão */
 }
 
 /* ==========================================================================
-   TIPOGRAFIA E ESTILOS BASE
+   2. TIPOGRAFIA E ESTILOS BASE
    ========================================================================== */
 body {
-    font-family: 'Times New Roman', Times, serif; /* Define a fonte clássica com serifa para o site */
-    line-height: 1.6;                             /* Define o espaçamento entre as linhas de texto */
-    color: var(--texto);                          /* Aplica a cor padrão de texto definida nas variáveis */
-    background-color: var(--fundo);               /* Aplica a cor de fundo padrão na página inteira */
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fundo);
 }
 
 a {
-    text-decoration: none; /* Remove o sublinhado padrão de todos os links */
+    text-decoration: none;
+    color: inherit;
 }
 
 p {
-    margin-bottom: 15px; /* Cria um espaço abaixo de cada parágrafo para separar blocos de texto */
+    margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ==========================================================================
-   ESTRUTURA DE LAYOUT GLOBAL
+   3. ESTRUTURA DE LAYOUT GLOBAL (CONTAINERS E GRIDS)
    ========================================================================== */
 section {
-    padding: 60px 40px; /* Dá um grande espaçamento interno (cima/baixo e lados) em cada seção do site */
+    padding: 60px 40px;
 }
 
 .container {
-    max-width: 1100px; /* Limita a largura máxima do conteúdo para não espalhar em telas gigantes */
-    margin: auto;      /* Centraliza o bloco do container na horizontal */
-    padding: 0 20px;   /* Cria um recuo de segurança nas laterais em telas menores */
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
 }
 
-.container h2 {
-    color: var(--titulo);   /* Aplica o azul marinho escuro nos títulos h2 */
-    font-size: 32px;        /* Define o tamanho da fonte do h2 */
-    margin-bottom: 40px;    /* Empurra o conteúdo debaixo do título para baixo */
-    position: relative;     /* Permite posicionar elementos filhos com "absolute" em relação a ele */
+.container h2, 
+.tituloForm {
+    color: var(--titulo);
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
 }
 
 .grid {
-    display: flex;     /* Ativa o modelo Flexbox para alinhar os elementos filhos de lado */
-    gap: 30px;         /* Define a distância de separação fixa entre os elementos da grid */
-    flex-wrap: wrap;   /* Permite que os elementos pulem de linha se não couberem na mesma fileira */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 /* ==========================================================================
-   CABEÇALHO AND NAVEGAÇÃO (HEADER / NAV)
+   4. CABEÇALHO E NAVEGAÇÃO (HEADER / NAV)
    ========================================================================== */
 header {
-    background: var(--texto);       /* Define o fundo do topo com o tom escuro azul acinzentado */
-    padding: 0px 30px;              /* Espaçamento interno lateral de 30px nas bordas do cabeçalho */
-    color: #ffffff;                 /* Deixa as letras de textos soltos no cabeçalho brancas */
-    display: flex;                  /* Coloca a Logo e o Menu um ao lado do outro */
-    justify-content: space-between; /* Empurra a logo para a extrema esquerda e o menu para a direita */
+    background: var(--texto);
+    padding: 0 30px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    width: 200px;    /* Fixa a largura máxima da imagem da logo */
-    padding: 10px;   /* Margem interna para a logo não encostar nas bordas do cabeçalho */
-    display: block;  /* Remove espaçamentos fantasmas debaixo da imagem */
+    width: 200px;
+    padding: 10px;
+    display: block;
 }
 
 nav {
-    background-color: var(--menu-fundo); /* Define a cor de fundo azul do menu de navegação */
-    overflow: hidden;                    /* Garante que nada de dentro do nav escape suas bordas */
+    background-color: var(--menu-fundo);
+    overflow: hidden;
 }
 
 nav ul {
-    list-style-type: none;  /* Remove as bolinhas decorativas da lista do menu */
-    margin: 0;              /* Zera as margens da lista */
-    padding: 0;             /* Zera o espaçamento interno da lista */
-    display: flex;          /* Alinha os itens do menu (<li>) horizontalmente */
-    justify-content: center;/* Centraliza os botões do menu dentro do espaço disponível */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li a {
-    display: block;                  /* Faz o link ocupar toda a área do botão, facilitando o clique */
-    color: white;                    /* Texto do link em branco */
-    text-align: center;              /* Centraliza o texto dentro do botão */
-    padding: 15px 20px;              /* Define a altura e largura interna de cada botão do menu */
-    transition: background-color 0.3s ease; /* Suaviza a troca de cor ao passar o mouse */
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: var(--menu-foco); /* Muda o fundo para vermelho quando o mouse passa por cima */
+    background-color: var(--menu-foco);
 }
-.welcome-text{
+
+.welcome-text {
     display: block;
     justify-content: center;
     padding: 15px 20px;
     background-color: #2f73c1;
-}
-.sair{
-    background-color: darkred;
-}
-.sair:hover{
-    background-color: red;
+    color: white;
 }
 
+.sair {
+    background-color: var(--menu-foco);
+}
+
+.sair:hover {
+    background-color: var(--erro);
+}
 
 /* ==========================================================================
-   BANNER PRINCIPAL (HERO)
+   5. BANNER PRINCIPAL (HERO)
    ========================================================================== */
 .hero {
-    /* Aplica uma camada escura transparente por cima da imagem de fundo para dar leitura ao texto */
     background: linear-gradient(#00000098, #a4a4a437), url('../img/home.png');
-    background-size: cover;     /* Estica a imagem para preencher todo o espaço sem distorcer */
-    background-position: center;/* Garante que o centro da imagem fique sempre visível */
-    color: #ffffff;             /* Letras brancas para contrastar com o fundo escuro */
-    text-align: center;         /* Centraliza todos os textos do banner */
-    padding: 100px 20px;        /* Altura interna generosa para dar destaque ao banner principal */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
 }
 
 .hero h2 {
-    font-size: 40px;     /* Tamanho gigante para a frase principal de impacto */
-    margin-bottom: 20px; /* Afasta o título do parágrafo abaixo */
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 18px;     /* Texto de apoio levemente maior que o comum */
-    margin-bottom: 20px; /* Dá espaço caso haja um botão abaixo dele */
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 /* ==========================================================================
-   SEÇÃO SEVIÇOS (GRID DE CARDS)
+   6. COMPONENTES DE CARDS E VITRINE (PRODUTOS / ADMIN)
    ========================================================================== */
-.card {
-    flex: 1;             /* Faz o card esticar igualmente para ocupar o espaço irmão na mesma linha */
-    min-width: 280px;    /* Define que o card não pode esmagar menos que 280px de largura */
-    padding: 30px;       /* Espaço interno generoso para afastar os textos das bordas do card */
-    border: 1px solid var(--borda); /* Aplica a linha de contorno azul pastel */
-    border-radius: 12px; /* Arredonda os cantos do card de forma moderna */
-    background: #ffffff; /* Fundo totalmente branco para o card se destacar do fundo do site */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra cinza bem clarinha de profundidade */
-    /* Cria uma animação suave de movimento e sombra combinando transições */
+.container-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card, 
+.card-produto, 
+.card-admin {
+    flex: 1;
+    min-width: 280px;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-10px); /* Faz o card flutuar para cima 10px ao passar o mouse */
-    box-shadow: 0 12px 24px rgba(0, 56, 179, 0.15); /* Aumenta a sombra e aplica um leve tom azul da marca */
+
+.card:hover, 
+.card-produto:hover, 
+.card-admin:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 56, 179, 0.15);
 }
 
-.card h3 {
-    font-size: 22px;     /* Tamanho do título interno do serviço */
-    margin-bottom: 15px; /* Afasta o título do texto descritivo */
-    color: var(--titulo);/* Usa o azul marinho escuro no título */
+.card h3, 
+.card-admin h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--titulo);
+}
+.admin-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards na tela */
+    gap: 20px;               /* Espaçamento entre um card e outro */
+    margin: 40px auto;
 }
 
-.card p {
-    font-size: 15px;     /* Texto descritivo confortável para leitura rápida */
-    color: var(--texto); /* Cor padrão escura */
-    line-height: 1.6;    /* Altura de linha ajustada para melhor legibilidade */
-    margin-bottom: 0;    /* Remove a margem inferior para o texto assentar perfeitamente */
+.card-admin {
+    flex: 0 1 250px;         /* Ajusta para tamanho fixo/máximo de 250px */
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: .3s;
+    border-right: 6px solid var(--menu-fundo);
+    border-bottom: 6px solid var(--menu-fundo);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.card-admin img {
+    width: 100px;            /* Diminui o ícone para caber no card menor */
+    height: auto;
+    margin: 0 auto 15px auto;
+}
+
+.card-admin img {
+    width: 200px;
+    margin: 0 auto 15px auto;
+}
+
+.info-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nome-produto {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--titulo);
+}
+
+.categoria {
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+.preco {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--sucesso);
 }
 
 /* ==========================================================================
-   SEÇÃO PORTFÓLIO E CARROSSEL
+   7. BOTÕES
    ========================================================================== */
-.portfolio {
-    display: flex;                  /* Coloca a caixa de texto e o carrossel lado a lado */
-    justify-content: space-between; /* Empurra o texto para a esquerda e o carrossel para a direita */
-    align-items: center;            /* Alinha os dois verticalmente pelo meio */
-    gap: 40px;                      /* Impede de qualquer forma que eles se encostem */
-    max-width: 1200px;              /* Largura máxima um pouco maior para o portfólio expandir bem */
-    margin: 40px auto;              /* Centraliza o bloco na tela e dá margem acima/abaixo */
-    padding: 20px;                  /* Margem interna de segurança */
+   /* Container para alinhar o botão à esquerda */
+.container-voltar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 25px;
 }
 
-.texto-slide {
-    max-width: 600px;       /* Restringe o texto para não ficar comprido demais e difícil de ler */
-    margin: 20px 0;         /* Espaço acima e abaixo da caixa de texto */
-    display: flex;          /* Ativa flexbox interno */
-    flex-direction: column; /* Organiza os itens (h1, p) verticalmente */
-    justify-content: center;/* Alinha o conteúdo verticalmente */
+/* Estilo do Botão Voltar */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #6c757d; /* Cinza elegante */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.texto-slide h1 {
-    font-size: 42px;        /* Título de destaque grande */
-    line-height: 1.2;       /* Linhas mais próximas por ser um título de fonte grande */
-    color: var(--titulo);   /* Azul escuro */
-    font-weight: 700;       /* Deixa o título em negrito pesado */
-    position: relative;     /* Necessário para ancorar a barra decorativa debaixo dele */
-    padding-bottom: 15px;   /* Abre espaço para a barra decorativa não tocar as letras */
-    margin-bottom: 20px;    /* Afasta o título do parágrafo explicativo */
+/* Efeito ao passar o mouse */
+.btn-voltar:hover {
+    background-color: #5a6268; /* Cinza um pouco mais escuro */
+    transform: translateX(-3px); /* Move o botão sutilmente para a esquerda */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* Cria a barrinha decorativa azul embaixo do h1 do portfólio */
-.texto-slide h1::after {
-    content: '';                     /* Obrigatório para renderizar elementos falsos (pseudo-elements) */
-    position: absolute;              /* Desvincula o fluxo do texto e flutua o elemento */
-    bottom: 0;                       /* Alinha na base do h1 */
-    left: 0;                         /* Alinha na extrema esquerda */
-    width: 60px;                     /* Comprimento horizontal da barrinha */
-    height: 4px;                     /* Espessura vertical da barrinha */
-    background-color: var(--menu-fundo); /* Aplica o azul intermediário da marca */
-    border-radius: 2px;              /* Arredonda as pontas da barra decorativa */
-}
-
-.texto-slide p {
-    font-size: 18px;       /* Letra descritiva elegante e bem legível */
-    color: var(--texto);   /* Tom escuro padrão */
-    line-height: 1.7;      /* Texto levemente mais espaçado para passar refinamento */
-    margin: 0;             /* Zera as margens externas */
-    text-align: justify;   /* Alinha o texto perfeitamente nos blocos esquerdo e direito */
-}
-
-/* Estrutura do Caixa do Carrossel */
-.carrossel {
-    position: relative;    /* Permite que as setas flutuem e fiquem presas dentro dele */
-    max-width: 500px;      /* Largura ideal para a caixinha de exibição de imagens */
-    height: 350px;         /* Mantém todas as fotos padronizadas nessa altura fixa */
-    margin: 20px auto;     /* Espaçamento e centralização automática */
-    overflow: hidden;      /* Esconde as imagens que estão na fila esperando o slide passar */
-    border-radius: 10px;   /* Bordas arredondadas na caixinha de fotos */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais marcada para destacar as fotos */
-}
-
-/* Fita comprida de imagens que se move horizontalmente via JS */
-.slides {
-    display: flex;         /* Coloca as fotos coladas uma na outra horizontalmente */
-    width: 100%;           /* Ocupa a largura total da caixa mãe */
-    height: 100%;          /* Ocupa a altura total da caixa mãe */
-    transition: transform 0.5s ease-in-out; /* Suaviza o movimento de deslizar das fotos */
-}
-
-.slides img {
-    width: 100%;           /* Garante que cada foto ocupe exatamente 100% da largura do carrossel */
-    height: 100%;          /* Garante o preenchimento de altura total */
-    flex-shrink: 0;        /* Impede o flexbox de esmagar as imagens para tentar fazê-las caber juntas */
-    object-fit: cover;     /* Corta e enquadra as fotos sem esticá-las ou distorcê-las */
-}
-
-/* Botões de passar slide (Setas) */
-.btn-slide {
-    position: absolute;    /* Flutua o botão por cima da imagem */
-    top: 50%;              /* Joga o botão para o meio da altura do carrossel */
-    transform: translateY(-50%); /* Ajuste fino perfeito para centralizar na vertical */
-    width: 40px;           /* Largura do botão circular */
-    height: 40px;          /* Altura do botão circular */
-    border-radius: 50%;    /* Transforma o quadrado em círculo perfeito */
-    border: none;          /* Remove as bordas feias padrões de botões */
-    background: rgba(0, 40, 85, 0.75); /* Fundo azul escuro com transparência elegante */
-    color: white;          /* Cor da seta branca */
-    font-size: 20px;       /* Tamanho da seta interna */
-    cursor: pointer;       /* Transforma a seta do mouse em mãozinha de clique */
-    transition: background-color 0.2s ease; /* Suaviza a mudança de cor do hover */
-    display: flex;         /* Ativa o flexbox interno */
-    align-items: center;    /* Centraliza a seta na vertical dentro do círculo */
-    justify-content: center;/* Centraliza a seta na horizontal dentro do círculo */
-    z-index: 5;            /* Garante que o botão fique na camada acima das fotos */
-}
-
-.btn-slide:hover {
-    background: rgba(0, 40, 85, 1); /* Remove a transparência do botão quando passa o mouse */
-}
-
-.esquerda { left: 15px; }  /* Cola a seta da esquerda a 15px de distância da borda esquerda */
-.direita { right: 15px; }   /* Cola a seta da direita a 15px de distância da borda direita */
-
-/* ==========================================================================
-   COMPONENTES ISOLADOS (BOTÕES EXTRA, CARTÕES E AFILIADOS)
-   ========================================================================== */
+button, 
+.btn-card, 
 .btn-orcamento {
-    display: inline-block;          /* Permite aplicar padding e margem sem quebrar o fluxo da linha */
-    background-color: #14532d;      /* Fundo verde escuro (passa ideia de segurança e dinheiro/orçamento) */
-    color: #ffffff;                 /* Letras brancas */
-    padding: 12px 24px;             /* Tamanho interno do botão (altura x largura) */
-    border-radius: 5px;             /* Cantos sutilmente arredondados */
-    font-size: 16px;                /* Tamanho padrão confortável para botões */
-    transition: background-color 0.3s ease; /* Transição suave na cor do botão no hover */
-    cursor: pointer;                /* Ícone de clique no mouse */
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
+button[type="submit"], 
+.btn-card, 
+.btn-orcamento {
+    background-color: var(--sucesso);
+    color: #ffffff;
+}
+
+button[type="submit"]:hover, 
+.btn-card:hover, 
 .btn-orcamento:hover {
-    background-color: #166534;      /* Tom de verde levemente mais claro ao passar o mouse */
+    background-color: var(--sucesso-hover);
 }
 
-.cartao {
-    margin: 100px auto;             /* Centraliza o cartão e dá um grande espaço acima/abaixo dele */
-    background-color: white;        /* Fundo branco */
-    padding: 30px;                  /* Espaçamento interno em todas as direções do cartão */
-    border-radius: 15px;            /* Cantos bem arredondados e simpáticos */
-    max-width: 450px;               /* Largura restrita para manter o formato de cartão de visitas */
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15); /* Sombra roxa bem clarinha e flutuante */
-    border-left: 6px solid #a78bfa; /* Barra decorativa lilás na lateral esquerda do cartão */
+button[type="button"] {
+    background: var(--texto-suave);
+    color: #ffffff;
 }
 
-h3 {
-    color: #4c1d95;                 /* Cor roxo escuro para os títulos h3 desse bloco */
-    margin-top: 0;                  /* Remove qualquer margem acima dele */
+button:hover {
+    opacity: 0.9;
 }
 
-.tecnologias {
-    color: #7c3aed;                 /* Letras em tom lilás vivo */
-    font-weight: bold;              /* Destaca as palavras em negrito */
+.alerta-erro {
+    background-color: var(--menu-foco);
+    color: #ffffff;
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
 }
-
-.texto {
-    color: #4b5563;                 /* Cinza grafite intermediário para leitura amigável */
-    line-height: 1.5;               /* Altura de linha ajustada */
+.alerta-erro:hover {
+    background-color: var(--erro);
 }
 
 /* ==========================================================================
-   FORMULÁRIOS E TELAS DE LOGIN
+   8. FORMULÁRIOS
    ========================================================================== */
-   .form {
+.form {
     max-width: 600px;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     background: #ffffff;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-right: 6px solid var(--menu-fundo);
 }
+
 .input-group {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .input-group label {
-    margin-bottom: 5px;
     font-weight: bold;
     color: var(--titulo);
 }
@@ -352,9 +365,11 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #afafaf;
+    border: 1px solid var(--texto-suave);
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
 }
 
 input:focus,
@@ -364,223 +379,324 @@ textarea:focus {
     outline: none;
 }
 
-.tituloForm {
-    text-align: center;  /* Centraliza o texto do título do form */
-    padding: 20px;       /* Espaço interno ao redor do título */
-}
-
-input {
-    padding: 10px;       /* Espaço confortável para digitar dentro do campo */
-    border: 1px solid #afafaf; /* Linha de contorno cinza suave */
-    border-radius: 5px;  /* Cantos do input levemente suavizados */
-    margin-top: 5px;     /* Afasta o input do elemento de cima */
-}
-
-input:focus {
-    border-color: #0a192f; /* Troca a borda por um azul bem escuro quando o usuário clica para digitar */
-    outline: none;         /* Remove aquela borda preta padrão feia que os navegadores colocam */
-}
-
-button {
-    padding: 10px;       /* Tamanho interno padrão para os botões do formulário */
-    border: none;        /* Elimina as bordas nativas */
-    border-radius: 5px;  /* Cantos suavizados */
-    cursor: pointer;     /* Cursor de clique ativo */
-}
-
-button:hover {
-    opacity: 0.8;        /* Dá uma leve sumidinha sutil no botão para indicar que o mouse está em cima */
-}
-
-button[type="submit"] {
-    background: #1f4c8f; /* Botão de envio (principal) ganha um fundo azul focado */
-    color: #ffffff;      /* Letras brancas */
-}
-
-button[type="button"] {
-    background: #cccccc; /* Botão secundário (como cancelar) ganha cor cinza neutra */
-    color: #ffffff;      /* Letras brancas */
+.botoes-grupo {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 /* ==========================================================================
-   SEÇÃO CONTATO E INTEGRAÇÃO COM MAPAS
+   9. TABELAS DE DADOS (ADMIN / CARRINHO)
+   ========================================================================== */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.tabela th, 
+.tabela td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela th {
+    background-color: var(--titulo);
+    color: white;
+    font-weight: bold;
+}
+
+.tabela tr:hover {
+    background-color: rgba(0, 86, 179, 0.03);
+}
+
+/* ==========================================================================
+   10. SEÇÃO PORTFÓLIO E CARROSSEL
+   ========================================================================== */
+.portfolio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.texto-slide {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto-slide h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--titulo);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.texto-slide h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--menu-fundo);
+    border-radius: 2px;
+}
+
+.texto-slide p {
+    font-size: 18px;
+    color: var(--texto);
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+}
+
+.carrossel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.btn-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 40, 85, 0.75);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.btn-slide:hover {
+    background: rgba(0, 40, 85, 1);
+}
+
+.esquerda { left: 15px; }
+.direita { right: 15px; }
+
+/* ==========================================================================
+   11. SEÇÃO CONTATO, CARTÕES E MAPAS
    ========================================================================== */
 .contato .grid-contato {
-    display: flex;                  /* Coloca a caixa de texto informativa e o mapa lado a lado */
-    justify-content: space-between; /* Afasta ao máximo as informações do mapa */
-    gap: 40px;                      /* Espaçamento em branco de segurança entre os dois blocos */
-    background: #ffffff;            /* Caixa ganha fundo branco para se destacar */
-    padding: 40px;                  /* Espaçamento interno generoso */
-    border-radius: 12px;            /* Bordas suavizadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra leve decorativa */
-    border-right: 6px solid var(--menu-fundo);  /* Barra decorativa azul na ponta direita da caixa */
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-right: 6px solid var(--menu-fundo);
 }
 
 .info-contato {
-    max-width: 450px; /* Limita a largura do bloco de textos informativos */
+    max-width: 450px;
 }
 
 .info-item {
-    margin-bottom: 25px; /* Separa cada bloco de contato (como espaço entre o email e o telefone) */
+    margin-bottom: 25px;
 }
 
 .info-item h4 {
-    font-size: 14px;                /* Texto pequeno e discreto para a etiqueta (label) */
-    text-transform: uppercase;      /* Transforma todas as letras em MAIÚSCULAS */
-    letter-spacing: 1px;            /* Afasta levemente as letras uma das outras para estilo moderno */
-    color: var(--texto-suave);      /* Aplica a cor cinza-azulada clara */
-    margin-bottom: 5px;             /* Cola o h4 perto do dado informativo abaixo */
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-suave);
+    margin-bottom: 5px;
 }
 
 .info-item p {
-    font-size: 18px;                /* Dado destacado em tamanho maior */
-    font-weight: bold;              /* Texto em negrito forte */
-    color: var(--titulo);           /* Aplica o azul escuro da marca */
-    margin: 0;                      /* Remove as margens sobressalentes */
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--titulo);
+    margin: 0;
 }
 
 .mapa-container {
-    width: 100%;                    /* Faz a caixa do mapa preencher o espaço total disponível */
-    aspect-ratio: 16 / 9;           /* Mantém a proporção de tela de cinema (widescreen) perfeita */
-    border-radius: 8px;             /* Arredonda os cantos da moldura do mapa */
-    overflow: hidden;               /* Corta as pontas quadradas do mapa do Google para obedecer o border-radius */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no mapa */
-    margin: 0 auto;                 /* Centralização */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 .mapa-container iframe {
-    width: 100%;                    /* Obriga o mapa do Google a ocupar toda a largura da caixinha */
-    height: 100%;                   /* Obriga o mapa do Google a ocupar toda a altura da caixinha */
-    border: none;                   /* Tira contornos feios que o Google injeta por padrão */
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.cartao {
+    margin: 100px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 450px;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    border-left: 6px solid #a78bfa;
+}
+
+.tecnologias {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.texto {
+    color: #4b5563;
+    line-height: 1.5;
 }
 
 /* ==========================================================================
-   RODAPÉ (FOOTER)
+   12. RODAPÉ (FOOTER)
    ========================================================================== */
 footer {
-    background: #0a192f;            /* Fundo azul marinho escuro quase preto */
-    color: white;                   /* Letras brancas */
-    text-align: center;             /* Centraliza os créditos */
-    padding: 20px;                  /* Margem interna para o rodapé respirar */
-    justify-content: space-around;  /* Distribui itens internos de maneira equilibrada */
-}
-
-footer a {
-    color: #ffffff;                 /* Links do rodapé em branco */
+    background: #0a192f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 footer a:hover {
-    color: #a78bfa;                 /* Links mudam para lilás claro ao passar o mouse */
-}
-.admin-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px auto;
+    color: #a78bfa;
 }
 
-.card-admin {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-   
-    transition: .3s;
-    border-right: 6px solid var(--menu-fundo);
-    border-bottom: 6px solid var(--menu-fundo);
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
-}
-.admin-section {
-    margin: 15px auto;
-}
-
-.admin-grid {
-    gap: 10px;
-}
-
-.card-admin:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,.10);
-}
-
-.card-admin img {
-    width: 200px;
-}
 /* ==========================================================================
-   REGRAS DE RESPONSIVIDADE (MEDIA QUERIES - CELULARES ATÉ 768px)
+   13. REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 768px) {
-    
-    .container h2 {
-        text-align: center;   /* Centraliza todos os títulos de seções no celular */
-        margin-bottom: 30px;  /* Diminui um pouco o espaço abaixo deles no celular */
+    section {
+        padding: 30px 15px;
+    }
+
+    .container h2, 
+    .tituloForm {
+        margin-bottom: 30px;
+    }
+
+    .grid, 
+    .admin-grid {
+        flex-direction: column;
+        gap: 20px;
     }
 
     header {
-        flex-direction: column; /* Empilha a logo em cima e o menu embaixo no celular */
-        padding: 15px 0 0 0;    /* Zera os paddings laterais para o menu grudar nas pontas da tela */
+        flex-direction: column;
+        padding: 15px 0 0 0;
     }
 
     header h1 {
-        margin-bottom: 15px;    /* Afasta o título da loja do menu azul abaixo */
+        margin-bottom: 15px;
     }
 
     nav {
-        width: 100%;            /* Força a barra do menu a ir de ponta a ponta na tela do celular */
+        width: 100%;
     }
 
     nav ul {
-        flex-direction: column; /* Faz os links (Início, Sobre...) ficarem um embaixo do outro */
-        width: 100%;            /* Ocupa a largura total */
+        flex-direction: column;
+        width: 100%;
     }
 
     nav ul li {
-        width: 100%;            /* Cada linha do link ocupa toda a largura da tela */
+        width: 100%;
     }
 
     nav ul li a {
-        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Cria uma linha fina divisória entre cada botão */
-        padding: 15px;          /* Aumenta a área de toque do dedo no celular */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px;
     }
 
-    .portfolio {
-        flex-direction: column; /* Empilha o texto descritivo e as fotos no celular */
-        margin: 20px auto;      /* Diminui as margens externas */
-        gap: 20px;              /* Diminui o espaçamento de separação */
+    .portfolio, 
+    .contato .grid-contato {
+        flex-direction: column;
+        margin: 20px auto;
+        gap: 20px;
+        padding: 20px 15px;
     }
 
-    .texto-slide {
-        max-width: 100%;        /* Libera a caixa de texto para usar toda a largura disponível */
-        text-align: center;     /* Centraliza o texto descritivo no celular */
-        margin: 10px 0 30px 0;  /* Abre espaço abaixo dele para empurrar o carrossel */
+    .texto-slide, 
+    .info-contato {
+        max-width: 100%;
+        text-align: center;
+        margin: 10px 0;
     }
     
     .texto-slide h1 {
-        font-size: 32px;        /* Reduz o tamanho do título para não quebrar feio em telas finas */
+        font-size: 32px;
     }
 
     .texto-slide h1::after {
-        left: 50%;                     /* Move a ponta esquerda da barra decorativa para o centro */
-        transform: translateX(-50%);   /* Centraliza perfeitamente a barrinha azul debaixo do título */
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .texto-slide p {
-        font-size: 16px;        /* Reduz o tamanho da letra para telas pequenas */
-        text-align: center;     /* Modifica o alinhamento de "justify" para centralizado, combinando mais com mobile */
-    }
-
-    .contato .grid-contato {
-        flex-direction: column; /* Empilha as informações de texto acima e o mapa abaixo */
-        padding: 30px 20px;     /* Reduz o espaçamento interno para caber em telas estreitas */
-        text-align: center;     /* Centraliza as informações textuais de contato */
-    }
-    
-    .info-contato {
-        max-width: 100%;        /* Libera as informações de contato para usar toda a largura da tela */
+        font-size: 16px;
+        text-align: center;
     }
 
     .mapa-container {
-        aspect-ratio: 1 / 1;    /* Transforma o mapa em um quadrado perfeito (1:1), formato ideal para celulares */
+        aspect-ratio: 1 / 1;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .botoes-grupo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* ESSENCIAL PARA RESPONSIVIDADE EM LISTAS/TABELAS (GERENCIA EXCESSO HORIZONTAL) */
+    .tabela {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }

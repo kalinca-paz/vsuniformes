@@ -25,7 +25,7 @@ $produtos = $produtoDAO->listarProdutos();
 
 <h2 class="tituloForm">Lista de Produtos</h2>
 
-<table>
+<table class="tabela">
     <thead>
         <tr>
             <th>ID</th>
@@ -62,12 +62,12 @@ $produtos = $produtoDAO->listarProdutos();
                 <td><?= $produto['estoque']; ?></td>
 
                 <td>
-                    <a class="btn-editar"
+                    <a class="btn-card"
                        href="editarProduto.php?idProduto=<?= $produto['idProduto']; ?>">
                         Editar
                     </a>
 
-                    <a class="btn-excluir"
+                    <a class="alerta-erro"
                        href="../controller/excluirProduto.php?idProduto=<?= $produto['idProduto']; ?>"
                        onclick="return confirm('Deseja realmente excluir este produto?')">
                         Excluir

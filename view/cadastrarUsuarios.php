@@ -9,6 +9,11 @@
 
 <body>
 <?php include 'includes/menu.php'; ?>
+<div class="container-voltar">
+        <a href="painelAdmin.php" class="btn-voltar">
+            &larr; Voltar ao Painel
+        </a>
+    </div>
 
 <h1 class="tituloForm">Cadastro de Usuário</h1>
 
@@ -32,14 +37,13 @@
     <p>
         <label>Tipo de usuário:</label><br>
         <select name="tipo" required>
-            <option value="">Selecione</option>
             <option value="cliente">Cliente</option>
-            <option value="admin">Admin</option>
+            <option value="admin">Administrador</option>
         </select>
     </p>
 
     <p>
-        <button type="submit">Cadastrar</button>
+        <button class="btn-orcamento" type="submit">Cadastrar</button>
         <button type="button" onclick="history.back()">Voltar</button>
     </p>
 

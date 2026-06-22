@@ -1,5 +1,4 @@
-<!-- orcamento.php -->
- <?php session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,15 +7,16 @@
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>
-    <section>
+    
+    <main class="container">
 
         <h2>Escolha seu orçamento</h2>
 
-        <div class="container-orcamentos">
+        <div class="container-produtos">
             
-            <div class="card-orca">
+            <div class="card">
                 <h3>Bordados</h3>
-                <table class="tabela-orca">
+                <table class="tabela">
                     <thead>
                         <tr>
                             <th>Tipo de Bordado</th>
@@ -60,9 +60,9 @@
                 </table>
             </div>
 
-            <div class="card-orca">
+            <div class="card">
                 <h3>Camisaria</h3>
-                <table class="tabela-orca">
+                <table class="tabela">
                     <thead>
                         <tr>
                             <th>Tipo de Camisa</th>
@@ -106,9 +106,9 @@
                 </table>
             </div>
 
-            <div class="card-orca">
+            <div class="card">
                 <h3>Peças Especiais</h3>
-                <table class="tabela-orca">
+                <table class="tabela">
                     <thead>
                         <tr>
                             <th>Peça</th>
@@ -154,7 +154,8 @@
 
         </div>
 
-    </section>
+    </main>
+    
     <?php include 'includes/footer.php'; ?>
 </body>
 </html>
