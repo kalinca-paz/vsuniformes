@@ -22,15 +22,15 @@
 - [ ] **Menu de navegação** com links principais:
     - [x] Sobre
     - [x] Contatos
-    - [x] Portfólio
-    - [x] Contato
-    - [ ] Nome com foto de perfil e nome de usuário
+    - [ ] Portfólio
+    - [ ] Contato
+    - [x] Perfil com nome de usuário
     - [ ] Opção de configuração
     - [ ] ~~Localização~~
 
-- [ ] Carrossel de imagens do portfólio com:
-  - [ ] Navegação manual  
-  - [ ] Troca automática  
+- [x] Carrossel de imagens do portfólio com (javascript):
+  - [x] Navegação manual  
+  - [x] Troca automática  
 
 - [ ] Seção de vantagens comerciais com cartões  
 - [ ] ~~Área de comentários de clientes com atualização automática~~  
@@ -38,11 +38,11 @@
 ### 👤 Login
 - [x] Tela de login
 - [x] Conexão login
-- [ ] Validação login
+- [x] Validação login
 
 ### 🌐 Cadastro
 - [x] Tela de cadastro
-- [ ] Conexão do cadastro com o banco de dados
+- [x] Conexão cadastro
 - [x] Validação dos dados do cadastro 
 
 ### 📖 Sobre
@@ -58,7 +58,7 @@
 ### 🖼️ Portfólio
 - [ ] Imagens com informações das roupas
 - [ ] Imagens **melhoradas** com IA
-- [ ] Tabela de calculo de orçamento básico
+- [x] Tabela de calculo de orçamento básico
 
 ### ~~📍 Localização~~
 - ~~Em desenvolvimento...~~
@@ -70,14 +70,13 @@
 - [ ] Tabela Portfólio
 - [ ] Tebela Fotos
 - [ ] Tabela Depoimentos
-- [ ] Tabela Orçamento
 
 ### 🛠 Melhorias
 - [ ] Inputs
     - [x] Menu
     - [x] Rodapé
     - [x] Favicon
-    - [ ] Calculo de orçamento básico
+    - [ ] ~~Calculo de orçamento básico~~
     - [ ] WhatsApp flutuante dos donos
   
 
