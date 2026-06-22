@@ -157,6 +157,7 @@ nav ul li a:hover {
 /* ==========================================================================
    6. COMPONENTES DE CARDS E VITRINE (PRODUTOS / ADMIN)
    ========================================================================== */
+   
 .container-produtos {
     display: flex;
     flex-wrap: wrap;
@@ -164,7 +165,16 @@ nav ul li a:hover {
     justify-content: center;
     margin-top: 20px;
 }
-
+.card-servicos{
+    flex: 1;
+    min-width: 400px;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
 .card, 
 .card-produto, 
 .card-admin {
@@ -181,13 +191,15 @@ nav ul li a:hover {
 
 .card:hover, 
 .card-produto:hover, 
-.card-admin:hover {
+.card-admin:hover, 
+.card-servicos:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 56, 179, 0.15);
 }
 
 .card h3, 
-.card-admin h3 {
+.card-admin h3,
+.card-servicos {
     font-size: 22px;
     margin-bottom: 15px;
     color: var(--titulo);

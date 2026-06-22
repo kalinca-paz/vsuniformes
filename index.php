@@ -69,7 +69,7 @@ session_start();
 
     <li><a href="index.php">Início</a></li>
     <li><a href="view/sobre.php">Sobre</a></li>
-    <li><a href="view/contatos.php">Contato</a></li>
+    <li><a href="view/informacao.php">Informação</a></li>
     <li><a href="view/portfolio.php">Portfólio</a></li>
     <li><a href="view/login.php">Login</a></li>
 
@@ -105,17 +105,17 @@ session_start();
         <div class="container">
             <h2>Nossos Serviços</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card-servicos">
                     <h3>Bordados Computadorizados</h3>
                     <p>Personalização de alta precisão com fios resistentes, garantindo a identidade da sua marca em destaque e com alta durabilidade.</p>
                 </div>
 
-                <div class="card">
+                <div class="card-servicos">
                     <h3>Uniformes Operacionais</h3>
                     <p>Linha profissional desenvolvida com tecidos reforçados, oferecendo máximo conforto, segurança e resistência para o dia a dia.</p>
                 </div>
 
-                <div class="card">
+                <div class="card-servicos">
                     <h3>Linha Executiva</h3>
                     <p>Camisaria e alfaiataria social fina com caimento impecável, ideal para transmitir elegância e credibilidade no ambiente corporativo.</p>
                 </div>

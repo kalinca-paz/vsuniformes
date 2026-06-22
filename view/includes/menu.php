@@ -18,7 +18,7 @@
 
             <li><a href="../index.php">Início</a></li>
             <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="contatos.php">Contato</a></li>
+            <li><a href="informacao.php">Informação</a></li>
             <li><a href="portfolio.php">Portfólio</a></li>
 
             <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'admin'): ?>
