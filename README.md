@@ -22,8 +22,8 @@
 - [ ] **Menu de navegação** com links principais:
     - [x] Sobre
     - [x] Contatos
-    - [] Portfólio
-    - [] Contato
+    - [ ] Portfólio
+    - [ ] Contato
     - [x] Perfil com nome de usuário
     - [ ] Opção de configuração
     - [ ] ~~Localização~~
