@@ -28,7 +28,7 @@
     - [ ] Opção de configuração
     - [ ] ~~Localização~~
 
-- [x] Carrossel de imagens do portfólio com:
+- [x] Carrossel de imagens do portfólio com (javascript):
   - [x] Navegação manual  
   - [x] Troca automática  
 
