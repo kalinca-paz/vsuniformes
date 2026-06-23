@@ -19,8 +19,9 @@ $novoUsuario->setTipo($tipo);
 
 $ClassUsuarioDAO = new ClassUsuarioDAO();
 
-if ($ClassUsuarioDAO->cadastrarUsuario($novoUsuario)) {
-    $novoId = Conexao::getInstance()->lastInsertId();
+$novoId = $ClassUsuarioDAO->cadastrarUsuario($novoUsuario);
+
+if ($novoId) {
     echo "<script>
         alert('Usuário cadastrado! Agora cadastre os dados do cliente.');
         window.location.href = '../view/cadastrarCliente.php?idUsuario=$novoId';

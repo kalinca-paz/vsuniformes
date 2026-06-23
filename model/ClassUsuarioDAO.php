@@ -4,27 +4,29 @@ require_once '../conexao/Conexao.php';
 class ClassUsuarioDAO
 {
     public function cadastrarUsuario($novoUsuario)
-    {
-        try {
-            $pdo = Conexao::getInstance();
+{
+    try {
+        $pdo = Conexao::getInstance();
 
-            $sql = "INSERT INTO usuarios (nome, email, senha, tipo)
-                    VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO usuarios (nome, email, senha, tipo)
+                VALUES (?, ?, ?, ?)";
 
-            $stmt = $pdo->prepare($sql);
+        $stmt = $pdo->prepare($sql);
 
-            $stmt->bindValue(1, $novoUsuario->getNome());
-            $stmt->bindValue(2, $novoUsuario->getEmail());
-            $stmt->bindValue(3, md5($novoUsuario->getSenha()));
-            $stmt->bindValue(4, $novoUsuario->getTipo());
+        $stmt->bindValue(1, $novoUsuario->getNome());
+        $stmt->bindValue(2, $novoUsuario->getEmail());
+        $stmt->bindValue(3, md5($novoUsuario->getSenha()));
+        $stmt->bindValue(4, $novoUsuario->getTipo());
 
-            return $stmt->execute();
+        $stmt->execute();
 
-        } catch (PDOException $erro) {
-            echo $erro->getMessage();
-            return false;
-        }
+        return $pdo->lastInsertId(); // ← retorna o ID da mesma conexão que fez o INSERT
+
+    } catch (PDOException $erro) {
+        echo $erro->getMessage();
+        return false;
     }
+}
 
     public function buscaUsuario($novoUsuario)
     {
