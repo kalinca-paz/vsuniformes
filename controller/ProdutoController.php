@@ -39,21 +39,19 @@ try {
     $produto->setEstoque($_POST['estoque']);
 
     // Salva no banco
-    if ($produto->salvar()) {
-        $_SESSION['mensagem'] = "Produto cadastrado com sucesso!";
-    } else {
-        $_SESSION['mensagem'] = "Erro ao cadastrar produto.";
-    }
-} catch (Exception $e) {
-
-    $_SESSION['mensagem'] = "Erro: " . $e->getMessage();
-
+if ($produto->salvar()) {
+    $_SESSION['mensagem'] = "Produto cadastrado com sucesso!";
+} else {
+    $_SESSION['mensagem'] = "Erro ao cadastrar produto.";
 }
-header("Location: ../view/cadastrarProdutos.php");
+
+} catch (Exception $e) {
+    $_SESSION['mensagem'] = "Erro: " . $e->getMessage();
+}
 echo "
 <script>
-    alert('Produto cadastrado com sucesso!');
-    window.location.href='../index.php';
+    alert('" . addslashes($_SESSION['mensagem']) . "');
+    window.location.href='../view/cadastrarProdutos.php';
 </script>
 ";
 exit;
