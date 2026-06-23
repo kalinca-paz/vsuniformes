@@ -54,7 +54,7 @@ $produtos = $produtoDAO->listarProdutos();
 
                 <td>
                     <?php if (!empty($produto['foto1'])): ?>
-                        <img src="../img/?= $produto['foto1']; ?>" width="80">
+                        <img src="../uploads/produtos/<?= $produto['foto1']; ?>" width="80">
                     <?php endif; ?>
                 </td>
 
