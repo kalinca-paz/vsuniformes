@@ -2,7 +2,7 @@
 session_start();
 
 // Verifica se existe o ID do usuário logado na sessão para evitar falhas de FK
-$idUsuarioLogado = $_SESSION['idUsuario'] ?? '';
+$idUsuarioLogado = $_GET['idUsuario'] ?? $_POST['idUsuario'] ?? $_SESSION['idUsuario'] ?? '';
 
 // Captura o tipo selecionado e os dados preenchidos para não perdê-los no recarregamento
 $tipo = $_POST['tipo'] ?? '';
@@ -18,10 +18,12 @@ $email = $_POST['email'] ?? '';
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <?php include 'includes/head.php'; ?>
     <title>Vs Uniformes - Cadastrar Cliente</title>
 </head>
+
 <body>
     <?php include 'includes/menu.php'; ?>
     <div class="container-voltar">
@@ -35,10 +37,11 @@ $email = $_POST['email'] ?? '';
         <h2 class="tituloForm">Cadastro de Cliente</h2>
 
         <form action="cadastrarCliente.php" method="post" class="form">
-            
+
             <input type="hidden" name="acao" value="cadastrar">
-            
+
             <input type="hidden" name="Usuario_idUsuario" value="<?= $idUsuarioLogado; ?>">
+            <input type="hidden" name="idUsuario" value="<?= $idUsuarioLogado; ?>">
 
             <div class="input-group">
                 <label for="nomeCliente">Nome / Nome Fantasia</label>
@@ -73,8 +76,8 @@ $email = $_POST['email'] ?? '';
                     <select id="uf" name="uf" required>
                         <option value="">--</option>
                         <?php
-                        $estados = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
-                        foreach($estados as $e): ?>
+                        $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+                        foreach ($estados as $e): ?>
                             <option value="<?= $e; ?>" <?= ($uf == $e) ? 'selected' : ''; ?>><?= $e; ?></option>
                         <?php endforeach; ?>
                     </select>
@@ -84,7 +87,7 @@ $email = $_POST['email'] ?? '';
             <div class="grid">
                 <div class="input-group">
                     <label for="telefone">Telefone (DDD + Número)</label>
-                    <input type="text" id="telefone" name="telefone" inputmode="numeric" pattern="[0-9]{10,11}" maxlength="11"value="<?= htmlspecialchars($telefone); ?>" required>
+                    <input type="text" id="telefone" name="telefone" inputmode="numeric" pattern="[0-9]{10,11}" maxlength="11" value="<?= htmlspecialchars($telefone); ?>" required>
                 </div>
 
                 <div class="input-group">
@@ -141,4 +144,5 @@ $email = $_POST['email'] ?? '';
 
     <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>

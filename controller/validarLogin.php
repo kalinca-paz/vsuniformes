@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 require_once '../model/ClassUsuario.php';
 require_once '../model/ClassUsuarioDAO.php';
 require_once '../conexao/Conexao.php';
 
-session_start();
+
 
 $email = trim($_POST['email']);
 $senha = md5($_POST['senha']);

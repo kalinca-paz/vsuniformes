@@ -2,6 +2,7 @@
 <?php
 //chamar arquivos
 session_start();
+require_once '../conexao/Conexao.php';
 require_once '../model/ClassUsuario.php';
 require_once '../model/ClassUsuarioDAO.php';
 
@@ -19,10 +20,10 @@ $novoUsuario->setTipo($tipo);
 $ClassUsuarioDAO = new ClassUsuarioDAO();
 
 if ($ClassUsuarioDAO->cadastrarUsuario($novoUsuario)) {
-
+    $novoId = Conexao::getInstance()->lastInsertId();
     echo "<script>
-    alert('Usuario cadastrado com sucesso!');
-    window.location.href = '../view/login.php';
+        alert('Usuário cadastrado! Agora cadastre os dados do cliente.');
+        window.location.href = '../view/cadastrarCliente.php?idUsuario=$novoId';
     </script>";
 } else {
     echo "Erro ao cadastrar o usuário!";

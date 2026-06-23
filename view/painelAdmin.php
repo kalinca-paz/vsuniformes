@@ -39,13 +39,6 @@ session_start();
         <p>Clientes</p>
     </div>
 
-    <div class="card-admin">
-        <a href="cadastrarCliente.php">
-            <img src="../img/sem-protecao.png" alt="Cadastrar Clientes">
-        </a>
-        <p>Cadastrar Clientes</p>
-    </div>
-
     <!-- PRODUTOS -->
     <div class="card-admin">
         <a href="listarProdutos.php">
@@ -62,12 +55,6 @@ session_start();
     </div>
 
     <!-- CARRINHO -->
-    <div class="card-admin">
-        <a href="listarProdutosCarrinho.php">
-            <img src="../img/sem-protecao.png" alt="Carrinho">
-        </a>
-        <p>Carrinho</p>
-    </div>
 
 </div>
 

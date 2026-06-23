@@ -2,7 +2,7 @@
 
 class ClassUsuario
 {
-    private $idUsuarios;
+    private $idUsuario;
     private $nome;
     private $email;
     private $senha;
@@ -12,7 +12,7 @@ class ClassUsuario
 
     public function getId()
     {
-        return $this->idUsuarios;
+        return $this->idUsuario;
     }
 
     public function getNome()
@@ -37,9 +37,9 @@ class ClassUsuario
 
     // SETTERS
 
-    public function setId($idUsuarios)
+    public function setId($idUsuario)
     {
-        $this->idUsuarios = $idUsuarios;
+        $this->idUsuario = $idUsuario;
     }
 
     public function setNome($nome)
