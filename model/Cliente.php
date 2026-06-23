@@ -1,13 +1,16 @@
 <?php
 
-class Cliente {
+class Cliente
+{
     private $pdo;
 
-    public function __construct($conexao){
+    public function __construct($conexao)
+    {
         $this->pdo = $conexao;
     }
 
-    public function cadastrar($dados){
+    public function cadastrar($dados)
+    {
 
         $sql = "INSERT INTO clientes (
             nomeCliente,
@@ -40,9 +43,9 @@ class Cliente {
             NOW(),
             :Usuario_idUsuario
         )";
-    
+
         $stmt = $this->pdo->prepare($sql);
-    
+
         return $stmt->execute([
             ':nomeCliente'        => $dados['nomeCliente'],
             ':telefone'           => $dados['telefone'],
@@ -60,7 +63,8 @@ class Cliente {
         ]);
     }
 
-    public function listar(){
+    public function listar()
+    {
 
         $sql = "
             SELECT *
@@ -72,7 +76,8 @@ class Cliente {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorId($id){
+    public function buscarPorId($id)
+    {
 
         $sql = "
             SELECT *
@@ -87,7 +92,8 @@ class Cliente {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function atualizar($dados){
+    public function atualizar($dados)
+    {
 
         $sql = "UPDATE clientes SET
             nomeCliente = :nomeCliente,
@@ -103,9 +109,9 @@ class Cliente {
             tipo = :tipo,
             razaoSocial = :razaoSocial
         WHERE idCliente = :idCliente";
-    
+
         $stmt = $this->pdo->prepare($sql);
-    
+
         return $stmt->execute([
             ':nomeCliente'   => $dados['nomeCliente'],
             ':telefone'      => $dados['telefone'],
@@ -123,15 +129,28 @@ class Cliente {
         ]);
     }
 
-    public function excluir($id){
+    public function excluir($id)
+    {
 
-    $sql = "DELETE FROM clientes WHERE idCliente = :id";
+        $sql = "DELETE FROM clientes WHERE idCliente = :id";
 
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
-    return $stmt->execute();
+        return $stmt->execute();
+    }
+
+    public function buscarPorUsuario($idUsuario)
+    {
+
+        $sql = "SELECT *
+            FROM clientes
+            WHERE Usuario_idUsuario = :idUsuario";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
-}
-
-?>

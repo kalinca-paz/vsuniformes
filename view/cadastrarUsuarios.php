@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin') {
+    header('Location: login.php');
+    exit;
+}?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

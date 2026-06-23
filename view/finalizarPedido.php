@@ -18,7 +18,7 @@ $pdo = Conexao::getInstance();
 $clienteModel = new Cliente($pdo);
 
 // 2. Busca AUTOMATICAMENTE o cliente vinculado a este usuário logado
-$cliente = $clienteModel->buscarPorId($idUsuarioLogado); 
+$cliente = $clienteModel->buscarPorUsuario($idUsuarioLogado);
 
 if (!$cliente) {
     echo "<script>

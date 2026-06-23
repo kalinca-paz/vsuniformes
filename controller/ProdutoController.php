@@ -49,7 +49,7 @@ try {
     $_SESSION['mensagem'] = "Erro: " . $e->getMessage();
 
 }
-// header("Location: ../view/cadastrarProduto.php");
+header("Location: ../view/cadastrarProdutos.php");
 echo "
 <script>
     alert('Produto cadastrado com sucesso!');
