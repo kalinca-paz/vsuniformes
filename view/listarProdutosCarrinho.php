@@ -15,7 +15,8 @@ $produtos = $produtoDAO->listarProdutos();
 </head>
 <body>
 
-    <?php include 'includes/menu.php'; ?>  
+    <?php include 'includes/menu.php'; ?>
+    
 
     <main class="container">
 

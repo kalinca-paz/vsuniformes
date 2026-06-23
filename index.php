@@ -16,7 +16,7 @@ session_start();
 <body>
     <header>
         <a href="view/sobre.php">
-            <img src="img/home1.png" class="logo" alt="logo da vs uniformes">
+            <img src="img/home.png" class="logo" alt="logo da vs uniformes">
         </a>
         <nav>
         <ul>
@@ -92,9 +92,9 @@ session_start();
         </div>
         <div class="carrossel">
             <div class="slides">
-                <img src="img/Gemini_Generated_Image_es2cbaes2cbaes2c (1).png">
-                <img src="img/Gemini_Generated_Image_fjiorfjiorfjiorf.png">
-                <img src="img/Gemini_Generated_Image_ktkxnpktkxnpktkx.png">
+                <img src="img/irmas.png">
+                <img src="img/minha-clinica-cliente.png">
+                <img src="img/coral.png">
             </div>
             <button class="btn-slide esquerda">&#10094;</button>
             <button class="btn-slide direita">&#10095;</button>
@@ -141,6 +141,7 @@ session_start();
                 </div>
 
                 <div class="mapa-container">
+                    <a href=""><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122830.01183613781!2d-48.27590830273436!3d-15.833567400000009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bcd7b0f3a4701%3A0x4a690f5173df8d7a!2sVS%20Uniformes!5e0!3m2!1spt-BR!2sbr!4v1782189246211!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></a>
                      </div>
             </div>
         </div>

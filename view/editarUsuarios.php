@@ -44,6 +44,11 @@ if ($_POST) {
 <body>
 
 <?php include 'includes/menu.php'; ?>
+<div class="container-voltar">
+        <a href="painelAdmin.php" class="btn-voltar">
+            &larr; Voltar ao Painel
+        </a>
+    </div>
 
 <div class="container">
 

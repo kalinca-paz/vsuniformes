@@ -19,14 +19,14 @@ session_start();
     <!-- USUÁRIOS -->
     <div class="card-admin">
         <a href="listarUsuarios.php">
-            <img src="../img/boneco.png" alt="Usuários">
+           <img src="../img/sem-protecao.png" alt="Usuários">
         </a>
         <p>Usuários</p>
     </div>
 
     <div class="card-admin">
         <a href="cadastrarUsuarios.php">
-            <img src="../img/boneco.png" alt="Usuários">
+            <img src="../img/sem-protecao.png" alt="Usuários">
         </a>
         <p>Cadastrar Usuários</p>
     </div>
@@ -34,14 +34,14 @@ session_start();
 
     <div class="card-admin">
         <a href="listarClientes.php">
-            <img src="../img/boneco.png" alt="Clientes">
+            <img src="../img/sem-protecao.png" alt="Clientes">
         </a>
         <p>Clientes</p>
     </div>
 
     <div class="card-admin">
         <a href="cadastrarCliente.php">
-            <img src="../img/boneco.png" alt="Cadastrar Clientes">
+            <img src="../img/sem-protecao.png" alt="Cadastrar Clientes">
         </a>
         <p>Cadastrar Clientes</p>
     </div>
@@ -49,14 +49,14 @@ session_start();
     <!-- PRODUTOS -->
     <div class="card-admin">
         <a href="listarProdutos.php">
-            <img src="../img/boneco.png" alt="Produtos">
+            <img src="../img/sem-protecao.png" alt="Produtos">
         </a>
         <p>Produtos</p>
     </div>
 
     <div class="card-admin">
         <a href="cadastrarProdutos.php">
-            <img src="../img/boneco.png" alt="Cadastrar Produtos">
+            <img src="../img/sem-protecao.png" alt="Cadastrar Produtos">
         </a>
         <p>Cadastrar Produtos</p>
     </div>
@@ -64,7 +64,7 @@ session_start();
     <!-- CARRINHO -->
     <div class="card-admin">
         <a href="listarProdutosCarrinho.php">
-            <img src="../img/boneco.png" alt="Carrinho">
+            <img src="../img/sem-protecao.png" alt="Carrinho">
         </a>
         <p>Carrinho</p>
     </div>

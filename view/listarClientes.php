@@ -13,12 +13,17 @@ $clientes = $cliente->listar();
 <html lang="pt-br">
 <head>
     <?php include 'includes/head.php'; ?>
+    
     <title>Lista de Clientes</title>
 </head>
 <body>
 
 <?php include 'includes/menu.php'; ?>
-
+<div class="container-voltar">
+        <a href="painelAdmin.php" class="btn-voltar">
+            &larr; Voltar ao Painel
+        </a>
+    </div>
 <div class="container">
 
 <h2>Lista de Clientes</h2>
