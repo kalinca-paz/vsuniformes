@@ -131,7 +131,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'kalinca', 'ka@out.com', '81dc9bdb52d04dc20036dbd8313ed055', 'admin');
+(1, 'kalinca', 'kali@out.com', '81dc9bdb52d04dc20036dbd8313ed055', 'admin');
 
 --
 -- Índices para tabelas despejadas
